@@ -428,7 +428,7 @@ p {
     right: 0;
     bottom: auto;
     width: 100%;
-    z-index: 99; /* debajo del header (100) para que el slide se vea limpio */
+    z-index: 99;
 
     flex-direction: column;
     align-items: stretch;
@@ -449,11 +449,29 @@ p {
       transform var(--dur-med) var(--ease-out),
       visibility 0s linear 0s;
   }
-  .nav__link {
+
+  /* Links normales: padding vertical + separador, EXCLUYENDO el botón Contacto */
+  .nav__link:not(.nav__contact) {
     padding: var(--space-sm) 0;
     font-size: 1rem;
     border-bottom: 1px solid rgba(236, 232, 216, 0.06);
   }
+
+  /* Botón Contacto en mobile: pill centrada, borde cobre completo, padding propio */
+  .nav__contact {
+    align-self: center;
+    margin: var(--space-md) auto 0 auto;
+    padding: 0.85rem 1.8rem;
+    font-size: 0.9rem;
+    text-align: center;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
   .nav__link::after {
     display: none;
   }
@@ -463,6 +481,12 @@ p {
   }
   .nav__toggle {
     display: flex;
+  }
+
+  /* Cuando el menú móvil está abierto, difumina el resto de la página */
+  body.is-nav-open .page-dim {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 

@@ -143,18 +143,43 @@
     const nav = document.querySelector('.nav');
     if (!toggle || !nav) return;
 
+    function closeNav() {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('is-nav-open');
+      document.body.style.overflow = '';
+    }
+
+    function openNav() {
+      nav.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('is-nav-open');
+      document.body.style.overflow = 'hidden';
+    }
+
     toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (nav.classList.contains('is-open')) closeNav();
+      else openNav();
     });
 
+    // Click en un link cierra el menú
     nav.querySelectorAll('a').forEach((a) => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+      a.addEventListener('click', closeNav);
+    });
+
+    // Click en el overlay difuminado cierra el menú
+    const dim = document.querySelector('.page-dim');
+    if (dim) {
+      dim.addEventListener('click', () => {
+        if (document.body.classList.contains('is-nav-open')) closeNav();
       });
+    }
+
+    // ESC cierra el menú
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('is-nav-open')) {
+        closeNav();
+      }
     });
   }
 
