@@ -1,0 +1,405 @@
+/* ============================================
+   VANTIA DIGITAL - ANIMATIONS + POLISH LAYERS
+   ============================================ */
+
+/* -------- GRAIN OVERLAY (textura de película) -------- */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8000;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+  animation: grainShift 8s steps(8) infinite;
+}
+
+@keyframes grainShift {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-5%, -5%); }
+  20%  { transform: translate(-10%, 5%); }
+  30%  { transform: translate(5%, -10%); }
+  40%  { transform: translate(-5%, 15%); }
+  50%  { transform: translate(-10%, 5%); }
+  60%  { transform: translate(15%, 0); }
+  70%  { transform: translate(0, 10%); }
+  80%  { transform: translate(-15%, 0); }
+  90%  { transform: translate(10%, 5%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* -------- SELECCIÓN -------- */
+::selection {
+  background: var(--color-terracotta);
+  color: var(--color-cream);
+}
+::-moz-selection {
+  background: var(--color-terracotta);
+  color: var(--color-cream);
+}
+
+/* -------- SCROLL PROGRESS (barra fina sobre el header) -------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-brown), var(--color-terracotta) 60%, var(--color-olive));
+  z-index: 101;
+  transform-origin: left;
+  box-shadow: 0 0 12px rgba(193, 131, 75, 0.6);
+  transition: width 60ms linear;
+  will-change: width;
+}
+
+/* -------- WHATSAPP FAB -------- */
+.whatsapp-fab {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  z-index: 90;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 14px 28px -8px rgba(37, 211, 102, 0.55),
+    0 4px 10px -2px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(20px) scale(0.85);
+  transition:
+    opacity 600ms var(--ease-out),
+    transform 600ms var(--ease-out),
+    background-color 220ms var(--ease-out),
+    box-shadow 220ms var(--ease-out);
+}
+
+.whatsapp-fab.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.whatsapp-fab::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.whatsapp-fab.is-visible::after {
+  animation: whatsappPulse 2.4s var(--ease-out) infinite;
+}
+
+.whatsapp-fab:hover {
+  background: #1FAE54;
+  transform: translateY(-3px) scale(1.06);
+  box-shadow:
+    0 20px 34px -8px rgba(37, 211, 102, 0.7),
+    0 6px 14px -2px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-fab:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.whatsapp-fab__icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+@keyframes whatsappPulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  80%  { opacity: 0; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  .whatsapp-fab {
+    width: 52px;
+    height: 52px;
+    bottom: var(--space-sm);
+    right: var(--space-sm);
+  }
+  .whatsapp-fab__icon { width: 26px; height: 26px; }
+}
+
+/* -------- MARQUEE — zócalo deslizante con citas -------- */
+.marquee {
+  background: var(--color-deep);
+  border-top: 1px solid rgba(236, 232, 216, 0.05);
+  border-bottom: 1px solid rgba(236, 232, 216, 0.05);
+  overflow: hidden;
+  padding: 0.9rem 0;
+  position: relative;
+}
+
+.marquee::before,
+.marquee::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-deep), transparent);
+}
+.marquee::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--color-deep), transparent);
+}
+
+.marquee__track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marqueeRoll 65s linear infinite;
+  will-change: transform;
+}
+
+/* Pausa al hover para facilitar lectura */
+.marquee:hover .marquee__track { animation-play-state: paused; }
+
+.marquee__item {
+  font-family: var(--font-display); /* serif coherente con titulares */
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem); /* ~16–18px desktop */
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  display: inline-block;
+  color: rgba(236, 232, 216, 0.85);
+  line-height: 1.4;
+}
+
+/* Cita en cursiva con comillas tipográficas (en el HTML) */
+.m-quote {
+  font-style: italic;
+}
+
+/* Separador em-dash entre cita y autor */
+.m-dash {
+  font-style: normal;
+  color: rgba(236, 232, 216, 0.7);
+}
+
+/* Autor en mayúsculas pequeñas */
+.m-author {
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78em;
+  color: var(--color-olive);
+}
+
+/* Separador entre citas: punto medio elevado con margen generoso */
+.marquee__sep {
+  display: inline-block;
+  margin: 0 80px;
+  color: rgba(169, 155, 128, 0.55);
+  font-size: 1em;
+  vertical-align: middle;
+}
+
+.marquee__sep::before {
+  content: '•';
+}
+
+@media (max-width: 700px) {
+  .marquee__item {
+    font-size: 14px;
+  }
+  .marquee__sep { margin: 0 50px; }
+  .marquee__track { animation-duration: 55s; }
+}
+
+@keyframes marqueeRoll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Accesibilidad: reduced-motion deja el zócalo estático y legible */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* -------- SECTION INDEX (S/01, S/02) -------- */
+.section-index {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--container-pad);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(60, 58, 47, 0.5);
+  z-index: 3;
+}
+
+.section-index--light {
+  color: rgba(236, 232, 216, 0.4);
+}
+
+.section-index__num {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* Elementos animados por GSAP empiezan invisibles
+   para evitar FOUC. JS los revela. */
+[data-reveal],
+[data-reveal-children] > * {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Fallback si JS no carga: muestra el contenido */
+.no-js [data-reveal],
+.no-js [data-reveal-children] > * {
+  opacity: 1;
+}
+
+/* -------- PAGE TRANSITION OVERLAY -------- */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: var(--color-dark);
+  pointer-events: none;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  will-change: transform;
+}
+
+.page-transition__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-cream);
+  opacity: 0;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+/* Animación de los 3 puntos: cada uno aparece y sube ligeramente */
+.page-transition__dots {
+  display: inline-flex;
+  margin-left: 2px;
+}
+
+.page-transition__dots span {
+  display: inline-block;
+  color: var(--accent);
+  opacity: 0;
+  animation: dotsLoading 1.4s infinite ease-in-out both;
+}
+
+.page-transition__dots span:nth-child(1) { animation-delay: 0s; }
+.page-transition__dots span:nth-child(2) { animation-delay: 0.18s; }
+.page-transition__dots span:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes dotsLoading {
+  0%   { opacity: 0; transform: translateY(0); }
+  20%  { opacity: 1; transform: translateY(-4px); }
+  40%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition__dots span {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* -------- LOADER INICIAL -------- */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  background: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.preloader__mark {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--color-cream);
+  letter-spacing: -0.02em;
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader__mark span {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.preloader__bar {
+  width: min(280px, 60vw);
+  height: 1px;
+  background: rgba(236, 232, 216, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.preloader__bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+}
+
+.preloader.is-hidden {
+  pointer-events: none;
+}
+
+/* -------- HOVER MICRO-INTERACCIONES -------- */
+[data-hover-grow] {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+[data-hover-grow]:hover {
+  transform: scale(1.02);
+}
+
+/* -------- TEXT MASK REVEAL --------
+   Padding extra evita que descendentes itálicas (y, g, p) se corten al hacer overflow:hidden. */
+.mask-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.04em;
+}
+
+.mask-line > * {
+  display: block;
+  will-change: transform;
+}
+
