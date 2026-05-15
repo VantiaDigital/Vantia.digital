@@ -56,7 +56,14 @@
       <div class="container">
         <div class="contact-grid">
 
-          <form class="contact-form" id="contactForm" novalidate data-reveal>
+          <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-reveal>
+            <!-- Web3Forms config (hidden) -->
+            <input type="hidden" name="access_key" value="9fea70c9-7d29-427f-8e95-9de55c8491b5" />
+            <input type="hidden" name="subject" value="Nuevo contacto · Vantia Digital" />
+            <input type="hidden" name="from_name" value="Web · Vantia Digital" />
+            <!-- Honeypot anti-spam (debe quedar vacío) -->
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
             <div class="field">
               <label for="cf-name" class="field__label">Nombre completo <span class="req">*</span></label>
               <input id="cf-name" type="text" name="name" class="field__input" required autocomplete="name" />
@@ -79,13 +86,13 @@
             </div>
 
             <div class="field">
-              <label for="cf-subject" class="field__label">Asunto</label>
-              <select id="cf-subject" name="subject" class="field__select">
-                <option value="auditoria">Quiero una auditoría</option>
-                <option value="web">Necesito una web</option>
-                <option value="seo">Estrategia SEO</option>
-                <option value="paid">Campañas pagadas</option>
-                <option value="otro">Otro</option>
+              <label for="cf-inquiry" class="field__label">Asunto</label>
+              <select id="cf-inquiry" name="inquiry_type" class="field__select">
+                <option value="Quiero una auditoría">Quiero una auditoría</option>
+                <option value="Necesito una web">Necesito una web</option>
+                <option value="Estrategia SEO / GEO">Estrategia SEO / GEO</option>
+                <option value="Campañas pagadas">Campañas pagadas</option>
+                <option value="Otro">Otro</option>
               </select>
             </div>
 
@@ -230,24 +237,54 @@
   <script src="/assets/js/animations.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
 
-  <!-- Manejo visual del form (sin backend por ahora) -->
+  <!-- Manejo del form — envío real vía Web3Forms -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('contactForm');
       const status = document.getElementById('cf-status');
       if (!form || !status) return;
 
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        // Validación HTML5
         if (!form.checkValidity()) {
           status.textContent = 'Por favor, completa los campos obligatorios.';
           status.style.color = '#C25450';
           form.reportValidity();
           return;
         }
-        status.textContent = 'Mensaje recibido. Te respondemos en menos de 24 horas hábiles.';
-        status.style.color = '#1FAE54';
-        form.reset();
+
+        // Estado de carga
+        status.textContent = 'Enviando…';
+        status.style.color = 'rgba(60, 58, 47, 0.55)';
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = true;
+
+        try {
+          const formData = new FormData(form);
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' },
+          });
+          const data = await res.json();
+
+          if (data.success) {
+            status.textContent = 'Mensaje enviado. Te respondemos en menos de 24 horas hábiles.';
+            status.style.color = '#1FAE54';
+            form.reset();
+          } else {
+            throw new Error(data.message || 'No se pudo enviar el mensaje.');
+          }
+        } catch (err) {
+          status.textContent =
+            'Error al enviar: ' + (err.message || 'desconocido') +
+            '. Intentá por WhatsApp o email directo.';
+          status.style.color = '#C25450';
+        } finally {
+          if (btn) btn.disabled = false;
+        }
       });
     });
   </script>
