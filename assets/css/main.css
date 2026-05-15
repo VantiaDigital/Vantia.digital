@@ -421,8 +421,15 @@ p {
 
 @media (max-width: 860px) {
   .nav {
+    /* Posicionamiento explícito (evita problemas con inset+calc+env en Safari mobile) */
     position: fixed;
-    inset: var(--header-h) 0 auto 0;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    z-index: 99; /* debajo del header (100) para que el slide se vea limpio */
+
     flex-direction: column;
     align-items: stretch;
     gap: 0;
@@ -430,10 +437,17 @@ p {
     background: var(--color-dark);
     border-bottom: 1px solid rgba(236, 232, 216, 0.08);
     transform: translateY(-110%);
-    transition: transform var(--dur-med) var(--ease-out);
+    visibility: hidden;
+    transition:
+      transform var(--dur-med) var(--ease-out),
+      visibility 0s linear var(--dur-med);
   }
   .nav.is-open {
     transform: translateY(0);
+    visibility: visible;
+    transition:
+      transform var(--dur-med) var(--ease-out),
+      visibility 0s linear 0s;
   }
   .nav__link {
     padding: var(--space-sm) 0;
