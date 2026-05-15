@@ -112,8 +112,8 @@ ol {
   --dur-med: 400ms;
   --dur-slow: 800ms;
 
-  /* Header */
-  --header-h: 76px;
+  /* Header — incluye safe-area-inset para notch/Dynamic Island en iOS */
+  --header-h: calc(76px + env(safe-area-inset-top, 0px));
 }
 
 /* -------- TIPOGRAFÍA -------- */
@@ -251,6 +251,7 @@ p {
   right: 0;
   z-index: 100;
   height: var(--header-h);
+  padding-top: env(safe-area-inset-top, 0px); /* respeta notch iOS */
   display: flex;
   align-items: center;
   background: rgba(26, 24, 19, 0.55);
