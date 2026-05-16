@@ -1,0 +1,27 @@
+# Cloudflare Pages cache headers
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+
+# Assets versionados / inmutables (CSS, JS, fonts, imágenes):
+# cache de 1 año + immutable (el browser nunca revalida)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Componentes HTML (header, footer, modales, whatsapp):
+# cache corto + revalidación condicional (must-revalidate)
+# Así si cambia el header se actualiza rápido sin esperar 1 año.
+/components/*
+  Cache-Control: public, max-age=300, must-revalidate
+
+# Páginas HTML: no cachear agresivamente para que los cambios se vean siempre
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Index / raíz
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Headers de seguridad básicos (no cambian visual ni comportamiento)
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: interest-cohort=()
