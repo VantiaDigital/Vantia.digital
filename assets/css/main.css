@@ -1924,6 +1924,26 @@ body.theme-light .nav__toggle {
   flex-shrink: 0;
 }
 
+/* Imagen real (screenshot) dentro del mockup en casos LIVE */
+.case__mockup-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 2;
+  transition: transform 600ms var(--ease-out);
+}
+
+.case--live:hover .case__mockup-img {
+  transform: scale(1.04);
+}
+
+/* En casos LIVE el gradiente decorativo y el label "gett-studio" no aplican */
+.case--live .case__mockup::after { display: none; }
+.case--live .case__mockup-label { display: none; }
+
 /* ============================================
    NOSOTROS (nosotros.html)
    ============================================ */
