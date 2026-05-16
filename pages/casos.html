@@ -22,38 +22,10 @@
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
   <style>
-    /* Mockup placeholder gradients (paleta de marca) */
+    /* Fallback gradients (en uso solo si la imagen del mockup no carga) */
     .mockup--01 { background: linear-gradient(135deg, #3C3A2F 0%, #77431C 60%, #C1834B 100%); }
-    .mockup--02 { background: linear-gradient(160deg, #C1834B 0%, #A99B80 50%, #ECE8D8 100%); }
-    .mockup--03 { background: linear-gradient(140deg, #77431C 0%, #3C3A2F 50%, #A99B80 100%); }
-    .mockup--04 { background: linear-gradient(125deg, #ECE8D8 0%, #A99B80 60%, #77431C 100%); }
-    .mockup--05 { background: linear-gradient(160deg, #3C3A2F 0%, #C1834B 100%); }
-    .mockup--06 { background: linear-gradient(135deg, #A99B80 0%, #ECE8D8 50%, #C1834B 100%); }
-    .mockup--07 { background: linear-gradient(150deg, #77431C 0%, #C1834B 70%, #ECE8D8 100%); }
-    .mockup--08 { background: linear-gradient(130deg, #3C3A2F 0%, #A99B80 50%, #77431C 100%); }
     .mockup--09 { background: linear-gradient(145deg, #C1834B 0%, #77431C 50%, #3C3A2F 100%); }
     .case__mockup { position: relative; overflow: hidden; }
-    .case__mockup::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 30px 30px;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-    }
-    .case__mockup-label {
-      position: absolute;
-      bottom: 1rem;
-      left: 1rem;
-      color: rgba(236, 232, 216, 0.85);
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 0.85rem;
-      z-index: 1;
-    }
   </style>
 </head>
 <body class="theme-light" id="top">
@@ -84,28 +56,24 @@
       </div>
     </section>
 
-    <!-- SECTOR 1: E-COMMERCE -->
+    <!-- SECTOR: E-COMMERCE -->
     <section class="sector section--light">
       <div class="container">
         <header class="sector__head" data-reveal>
           <h2 class="sector__title">E-commerce</h2>
-          <span class="sector__counter">— 3 casos</span>
+          <span class="sector__counter">— 1 caso</span>
         </header>
 
         <div class="case-grid" data-reveal-children>
 
           <article class="case case--live">
             <div class="case__mockup mockup--01" aria-label="Vista previa de GeTT Studio">
-              <!-- Screenshot autogenerado por mshots (WordPress.com).
-                   Para mejor performance: reemplazá por una imagen estática en
-                   /assets/images/gett-studio.jpg cuando la tengas. -->
               <img class="case__mockup-img"
-                   src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fgettstudio.mitiendanube.com?w=1200&h=750"
+                   src="/assets/images/gett-studio.jpg"
                    alt="Vista previa de la tienda online GeTT Studio"
                    loading="lazy"
                    width="1200"
                    height="750" />
-              <span class="case__mockup-label">gett-studio</span>
             </div>
             <div class="case__body">
               <h3 class="case__name">GeTT Studio</h3>
@@ -124,170 +92,28 @@
             </div>
           </article>
 
-          <article class="case">
-            <div class="case__mockup mockup--02" aria-label="Mockup de proyecto">
-              <span class="case__mockup-label" style="color: rgba(60,58,47,0.85);">commerce-02</span>
-            </div>
-            <div class="case__body">
-              <h3 class="case__name">Marketplace de nicho</h3>
-              <span class="case__sector">E-commerce multi-vendor</span>
-              <div class="case__tags">
-                <span class="case__tag case__tag--seo">SEO Técnico</span>
-                <span class="case__tag">Ingeniería Web</span>
-              </div>
-              <div class="case__metric">8.5<em>x</em></div>
-              <span class="case__metric-label">ROAS sostenido</span>
-            </div>
-          </article>
-
-          <article class="case">
-            <div class="case__mockup mockup--03" aria-label="Mockup de proyecto">
-              <span class="case__mockup-label">commerce-03</span>
-            </div>
-            <div class="case__body">
-              <h3 class="case__name">Tienda especializada B2C</h3>
-              <span class="case__sector">Retail vertical</span>
-              <div class="case__tags">
-                <span class="case__tag">Ingeniería Web</span>
-              </div>
-              <div class="case__metric">98<em>/100</em></div>
-              <span class="case__metric-label">PageSpeed mobile</span>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
 
-    <!-- SECTOR 2: SAAS Y TECH -->
-    <section class="sector section--light">
-      <div class="container">
-        <header class="sector__head" data-reveal>
-          <h2 class="sector__title">SaaS y Tech</h2>
-          <span class="sector__counter">— 2 casos</span>
-        </header>
-
-        <div class="case-grid" data-reveal-children>
-
-          <article class="case">
-            <div class="case__mockup mockup--04" aria-label="Mockup de proyecto">
-              <span class="case__mockup-label" style="color: rgba(60,58,47,0.85);">saas-01</span>
-            </div>
-            <div class="case__body">
-              <h3 class="case__name">Plataforma SaaS B2B</h3>
-              <span class="case__sector">Software profesional</span>
-              <div class="case__tags">
-                <span class="case__tag case__tag--seo">SEO Técnico</span>
-                <span class="case__tag case__tag--paid">Paid Media</span>
-              </div>
-              <div class="case__metric">−62<em>%</em></div>
-              <span class="case__metric-label">CAC en 9 meses</span>
-            </div>
-          </article>
-
-          <article class="case">
-            <div class="case__mockup mockup--05" aria-label="Mockup de proyecto">
-              <span class="case__mockup-label">saas-02</span>
-            </div>
-            <div class="case__body">
-              <h3 class="case__name">Startup fintech</h3>
-              <span class="case__sector">Pagos digitales</span>
-              <div class="case__tags">
-                <span class="case__tag">Ingeniería Web</span>
-                <span class="case__tag case__tag--seo">SEO Técnico</span>
-              </div>
-              <div class="case__metric">+580<em>%</em></div>
-              <span class="case__metric-label">Tráfico orgánico</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTOR 3: SERVICIOS PROFESIONALES -->
-    <section class="sector section--light">
-      <div class="container">
-        <header class="sector__head" data-reveal>
-          <h2 class="sector__title">Servicios profesionales</h2>
-          <span class="sector__counter">— 2 casos</span>
-        </header>
-
-        <div class="case-grid" data-reveal-children>
-
-          <article class="case">
-            <div class="case__mockup mockup--06" aria-label="Mockup de proyecto">
-              <span class="case__mockup-label" style="color: rgba(60,58,47,0.85);">pro-01</span>
-            </div>
-            <div class="case__body">
-              <h3 class="case__name">Consultoría especializada</h3>
-              <span class="case__sector">B2B servicios</span>
-              <div class="case__tags">
-                <span class="case__tag">Ingeniería Web</span>
-                <span class="case__tag case__tag--seo">SEO Técnico</span>
-              </div>
-              <div class="case__metric">+220<em>%</em></div>
-              <span class="case__metric-label">Leads cualificados</span>
-            </div>
-          </article>
-
-          <article class="case">
-            <div class="case__mockup mockup--07" aria-label="Mockup de proyecto">
-              <span class="case__mockup-label" style="color: rgba(60,58,47,0.85);">pro-02</span>
-            </div>
-            <div class="case__body">
-              <h3 class="case__name">Estudio legal premium</h3>
-              <span class="case__sector">Servicios jurídicos</span>
-              <div class="case__tags">
-                <span class="case__tag case__tag--paid">Paid Media</span>
-              </div>
-              <div class="case__metric">3.2<em>x</em></div>
-              <span class="case__metric-label">ROAS Google Ads</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTOR 4: RETAIL Y CONSUMO -->
+    <!-- SECTOR: RETAIL Y CONSUMO -->
     <section class="sector section--light">
       <div class="container">
         <header class="sector__head" data-reveal>
           <h2 class="sector__title">Retail y consumo</h2>
-          <span class="sector__counter">— 2 casos</span>
+          <span class="sector__counter">— 1 caso</span>
         </header>
 
         <div class="case-grid" data-reveal-children>
 
-          <article class="case">
-            <div class="case__mockup mockup--08" aria-label="Mockup de proyecto">
-              <span class="case__mockup-label">retail-01</span>
-            </div>
-            <div class="case__body">
-              <h3 class="case__name">Cadena retail omnicanal</h3>
-              <span class="case__sector">Retail físico + digital</span>
-              <div class="case__tags">
-                <span class="case__tag">Ingeniería Web</span>
-                <span class="case__tag case__tag--paid">Paid Media</span>
-              </div>
-              <div class="case__metric">+185<em>%</em></div>
-              <span class="case__metric-label">Ventas online</span>
-            </div>
-          </article>
-
           <article class="case case--live">
             <div class="case__mockup mockup--09" aria-label="Vista previa de Mendieta">
-              <!-- Screenshot autogenerado por mshots (WordPress.com).
-                   Para mejor performance: reemplazá por una imagen estática en
-                   /assets/images/mendieta.jpg cuando la tengas. -->
               <img class="case__mockup-img"
-                   src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fvantiadigital.github.io%2FMendieta%2F?w=1200&h=750"
+                   src="/assets/images/mendieta.jpg"
                    alt="Vista previa del sitio Mendieta"
                    loading="lazy"
                    width="1200"
                    height="750" />
-              <span class="case__mockup-label">mendieta</span>
             </div>
             <div class="case__body">
               <h3 class="case__name">Mendieta</h3>
