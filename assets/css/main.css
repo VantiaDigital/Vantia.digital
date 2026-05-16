@@ -1791,6 +1791,7 @@ body.theme-light .nav__toggle {
 }
 
 .case {
+  position: relative; /* contexto para stretched link en .case--live */
   background: #ffffff;
   border: 1px solid rgba(60, 58, 47, 0.08);
   border-radius: var(--radius-md);
@@ -1943,6 +1944,15 @@ body.theme-light .nav__toggle {
 /* En casos LIVE el gradiente decorativo y el label "gett-studio" no aplican */
 .case--live .case__mockup::after { display: none; }
 .case--live .case__mockup-label { display: none; }
+
+/* Stretched link: toda la tarjeta clickable, el link real sigue centrado donde está */
+.case--live { cursor: pointer; }
+.case--live .case__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
 
 /* ============================================
    NOSOTROS (nosotros.html)
