@@ -58,11 +58,11 @@
       </div>
     </section>
 
-    <!-- CASOS — filtros multi-dimensión + grid único -->
+    <!-- CASOS — filtro por industria + grid único -->
     <section class="sector section--light">
       <div class="container">
 
-        <!-- Filtros cliente-céntricos: Industria + Necesidad (single-select, combinables) -->
+        <!-- Filtro cliente-céntrico: Industria (single-select) -->
         <div class="cases-filters" data-reveal>
           <div class="filter-group">
             <span class="filter-label">Industria</span>
@@ -72,19 +72,12 @@
             <button class="filter-chip" type="button" data-filter="industry" data-value="diseno">Diseño · Creativo</button>
             <button class="filter-chip" type="button" data-filter="industry" data-value="editorial">Editorial · Cultural</button>
           </div>
-          <div class="filter-group">
-            <span class="filter-label">Necesidad</span>
-            <button class="filter-chip is-active" type="button" data-filter="need" data-value="all">Todas</button>
-            <button class="filter-chip" type="button" data-filter="need" data-value="vender">Vender online</button>
-            <button class="filter-chip" type="button" data-filter="need" data-value="pedidos">Recibir pedidos</button>
-            <button class="filter-chip" type="button" data-filter="need" data-value="mostrar">Mostrar mi marca</button>
-          </div>
         </div>
 
         <!-- Grid único con todos los casos (filtrable por data-attrs) -->
         <div class="case-grid" data-reveal-children>
 
-          <article class="case case--live" data-industry="comercio" data-need="vender">
+          <article class="case case--live" data-industry="comercio">
             <div class="case__mockup mockup--01" aria-label="Vista previa de GeTT Studio">
               <img class="case__mockup-img"
                    src="/assets/images/gett-studio.jpg"
@@ -111,7 +104,7 @@
             </div>
           </article>
 
-          <article class="case case--live" data-industry="gastronomia" data-need="pedidos">
+          <article class="case case--live" data-industry="gastronomia">
             <div class="case__mockup mockup--09" aria-label="Vista previa de Mendieta">
               <img class="case__mockup-img"
                    src="/assets/images/mendieta.jpg"
@@ -138,7 +131,7 @@
             </div>
           </article>
 
-          <article class="case case--live" data-industry="diseno" data-need="mostrar">
+          <article class="case case--live" data-industry="diseno">
             <div class="case__mockup mockup--10" aria-label="Vista previa de Lulitas Designs">
               <img class="case__mockup-img"
                    src="/assets/images/lulitas.jpg"
@@ -165,7 +158,7 @@
             </div>
           </article>
 
-          <article class="case case--live" data-industry="editorial" data-need="mostrar">
+          <article class="case case--live" data-industry="editorial">
             <div class="case__mockup mockup--11" aria-label="Vista previa de La Estantería del Horizonte">
               <img class="case__mockup-img"
                    src="/assets/images/estanteria.jpg"
@@ -243,14 +236,12 @@
       const chips = Array.from(document.querySelectorAll('.filter-chip'));
       if (!chips.length) return;
 
-      const filters = { industry: 'all', need: 'all' };
+      const filters = { industry: 'all' };
 
       function applyFilters() {
         let visible = 0;
         cards.forEach((c) => {
-          const ok =
-            (filters.industry === 'all' || c.dataset.industry === filters.industry) &&
-            (filters.need     === 'all' || c.dataset.need     === filters.need);
+          const ok = filters.industry === 'all' || c.dataset.industry === filters.industry;
           c.hidden = !ok;
           if (ok) visible++;
         });
@@ -274,7 +265,7 @@
       // Botón "Limpiar filtros" en empty state
       document.querySelectorAll('.filter-reset').forEach((btn) => {
         btn.addEventListener('click', () => {
-          filters.industry = filters.need = 'all';
+          filters.industry = 'all';
           chips.forEach((c) => c.classList.toggle('is-active', c.dataset.value === 'all'));
           applyFilters();
         });
