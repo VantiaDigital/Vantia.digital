@@ -1,26 +1,36 @@
 # Cloudflare Pages cache headers
 # Docs: https://developers.cloudflare.com/pages/configuration/headers/
 
-# Assets versionados / inmutables (CSS, JS, fonts, imágenes):
-# cache de 1 año + immutable (el browser nunca revalida)
-/assets/*
+# Fonts: woff2 files realmente inmutables (URL estable + contenido estable)
+/assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Componentes HTML (header, footer, modales, whatsapp):
-# cache corto + revalidación condicional (must-revalidate)
-# Así si cambia el header se actualiza rápido sin esperar 1 año.
+# Imágenes: cambian rara vez, cache de 30 días sin immutable
+/assets/images/*
+  Cache-Control: public, max-age=2592000
+
+# CSS y JS: revalidación obligatoria en cada request
+# 'no-cache' NO significa "no cachear" — significa "cachear pero revalidar con ETag antes de servir"
+# Si el archivo no cambió, el server responde 304 (super eficiente y siempre actualizado)
+/assets/css/*
+  Cache-Control: public, no-cache
+
+/assets/js/*
+  Cache-Control: public, no-cache
+
+# Components HTML (header, footer, modales)
 /components/*
   Cache-Control: public, max-age=300, must-revalidate
 
-# Páginas HTML: no cachear agresivamente para que los cambios se vean siempre
+# Páginas HTML: revalidar siempre
 /*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, no-cache
 
 # Index / raíz
 /
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, no-cache
 
-# Headers de seguridad básicos (no cambian visual ni comportamiento)
+# Headers de seguridad básicos
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
