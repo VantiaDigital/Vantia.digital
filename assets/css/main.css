@@ -1955,6 +1955,115 @@ body.theme-light .nav__toggle {
 }
 
 /* ============================================
+   CASOS — FILTROS multi-dimensión
+   ============================================ */
+.cases-filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-label {
+  display: inline-block;
+  min-width: 88px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 0.25rem;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  background: transparent;
+  border: 1px solid rgba(60, 58, 47, 0.18);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.filter-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+.filter-chip.is-active {
+  background: var(--color-dark);
+  color: var(--color-cream);
+  border-color: var(--color-dark);
+}
+
+.filter-chip.is-active:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--color-cream);
+}
+
+/* Mobile: stack vertical sin label, chips más grandes */
+@media (max-width: 700px) {
+  .filter-label {
+    min-width: 100%;
+    margin-bottom: 0.2rem;
+  }
+}
+
+/* Empty state cuando ningún case matchea filtros */
+.cases-empty {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-md);
+  color: rgba(60, 58, 47, 0.7);
+}
+
+.cases-empty p {
+  margin: 0 auto var(--space-md);
+  font-size: 1.05rem;
+  max-width: 40ch;
+}
+
+.filter-reset {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-hover);
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.filter-reset:hover {
+  background: var(--accent);
+  color: var(--color-cream);
+}
+
+/* ============================================
    NOSOTROS (nosotros.html)
    ============================================ */
 .text-block {

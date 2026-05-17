@@ -58,17 +58,40 @@
       </div>
     </section>
 
-    <!-- SECTOR: E-COMMERCE -->
+    <!-- CASOS — filtros multi-dimensión + grid único -->
     <section class="sector section--light">
       <div class="container">
-        <header class="sector__head" data-reveal>
-          <h2 class="sector__title">E-commerce</h2>
-          <span class="sector__counter">— 1 caso</span>
-        </header>
 
+        <!-- Filtros: Sector / Servicio / Tipo (single-select por dimensión, combinables) -->
+        <div class="cases-filters" data-reveal>
+          <div class="filter-group">
+            <span class="filter-label">Sector</span>
+            <button class="filter-chip is-active" type="button" data-filter="sector" data-value="all">Todos</button>
+            <button class="filter-chip" type="button" data-filter="sector" data-value="ecommerce">E-commerce</button>
+            <button class="filter-chip" type="button" data-filter="sector" data-value="retail">Retail y consumo</button>
+            <button class="filter-chip" type="button" data-filter="sector" data-value="diseno">Diseño y producto digital</button>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Servicio</span>
+            <button class="filter-chip is-active" type="button" data-filter="service" data-value="all">Todos</button>
+            <button class="filter-chip" type="button" data-filter="service" data-value="ingenieria">Ingeniería Web</button>
+            <button class="filter-chip" type="button" data-filter="service" data-value="seo">SEO + GEO</button>
+            <button class="filter-chip" type="button" data-filter="service" data-value="paid">Paid Media</button>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Tipo</span>
+            <button class="filter-chip is-active" type="button" data-filter="type" data-value="all">Todos</button>
+            <button class="filter-chip" type="button" data-filter="type" data-value="shopify">E-commerce Shopify</button>
+            <button class="filter-chip" type="button" data-filter="type" data-value="landing">Landing</button>
+            <button class="filter-chip" type="button" data-filter="type" data-value="catalogo">Catálogo</button>
+            <button class="filter-chip" type="button" data-filter="type" data-value="editorial">Editorial</button>
+          </div>
+        </div>
+
+        <!-- Grid único con todos los casos (filtrable por data-attrs) -->
         <div class="case-grid" data-reveal-children>
 
-          <article class="case case--live">
+          <article class="case case--live" data-sector="ecommerce" data-service="ingenieria" data-type="shopify">
             <div class="case__mockup mockup--01" aria-label="Vista previa de GeTT Studio">
               <img class="case__mockup-img"
                    src="/assets/images/gett-studio.jpg"
@@ -94,21 +117,7 @@
             </div>
           </article>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTOR: RETAIL Y CONSUMO -->
-    <section class="sector section--light">
-      <div class="container">
-        <header class="sector__head" data-reveal>
-          <h2 class="sector__title">Retail y consumo</h2>
-          <span class="sector__counter">— 1 caso</span>
-        </header>
-
-        <div class="case-grid" data-reveal-children>
-
-          <article class="case case--live">
+          <article class="case case--live" data-sector="retail" data-service="ingenieria" data-type="landing">
             <div class="case__mockup mockup--09" aria-label="Vista previa de Mendieta">
               <img class="case__mockup-img"
                    src="/assets/images/mendieta.jpg"
@@ -134,21 +143,7 @@
             </div>
           </article>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTOR: DISEÑO Y PRODUCTO DIGITAL -->
-    <section class="sector section--light">
-      <div class="container">
-        <header class="sector__head" data-reveal>
-          <h2 class="sector__title">Diseño y producto digital</h2>
-          <span class="sector__counter">— 2 casos</span>
-        </header>
-
-        <div class="case-grid" data-reveal-children>
-
-          <article class="case case--live">
+          <article class="case case--live" data-sector="diseno" data-service="ingenieria" data-type="catalogo">
             <div class="case__mockup mockup--10" aria-label="Vista previa de Lulitas Designs">
               <img class="case__mockup-img"
                    src="/assets/images/lulitas.jpg"
@@ -174,7 +169,7 @@
             </div>
           </article>
 
-          <article class="case case--live">
+          <article class="case case--live" data-sector="diseno" data-service="ingenieria" data-type="editorial">
             <div class="case__mockup mockup--11" aria-label="Vista previa de La Estantería del Horizonte">
               <img class="case__mockup-img"
                    src="/assets/images/estanteria.jpg"
@@ -201,6 +196,13 @@
           </article>
 
         </div>
+
+        <!-- Empty state (oculto por default, aparece cuando ningún case matchea filtros) -->
+        <div class="cases-empty" hidden>
+          <p>No hay casos que coincidan con esos filtros.</p>
+          <button type="button" class="filter-reset">Limpiar filtros</button>
+        </div>
+
       </div>
     </section>
 
@@ -232,6 +234,58 @@
   <script src="/assets/js/modal.js" defer></script>
   <script src="/assets/js/animations.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
+
+  <!-- Filtros de casos (página-específico) -->
+  <script>
+  (() => {
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.querySelector('.case-grid');
+      if (!grid) return;
+      const cards = Array.from(grid.querySelectorAll('.case'));
+      const emptyState = document.querySelector('.cases-empty');
+      const chips = Array.from(document.querySelectorAll('.filter-chip'));
+      if (!chips.length) return;
+
+      const filters = { sector: 'all', service: 'all', type: 'all' };
+
+      function applyFilters() {
+        let visible = 0;
+        cards.forEach((c) => {
+          const ok =
+            (filters.sector  === 'all' || c.dataset.sector  === filters.sector)  &&
+            (filters.service === 'all' || c.dataset.service === filters.service) &&
+            (filters.type    === 'all' || c.dataset.type    === filters.type);
+          c.hidden = !ok;
+          if (ok) visible++;
+        });
+        if (emptyState) emptyState.hidden = visible > 0;
+      }
+
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const dim = chip.dataset.filter;
+          const val = chip.dataset.value;
+          if (filters[dim] === val) return; // ya está activo
+          filters[dim] = val;
+          // Update active state visual de ese grupo
+          document.querySelectorAll(`.filter-chip[data-filter="${dim}"]`).forEach((c) => {
+            c.classList.toggle('is-active', c.dataset.value === val);
+          });
+          applyFilters();
+        });
+      });
+
+      // Botón "Limpiar filtros" en empty state
+      document.querySelectorAll('.filter-reset').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          filters.sector = filters.service = filters.type = 'all';
+          chips.forEach((c) => c.classList.toggle('is-active', c.dataset.value === 'all'));
+          applyFilters();
+        });
+      });
+    });
+  })();
+  </script>
 
 </body>
 </html>
