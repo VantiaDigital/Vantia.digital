@@ -62,36 +62,30 @@
     <section class="sector section--light">
       <div class="container">
 
-        <!-- Filtros: Sector / Servicio / Tipo (single-select por dimensión, combinables) -->
+        <!-- Filtros cliente-céntricos: Industria + Necesidad (single-select, combinables) -->
         <div class="cases-filters" data-reveal>
           <div class="filter-group">
-            <span class="filter-label">Sector</span>
-            <button class="filter-chip is-active" type="button" data-filter="sector" data-value="all">Todos</button>
-            <button class="filter-chip" type="button" data-filter="sector" data-value="ecommerce">E-commerce</button>
-            <button class="filter-chip" type="button" data-filter="sector" data-value="retail">Retail y consumo</button>
-            <button class="filter-chip" type="button" data-filter="sector" data-value="diseno">Diseño y producto digital</button>
+            <span class="filter-label">Industria</span>
+            <button class="filter-chip is-active" type="button" data-filter="industry" data-value="all">Todas</button>
+            <button class="filter-chip" type="button" data-filter="industry" data-value="comercio">Comercio · Retail</button>
+            <button class="filter-chip" type="button" data-filter="industry" data-value="gastronomia">Gastronomía</button>
+            <button class="filter-chip" type="button" data-filter="industry" data-value="diseno">Diseño · Creativo</button>
+            <button class="filter-chip" type="button" data-filter="industry" data-value="editorial">Editorial · Cultural</button>
           </div>
           <div class="filter-group">
-            <span class="filter-label">Servicio</span>
-            <button class="filter-chip is-active" type="button" data-filter="service" data-value="all">Todos</button>
-            <button class="filter-chip" type="button" data-filter="service" data-value="ingenieria">Ingeniería Web</button>
-            <button class="filter-chip" type="button" data-filter="service" data-value="seo">SEO + GEO</button>
-            <button class="filter-chip" type="button" data-filter="service" data-value="paid">Paid Media</button>
-          </div>
-          <div class="filter-group">
-            <span class="filter-label">Tipo</span>
-            <button class="filter-chip is-active" type="button" data-filter="type" data-value="all">Todos</button>
-            <button class="filter-chip" type="button" data-filter="type" data-value="shopify">E-commerce Shopify</button>
-            <button class="filter-chip" type="button" data-filter="type" data-value="landing">Landing</button>
-            <button class="filter-chip" type="button" data-filter="type" data-value="catalogo">Catálogo</button>
-            <button class="filter-chip" type="button" data-filter="type" data-value="editorial">Editorial</button>
+            <span class="filter-label">Necesidad</span>
+            <button class="filter-chip is-active" type="button" data-filter="need" data-value="all">Todas</button>
+            <button class="filter-chip" type="button" data-filter="need" data-value="vender">Vender online</button>
+            <button class="filter-chip" type="button" data-filter="need" data-value="pedidos">Recibir pedidos</button>
+            <button class="filter-chip" type="button" data-filter="need" data-value="mostrar">Mostrar mi marca</button>
+            <button class="filter-chip" type="button" data-filter="need" data-value="editorial">Sitio editorial</button>
           </div>
         </div>
 
         <!-- Grid único con todos los casos (filtrable por data-attrs) -->
         <div class="case-grid" data-reveal-children>
 
-          <article class="case case--live" data-sector="ecommerce" data-service="ingenieria" data-type="shopify">
+          <article class="case case--live" data-industry="comercio" data-need="vender">
             <div class="case__mockup mockup--01" aria-label="Vista previa de GeTT Studio">
               <img class="case__mockup-img"
                    src="/assets/images/gett-studio.jpg"
@@ -104,7 +98,8 @@
               <h3 class="case__name">GeTT Studio</h3>
               <span class="case__sector">E-commerce de mobiliario y decoración</span>
               <div class="case__tags">
-                <span class="case__tag">Ingeniería Web</span>
+                <span class="case__tag">Mobiliario</span>
+                <span class="case__tag">Vender online</span>
                 <span class="case__tag">Shopify</span>
               </div>
               <a class="case__link" href="https://gettstudio.mitiendanube.com/" target="_blank" rel="noopener noreferrer">
@@ -117,7 +112,7 @@
             </div>
           </article>
 
-          <article class="case case--live" data-sector="retail" data-service="ingenieria" data-type="landing">
+          <article class="case case--live" data-industry="gastronomia" data-need="pedidos">
             <div class="case__mockup mockup--09" aria-label="Vista previa de Mendieta">
               <img class="case__mockup-img"
                    src="/assets/images/mendieta.jpg"
@@ -130,8 +125,9 @@
               <h3 class="case__name">Mendieta</h3>
               <span class="case__sector">Pastelería argentina en Barcelona · pedidos online</span>
               <div class="case__tags">
-                <span class="case__tag">Ingeniería Web</span>
-                <span class="case__tag">Landing</span>
+                <span class="case__tag">Gastronomía</span>
+                <span class="case__tag">Pedidos por WhatsApp</span>
+                <span class="case__tag">Landing custom</span>
               </div>
               <a class="case__link" href="https://vantiadigital.github.io/Mendieta/" target="_blank" rel="noopener noreferrer">
                 Ver sitio
@@ -143,7 +139,7 @@
             </div>
           </article>
 
-          <article class="case case--live" data-sector="diseno" data-service="ingenieria" data-type="catalogo">
+          <article class="case case--live" data-industry="diseno" data-need="mostrar">
             <div class="case__mockup mockup--10" aria-label="Vista previa de Lulitas Designs">
               <img class="case__mockup-img"
                    src="/assets/images/lulitas.jpg"
@@ -156,7 +152,8 @@
               <h3 class="case__name">Lulitas Designs</h3>
               <span class="case__sector">Papelería digital e imprimible · marca personal</span>
               <div class="case__tags">
-                <span class="case__tag">Ingeniería Web</span>
+                <span class="case__tag">Marca personal</span>
+                <span class="case__tag">Mostrar productos</span>
                 <span class="case__tag">Catálogo</span>
               </div>
               <a class="case__link" href="https://vantiadigital.github.io/LulitasDesign/" target="_blank" rel="noopener noreferrer">
@@ -169,7 +166,7 @@
             </div>
           </article>
 
-          <article class="case case--live" data-sector="diseno" data-service="ingenieria" data-type="editorial">
+          <article class="case case--live" data-industry="editorial" data-need="editorial">
             <div class="case__mockup mockup--11" aria-label="Vista previa de La Estantería del Horizonte">
               <img class="case__mockup-img"
                    src="/assets/images/estanteria.jpg"
@@ -182,8 +179,9 @@
               <h3 class="case__name">La Estantería del Horizonte</h3>
               <span class="case__sector">Biblioteca digital de cuentos breves</span>
               <div class="case__tags">
-                <span class="case__tag">Ingeniería Web</span>
-                <span class="case__tag">Editorial</span>
+                <span class="case__tag">Editorial · cultural</span>
+                <span class="case__tag">Lectura online</span>
+                <span class="case__tag">Sitio editorial</span>
               </div>
               <a class="case__link" href="https://vantiadigital.github.io/La-Estanter-a/index.html" target="_blank" rel="noopener noreferrer">
                 Ver sitio
@@ -246,15 +244,14 @@
       const chips = Array.from(document.querySelectorAll('.filter-chip'));
       if (!chips.length) return;
 
-      const filters = { sector: 'all', service: 'all', type: 'all' };
+      const filters = { industry: 'all', need: 'all' };
 
       function applyFilters() {
         let visible = 0;
         cards.forEach((c) => {
           const ok =
-            (filters.sector  === 'all' || c.dataset.sector  === filters.sector)  &&
-            (filters.service === 'all' || c.dataset.service === filters.service) &&
-            (filters.type    === 'all' || c.dataset.type    === filters.type);
+            (filters.industry === 'all' || c.dataset.industry === filters.industry) &&
+            (filters.need     === 'all' || c.dataset.need     === filters.need);
           c.hidden = !ok;
           if (ok) visible++;
         });
@@ -278,7 +275,7 @@
       // Botón "Limpiar filtros" en empty state
       document.querySelectorAll('.filter-reset').forEach((btn) => {
         btn.addEventListener('click', () => {
-          filters.sector = filters.service = filters.type = 'all';
+          filters.industry = filters.need = 'all';
           chips.forEach((c) => c.classList.toggle('is-active', c.dataset.value === 'all'));
           applyFilters();
         });
