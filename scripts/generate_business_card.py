@@ -1,12 +1,13 @@
 """
-Generador de tarjeta de contacto de Vantia · Marketing Digital.
-Genera 4 archivos: frente y reverso, en PDF (vector) y PNG (300 DPI).
+Tarjeta de contacto empresarial — Vantia · Marketing Digital.
+Estilo: corporativo clásico, sobrio, sin extras forzados.
 
-Output:
-  assets/downloads/vantia-tarjeta-frente.pdf
-  assets/downloads/vantia-tarjeta-frente.png
-  assets/downloads/vantia-tarjeta-reverso.pdf
-  assets/downloads/vantia-tarjeta-reverso.png
+FRENTE  → logo + nombre, centrado vertical y horizontal
+REVERSO → datos de contacto + QR a vantia.digital
+
+Output (4 archivos):
+  assets/downloads/vantia-tarjeta-frente.pdf  + .png
+  assets/downloads/vantia-tarjeta-reverso.pdf + .png
 """
 
 import io, os
@@ -17,7 +18,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader
 import qrcode
-import fitz  # PyMuPDF — para convertir PDF a PNG
+import fitz
 
 # ────────────────────────────────────────────
 # Setup
@@ -27,20 +28,20 @@ FONTS_DIR = f"{ROOT}/assets/fonts"
 OUT_DIR = f"{ROOT}/assets/downloads"
 os.makedirs(OUT_DIR, exist_ok=True)
 
+# Fraunces para títulos (serif), Inter Variable (TTF completo) para texto/datos
 pdfmetrics.registerFont(TTFont('Fraunces', f'{FONTS_DIR}/Fraunces-Regular.ttf'))
-pdfmetrics.registerFont(TTFont('Inter', f'{FONTS_DIR}/Inter-Regular.ttf'))
+pdfmetrics.registerFont(TTFont('Inter', f'{FONTS_DIR}/Inter-Variable.ttf'))
 
-# Brand palette
+# Paleta oficial Vantia
 DARK   = HexColor('#1A1813')
 OLIVE  = HexColor('#3C3A2F')
 COPPER = HexColor('#C1834B')
 CREAM  = HexColor('#ECE8D8')
 MUTED  = HexColor('#A99B80')
 
-# Card dimensions: 85 x 55 mm landscape
 CARD_W, CARD_H = 85*mm, 55*mm
 
-# Logo SVG paths (V + A interlocking, viewBox 1269 x 1012)
+# Logo SVG paths (viewBox 1269 x 1012)
 V_PATH = [(304.641, 155), (0, 155), (409.001, 877), (476.172, 877), (716, 476.054),
           (519.958, 599.613), (446.816, 725.157), (183.603, 255.236), (245.798, 255.236),
           (446.816, 605.568), (710.527, 155), (590.115, 155), (444.826, 407.08)]
@@ -55,36 +56,32 @@ VBOX_W, VBOX_H = 1269, 1012
 # Helpers
 # ────────────────────────────────────────────
 def draw_logo(c, x, y, width):
-    """V+A logo. (x, y) = top-left esquina, width en pts. Eje y de reportlab: arriba."""
+    """V+A logo. (x, y) = top-left esquina, width en pts."""
     scale = width / VBOX_W
     height = VBOX_H * scale
     c.saveState()
     c.translate(x, y - height)
     c.scale(scale, scale)
     c.translate(0, VBOX_H)
-    c.scale(1, -1)  # SVG y va para abajo, PDF y va para arriba
-
-    # V — cream
+    c.scale(1, -1)
+    # V cream
     p = c.beginPath()
     p.moveTo(*V_PATH[0])
     for pt in V_PATH[1:]: p.lineTo(*pt)
     p.close()
     c.setFillColor(CREAM)
     c.drawPath(p, fill=1, stroke=0)
-
-    # A — copper
+    # A cobre
     p = c.beginPath()
     p.moveTo(*A_PATH[0])
     for pt in A_PATH[1:]: p.lineTo(*pt)
     p.close()
     c.setFillColor(COPPER)
     c.drawPath(p, fill=1, stroke=0)
-
     c.restoreState()
 
 
 def make_qr(data):
-    """QR negro sobre blanco, ImageReader para reportlab."""
     qr = qrcode.QRCode(
         version=None, box_size=20, border=2,
         error_correction=qrcode.constants.ERROR_CORRECT_M,
@@ -98,130 +95,125 @@ def make_qr(data):
     return ImageReader(buf)
 
 
-def setup_canvas(filepath):
+def setup_canvas(filepath, title_suffix):
     c = canvas.Canvas(filepath, pagesize=(CARD_W, CARD_H))
-    c.setTitle("Vantia · Marketing Digital — Tarjeta de contacto")
+    c.setTitle(f"Vantia · Marketing Digital — {title_suffix}")
     c.setAuthor("Vantia · Marketing Digital")
     return c
 
 
 def draw_bg(c):
-    """Fondo dark + accent cobre superior."""
     c.setFillColor(DARK)
     c.rect(0, 0, CARD_W, CARD_H, fill=1, stroke=0)
-    c.setFillColor(COPPER)
-    c.rect(0, CARD_H - 0.6*mm, CARD_W, 0.6*mm, fill=1, stroke=0)
 
 
 # ────────────────────────────────────────────
-# FRENTE — Brand showcase, centrado y minimal
+# FRENTE — Logo + nombre, centrado
 # ────────────────────────────────────────────
 def render_front(filepath):
-    c = setup_canvas(filepath)
+    c = setup_canvas(filepath, "frente")
     draw_bg(c)
 
-    # Logo grande centrado horizontalmente
-    LOGO_W = 22*mm
+    # Logo grande centrado horizontal y vertical
+    LOGO_W = 26*mm
+    LOGO_H = LOGO_W * (VBOX_H / VBOX_W)  # 20.7mm
+
+    # Composición vertical: logo + gap + nombre. Centrado en el card.
+    GAP = 5*mm
+    NAME_H = 6*mm  # altura aprox del texto
+    TOTAL_H = LOGO_H + GAP + NAME_H
+
+    # Top y del bloque centrado verticalmente
+    block_top = (CARD_H + TOTAL_H) / 2
+
     logo_x = (CARD_W - LOGO_W) / 2
-    logo_y = CARD_H - 11*mm  # top-left y
+    logo_y = block_top  # top-left
     draw_logo(c, x=logo_x, y=logo_y, width=LOGO_W)
 
-    # "Vantia" — serif grande, debajo del logo, centrado
-    c.setFillColor(CREAM)
-    c.setFont('Fraunces', 18)
-    title_y = CARD_H - 32*mm
-    c.drawCentredString(CARD_W/2, title_y, "Vantia")
+    # Nombre debajo del logo
+    name_baseline_y = block_top - LOGO_H - GAP - 4.2*mm  # ajuste por baseline
+    c.setFont('Fraunces', 13)
 
-    # "· Marketing Digital" — debajo, más chico, con punto medio cobre
-    c.setFont('Fraunces', 11)
-    sub = "· Marketing Digital"
-    # Medir width de cada parte para centrar y colorear el "·"
-    dot_w = c.stringWidth("·", 'Fraunces', 11)
-    rest_w = c.stringWidth(" Marketing Digital", 'Fraunces', 11)
-    total_w = dot_w + rest_w
+    # Componer "Vantia · Marketing Digital" centrado, con "·" cobre
+    left = "Vantia "
+    mid = "·"
+    right = " Marketing Digital"
+    w_left  = c.stringWidth(left,  'Fraunces', 13)
+    w_mid   = c.stringWidth(mid,   'Fraunces', 13)
+    w_right = c.stringWidth(right, 'Fraunces', 13)
+    total_w = w_left + w_mid + w_right
     start_x = (CARD_W - total_w) / 2
-    sub_y = title_y - 6*mm
-    c.setFillColor(COPPER)
-    c.drawString(start_x, sub_y, "·")
-    c.setFillColor(CREAM)
-    c.drawString(start_x + dot_w, sub_y, " Marketing Digital")
 
-    # Tagline
-    c.setFillColor(MUTED)
-    c.setFont('Inter', 6.5)
-    c.drawCentredString(CARD_W/2, sub_y - 7*mm,
-                        "Agencia técnica  ·  Ingeniería Web  ·  SEO + GEO  ·  Paid Media")
+    c.setFillColor(CREAM)
+    c.drawString(start_x, name_baseline_y, left)
+    c.setFillColor(COPPER)
+    c.drawString(start_x + w_left, name_baseline_y, mid)
+    c.setFillColor(CREAM)
+    c.drawString(start_x + w_left + w_mid, name_baseline_y, right)
 
     c.showPage()
     c.save()
 
 
 # ────────────────────────────────────────────
-# REVERSO — Datos de contacto + QRs
+# REVERSO — Datos + QR
 # ────────────────────────────────────────────
 def render_back(filepath):
-    c = setup_canvas(filepath)
+    c = setup_canvas(filepath, "reverso")
     draw_bg(c)
 
-    # Eyebrow "CONTACTO"
-    c.setFillColor(COPPER)
-    c.setFont('Inter', 6)
-    eyebrow_y = CARD_H - 8*mm
-    c.drawString(6*mm, eyebrow_y, "CONTACTO")
+    MARGIN = 7*mm
 
-    # Línea hairline debajo del eyebrow
+    # Columna izquierda: datos
+    label_y = CARD_H - 10*mm
+    c.setFillColor(COPPER)
+    c.setFont('Inter', 6.5)
+    c.drawString(MARGIN, label_y, "CONTACTO")
+
+    # Hairline cobre debajo del label
     c.setStrokeColor(COPPER)
     c.setLineWidth(0.4)
-    c.line(6*mm, eyebrow_y - 1.5*mm, 22*mm, eyebrow_y - 1.5*mm)
+    c.line(MARGIN, label_y - 1.8*mm, MARGIN + 12*mm, label_y - 1.8*mm)
 
-    # Datos de contacto — columna izquierda
+    # Datos en stack vertical
     c.setFillColor(CREAM)
-    c.setFont('Inter', 9)
-    y = CARD_H - 16*mm
-    line_h = 5*mm
-    c.drawString(6*mm, y, "admin@vantia.digital")
-    c.drawString(6*mm, y - line_h, "+34 645 720 420")
-    c.drawString(6*mm, y - 2*line_h, "vantia.digital")
+    c.setFont('Inter', 8.5)
+    y = label_y - 7*mm
+    line_h = 4.5*mm
+    for line in ["admin@vantia.digital", "+34 645 720 420", "vantia.digital"]:
+        c.drawString(MARGIN, y, line)
+        y -= line_h
 
+    # Ubicación más muted
     c.setFillColor(MUTED)
     c.setFont('Inter', 7)
-    c.drawString(6*mm, y - 3*line_h - 0.5*mm, "Barcelona, España")
+    c.drawString(MARGIN, y - 0.5*mm, "Barcelona, España")
 
-    # QRs — columna derecha, mismo nivel
-    QR_SIZE = 17*mm
-    qr_y = (CARD_H - QR_SIZE) / 2 - 1*mm  # vertical center, ligeramente bajo
-    qr_x_wa = CARD_W - 6*mm - QR_SIZE
-    qr_x_web = qr_x_wa - QR_SIZE - 3*mm
+    # QR a la derecha, vertical center
+    QR_SIZE = 22*mm
+    qr_x = CARD_W - MARGIN - QR_SIZE
+    qr_y = (CARD_H - QR_SIZE) / 2
 
-    # QR Web
-    c.drawImage(make_qr("https://vantia.digital"),
-                qr_x_web, qr_y, width=QR_SIZE, height=QR_SIZE, mask='auto')
+    c.drawImage(make_qr("https://www.vantia.digital/"),
+                qr_x, qr_y, width=QR_SIZE, height=QR_SIZE, mask='auto')
+
+    # Label tiny debajo del QR
     c.setFillColor(MUTED)
     c.setFont('Inter', 5.5)
-    c.drawCentredString(qr_x_web + QR_SIZE/2, qr_y - 2*mm, "SITIO WEB")
-
-    # QR WhatsApp
-    wa_url = ("https://wa.me/34645720420"
-              "?text=Hola%20Vantia%20Digital%2C%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n%20gratuita.")
-    c.drawImage(make_qr(wa_url),
-                qr_x_wa, qr_y, width=QR_SIZE, height=QR_SIZE, mask='auto')
-    c.drawCentredString(qr_x_wa + QR_SIZE/2, qr_y - 2*mm, "WHATSAPP")
+    c.drawCentredString(qr_x + QR_SIZE/2, qr_y - 3*mm, "vantia.digital")
 
     c.showPage()
     c.save()
 
 
 # ────────────────────────────────────────────
-# PDF → PNG (300 DPI)
+# PDF → PNG 300 DPI
 # ────────────────────────────────────────────
 def pdf_to_png(pdf_path, png_path, dpi=300):
-    """Renderiza la primera página de PDF a PNG a la DPI indicada."""
     doc = fitz.open(pdf_path)
     page = doc[0]
-    # PyMuPDF usa zoom factor (1.0 = 72 DPI)
     zoom = dpi / 72
-    mat = fitz.Matrix(zoom, zoom)
-    pix = page.get_pixmap(matrix=mat, alpha=False)
+    pix = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom), alpha=False)
     pix.save(png_path)
     doc.close()
 
@@ -230,26 +222,17 @@ def pdf_to_png(pdf_path, png_path, dpi=300):
 # Ejecución
 # ────────────────────────────────────────────
 files = {
-    "frente": f"{OUT_DIR}/vantia-tarjeta-frente",
+    "frente":  f"{OUT_DIR}/vantia-tarjeta-frente",
     "reverso": f"{OUT_DIR}/vantia-tarjeta-reverso",
 }
 
-# Render PDFs (vector)
 render_front(f"{files['frente']}.pdf")
 render_back(f"{files['reverso']}.pdf")
 
-# Convert each PDF → PNG (raster 300 DPI)
 for side, base in files.items():
     pdf_to_png(f"{base}.pdf", f"{base}.png", dpi=300)
 
-# Limpiar el archivo viejo de tarjeta única
-old = f"{OUT_DIR}/vantia-tarjeta-contacto.pdf"
-if os.path.exists(old):
-    os.remove(old)
-    print(f"REMOVED: {old}")
-
-# Resumen
-print("\nGenerados:")
+print("Generados:")
 for side, base in files.items():
     for ext in ("pdf", "png"):
         path = f"{base}.{ext}"
