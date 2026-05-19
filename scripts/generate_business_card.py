@@ -197,11 +197,6 @@ def render_back(filepath):
     c.drawImage(make_qr("https://www.vantia.digital/"),
                 qr_x, qr_y, width=QR_SIZE, height=QR_SIZE, mask='auto')
 
-    # Label tiny debajo del QR
-    c.setFillColor(MUTED)
-    c.setFont('Inter', 5.5)
-    c.drawCentredString(qr_x + QR_SIZE/2, qr_y - 3*mm, "vantia.digital")
-
     c.showPage()
     c.save()
 
