@@ -1,13 +1,16 @@
 /* ============================================
    VANTIA DIGITAL - CONSENT MANAGER
-   Google Consent Mode v2 + GA4
+   Google Consent Mode v2 — GA4 se carga vía GTM
    Cumple RGPD / LOPD-DDD (AEPD España)
+
+   Debe ejecutarse ANTES del snippet de GTM:
+   fija el estado de consentimiento por defecto (todo
+   denegado) para que GTM/GA4 lo respeten desde el inicio.
    ============================================ */
 
 (() => {
   'use strict';
 
-  const GA_ID = 'G-SV13BVRDX9';
   const STORAGE_KEY = 'vantia_consent_v1';
   const CONSENT_VERSION = 1; // bump para forzar re-consent en cambios mayores
 
@@ -65,29 +68,6 @@
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied'
-    });
-
-    if (prefs.analytics) {
-      loadGA();
-    }
-  }
-
-  // -------- Carga GA4 (solo si hay consent analytics) --------
-  let gaLoaded = false;
-  function loadGA() {
-    if (gaLoaded) return;
-    gaLoaded = true;
-
-    const s = document.createElement('script');
-    s.async = true;
-    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-    document.head.appendChild(s);
-
-    gtag('js', new Date());
-    gtag('config', GA_ID, {
-      anonymize_ip: true,
-      allow_google_signals: false,
-      allow_ad_personalization_signals: false
     });
   }
 

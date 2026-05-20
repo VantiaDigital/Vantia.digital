@@ -1,10 +1,11 @@
 /* ============================================
-   VANTIA DIGITAL - EVENTOS GA4 PERSONALIZADOS
+   VANTIA DIGITAL - EVENTOS PERSONALIZADOS (dataLayer)
    Mide clics de botones clave para analizarlos por separado.
 
-   Respeta el consentimiento: gtag() siempre existe (shim de
-   dataLayer en consent.js). Si el usuario aceptó analíticas,
-   GA4 envía el evento; si no, queda en dataLayer sin enviarse.
+   Empuja eventos al dataLayer. Google Tag Manager los lee
+   con triggers de "Evento personalizado" y dispara los tags
+   de GA4. El Consent Mode (consent.js) controla si GA4 los
+   envía — este archivo no depende del consentimiento.
 
    Delegación en document → funciona también con elementos
    inyectados por componentes (header, footer, whatsapp, modales).
@@ -14,8 +15,8 @@
   'use strict';
 
   function track(name, params) {
-    if (typeof window.gtag !== 'function') return;
-    window.gtag('event', name, params || {});
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: name }, params || {}));
   }
 
   function clean(txt) {
