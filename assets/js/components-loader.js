@@ -30,7 +30,19 @@
       // Mueve los hijos al nivel del placeholder (para no romper estilos)
       const fragment = document.createDocumentFragment();
       while (placeholder.firstChild) fragment.appendChild(placeholder.firstChild);
+
+      // Los <script> insertados via innerHTML NO se ejecutan: hay que re-crearlos.
+      const inertScripts = Array.from(fragment.querySelectorAll('script'));
+
       placeholder.replaceWith(fragment);
+
+      // Re-crea cada <script> para forzar su ejecución (banner de cookies, etc.)
+      inertScripts.forEach((old) => {
+        const s = document.createElement('script');
+        for (const attr of old.attributes) s.setAttribute(attr.name, attr.value);
+        s.textContent = old.textContent;
+        old.replaceWith(s);
+      });
     } catch (err) {
       console.error('[components-loader]', url, err);
     }
