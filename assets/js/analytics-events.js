@@ -117,4 +117,41 @@
       });
     }
   }, true);
+
+  // -------- Inicio del formulario de contacto (embudo) --------
+  // Dispara una sola vez, cuando el usuario interactúa por primera vez.
+  let formStartFired = false;
+  document.addEventListener('focusin', (e) => {
+    if (formStartFired) return;
+    const t = e.target;
+    if (t && t.closest && t.closest('#contactForm')) {
+      formStartFired = true;
+      track('form_start', { ubicacion: pageName() });
+    }
+  }, true);
+
+  // -------- Secciones vistas al hacer scroll --------
+  // Dispara una vez por sección cuando entra al 50% en pantalla.
+  function initSectionTracking() {
+    if (!('IntersectionObserver' in window)) return;
+    const seen = {};
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const sec = entry.target;
+        const name = clean(sec.dataset.section || (sec.className || '').split(' ')[0] || 'seccion');
+        if (!seen[name]) {
+          seen[name] = true;
+          track('ver_seccion', { seccion: name });
+        }
+        obs.unobserve(sec);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('section').forEach((s) => obs.observe(s));
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSectionTracking);
+  } else {
+    initSectionTracking();
+  }
 })();
