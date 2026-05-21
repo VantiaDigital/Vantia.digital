@@ -1,0 +1,5 @@
+# robots.txt — Vantia · Marketing Digital
+User-agent: *
+Allow: /
+
+Sitemap: https://vantia.digital/sitemap.xml
