@@ -108,13 +108,21 @@
     }
   }, true);
 
-  // -------- Envío del formulario de contacto --------
+  // -------- Envío de formularios --------
   document.addEventListener('submit', (e) => {
-    if (e.target && e.target.id === 'contactForm') {
-      const asunto = e.target.querySelector('#cf-inquiry');
-      track('enviar_formulario', {
-        asunto: asunto ? clean(asunto.value) : ''
-      });
+    const f = e.target;
+    if (!f || !f.checkValidity) return;
+
+    // Formulario de contacto (solo si pasa la validación HTML5)
+    if (f.id === 'contactForm' && f.checkValidity()) {
+      const asunto = f.querySelector('#cf-inquiry');
+      track('enviar_formulario', { asunto: asunto ? clean(asunto.value) : '' });
+      return;
+    }
+
+    // Solicitud de presupuesto (formularios de los modales)
+    if (f.matches && f.matches('.budget-modal__form, .modal__form') && f.checkValidity()) {
+      track('enviar_presupuesto', { servicio: clean(f.dataset.service || '') });
     }
   }, true);
 

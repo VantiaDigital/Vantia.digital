@@ -247,7 +247,7 @@
   <script src="/assets/js/modal.js" defer></script>
   <script src="/assets/js/animations.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
-  <script src="/assets/js/analytics-events.js?v=3" defer></script>
+  <script src="/assets/js/analytics-events.js?v=4" defer></script>
 
   <!-- Manejo del form — envío real vía Web3Forms -->
   <script>
@@ -294,6 +294,9 @@
             'Error al enviar: ' + (err.message || 'desconocido') +
             '. Intentá por WhatsApp o email directo.';
           status.style.color = '#C25450';
+          // Evento GA4: el envío del formulario falló (lead perdido)
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'form_error' });
         } finally {
           if (btn) btn.disabled = false;
         }
