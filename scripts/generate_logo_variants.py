@@ -1,9 +1,9 @@
 """
-Genera variantes del logotipo de Vantia (V+A + texto "Vantia · Marketing Digital").
+Genera variantes del logotipo de Vantia (V+A + texto "Vantia Digital").
 
 Outputs (assets/images/):
-  - logo-horizontal-claro.png    (V dark + A cobre + texto dark + · cobre, fondo transparente)
-  - logo-horizontal-oscuro.png   (V cream + A cobre + texto cream + · cobre, fondo transparente)
+  - logo-horizontal-claro.png    (V dark + A cobre + texto dark, fondo transparente)
+  - logo-horizontal-oscuro.png   (V cream + A cobre + texto cream, fondo transparente)
   - logo-vertical-claro.png      (apilado, fondo transparente)
   - logo-vertical-oscuro.png     (apilado, fondo transparente)
 """
@@ -29,9 +29,7 @@ A_PATH = [(796.957, 414.027), (525, 877), (651.053, 877), (796.957, 628.89),
           (1068.91, 780.733), (1003.41, 780.733)]
 VBOX_W, VBOX_H = 1269, 1012
 
-TEXT_LEFT  = "Vantia "
-TEXT_DOT   = "·"
-TEXT_RIGHT = " Marketing Digital"
+TEXT = "Vantia Digital"
 
 
 def draw_logo(draw, x, y, height, v_color, a_color):
@@ -48,20 +46,15 @@ def measure(draw, text, font):
     return bbox[2] - bbox[0], bbox[3] - bbox[1], bbox
 
 
-def render_horizontal(out_path, v_color, a_color, text_color, dot_color):
+def render_horizontal(out_path, v_color, a_color, text_color):
     """Auto-sized: el canvas se calcula para que el texto + logo entren con padding."""
     FONT_SIZE = 165
     font = ImageFont.truetype(FONT_PATH, FONT_SIZE)
 
-    # Medir texto en un canvas temporal
     tmp = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
-    w_l, _, _              = measure(tmp, TEXT_LEFT, font)
-    w_d, _, _              = measure(tmp, TEXT_DOT, font)
-    w_r, _, _              = measure(tmp, TEXT_RIGHT, font)
-    w_full, _, bbox_full   = measure(tmp, TEXT_LEFT + TEXT_DOT + TEXT_RIGHT, font)
+    w_full, _, bbox_full = measure(tmp, TEXT, font)
     text_h = bbox_full[3] - bbox_full[1]
 
-    # Logo proporcional al texto
     LOGO_H = int(text_h * 2.0)
     logo_scale = LOGO_H / VBOX_H
     LOGO_W = int(VBOX_W * logo_scale)
@@ -78,25 +71,20 @@ def render_horizontal(out_path, v_color, a_color, text_color, dot_color):
     logo_y = (H - LOGO_H) // 2
     draw_logo(draw, logo_x, logo_y, LOGO_H, v_color, a_color)
 
-    text_x = logo_x + LOGO_W + GAP
+    text_x = logo_x + LOGO_W + GAP - bbox_full[0]
     text_y = (H - text_h) // 2 - bbox_full[1]
-
-    draw.text((text_x, text_y), TEXT_LEFT, font=font, fill=text_color)
-    draw.text((text_x + w_l, text_y), TEXT_DOT, font=font, fill=dot_color)
-    draw.text((text_x + w_l + w_d, text_y), TEXT_RIGHT, font=font, fill=text_color)
+    draw.text((text_x, text_y), TEXT, font=font, fill=text_color)
 
     img.save(out_path, "PNG", optimize=True)
 
 
-def render_vertical(out_path, v_color, a_color, text_color, dot_color):
+def render_vertical(out_path, v_color, a_color, text_color):
     """Auto-sized vertical: logo arriba, texto debajo, canvas se ajusta al contenido."""
     FONT_SIZE = 130
     font = ImageFont.truetype(FONT_PATH, FONT_SIZE)
 
     tmp = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
-    w_l, _, _              = measure(tmp, TEXT_LEFT, font)
-    w_d, _, _              = measure(tmp, TEXT_DOT, font)
-    w_full, _, bbox_full   = measure(tmp, TEXT_LEFT + TEXT_DOT + TEXT_RIGHT, font)
+    w_full, _, bbox_full = measure(tmp, TEXT, font)
     text_h = bbox_full[3] - bbox_full[1]
 
     LOGO_H = 700
@@ -117,10 +105,7 @@ def render_vertical(out_path, v_color, a_color, text_color, dot_color):
 
     text_x = (W - w_full) // 2 - bbox_full[0]
     text_y = logo_y + LOGO_H + GAP - bbox_full[1]
-
-    draw.text((text_x, text_y), TEXT_LEFT, font=font, fill=text_color)
-    draw.text((text_x + w_l, text_y), TEXT_DOT, font=font, fill=dot_color)
-    draw.text((text_x + w_l + w_d, text_y), TEXT_RIGHT, font=font, fill=text_color)
+    draw.text((text_x, text_y), TEXT, font=font, fill=text_color)
 
     img.save(out_path, "PNG", optimize=True)
 
@@ -129,13 +114,13 @@ os.makedirs(OUT_DIR, exist_ok=True)
 
 print("Rendering...")
 render_horizontal(f"{OUT_DIR}/logo-horizontal-claro.png",
-                  v_color=DARK, a_color=COPPER, text_color=DARK, dot_color=COPPER)
+                  v_color=DARK, a_color=COPPER, text_color=DARK)
 render_horizontal(f"{OUT_DIR}/logo-horizontal-oscuro.png",
-                  v_color=CREAM, a_color=COPPER, text_color=CREAM, dot_color=COPPER)
+                  v_color=CREAM, a_color=COPPER, text_color=CREAM)
 render_vertical(f"{OUT_DIR}/logo-vertical-claro.png",
-                v_color=DARK, a_color=COPPER, text_color=DARK, dot_color=COPPER)
+                v_color=DARK, a_color=COPPER, text_color=DARK)
 render_vertical(f"{OUT_DIR}/logo-vertical-oscuro.png",
-                v_color=CREAM, a_color=COPPER, text_color=CREAM, dot_color=COPPER)
+                v_color=CREAM, a_color=COPPER, text_color=CREAM)
 
 print("Generados:")
 for f in sorted(os.listdir(OUT_DIR)):
