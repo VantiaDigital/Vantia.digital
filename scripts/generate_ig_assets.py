@@ -265,7 +265,7 @@ GA4 = [
     dict(idx=1, top_label="TIP TÉCNICO · GA4 PYMES", big="3 errores típicos de GA4 que te están costando datos.", is_cover=True),
     dict(idx=2, top_label="ERROR 01", big="Instalar GA4 sin Consent Mode v2.",
          body=["En Europa (RGPD) sin Consent Mode los datos llegan rotos.",
-               "Vas a ver entre 30% y 60% MENOS visitas reales que las que tenés.",
+               "Vas a ver entre 30% y 60% MENOS visitas reales que las que tienes.",
                "Solución: instalá Consent Mode v2 con tu banner de cookies bien integrado."]),
     dict(idx=3, top_label="ERROR 02", big="No configurar eventos personalizados.",
          body=["Por defecto GA4 mide 'page_view' y poco más.",
@@ -278,7 +278,7 @@ GA4 = [
     dict(idx=5, top_label="BONUS", big="¿Y los enlaces a redes externas?",
          body=["GA4 los registra como salidas anónimas si no las taggeás.",
                "Configurá UTM en cada link de tu Instagram, LinkedIn, mailings.",
-               "Así sabés qué red trae tráfico que convierte."]),
+               "Así sabes qué red trae tráfico que convierte."]),
     dict(idx=6, top_label="CHECKLIST", big="Lo mínimo bien hecho:",
          body=["— Consent Mode v2",
                "— Eventos personalizados configurados",
@@ -286,10 +286,10 @@ GA4 = [
                "— UTMs en cada link saliente",
                "— Dashboard en Looker Studio (legible)"]),
     dict(idx=7, top_label="REALIDAD", big="El 70% de las PYMES tiene mal al menos 2 de estas 5.",
-         body=["Y muchas veces el problema no lo sabés hasta que mirás los reportes en serio.",
+         body=["Y muchas veces el problema no se ve hasta que miras los reportes en serio.",
                "Si nunca auditaste tu GA4, es probable que estés tomando decisiones con datos basura."]),
-    dict(idx=8, top_label="CIERRE", big="Te lo arreglo. Sin costo el primer chequeo.",
-         body=["Si querés saber qué está bien y qué mal en tu GA4 hoy, escribime.",
+    dict(idx=8, top_label="CIERRE", big="Te lo arreglo. Sin coste el primer chequeo.",
+         body=["Si quieres saber qué está bien y qué mal en tu GA4 hoy, escríbeme.",
                "30 min, te paso el diagnóstico por mail. Sin compromiso."],
          is_close=True),
 ]
@@ -306,10 +306,10 @@ PROC = [
     dict(idx=3, top_label="PASO 02 · MEDICIÓN", big="Instalamos el stack analítico.",
          body=["GA4 + Google Tag Manager + Consent Mode v2 + Microsoft Clarity.",
                "Eventos personalizados, conversiones marcadas, UTMs sistemáticos.",
-               "Dashboard en Looker Studio que vos podés leer."]),
+               "Dashboard en Looker Studio que puedes leer tú mismo."]),
     dict(idx=4, top_label="PASO 03 · WEB", big="Construimos o mejoramos la web.",
          body=["Rápida (Core Web Vitals verde), accesible, optimizada para SEO técnico.",
-               "Si ya tenés web, optimizamos. Si no, la construimos desde cero.",
+               "Si ya tienes web, optimizamos. Si no, la construimos desde cero.",
                "Cada elemento pensado desde la medición."]),
     dict(idx=5, top_label="PASO 04 · DECIDIR", big="Empezamos a leer los datos.",
          body=["Reportes mensuales con datos reales, no vanity metrics.",
@@ -325,7 +325,7 @@ for s in PROC:
 
 # FEED — adaptar posts LinkedIn a IG 1080x1350 (reusing los PNGs hechos en /linkedin/posts/)
 # Aquí solo los copiamos y dejamos nota: los archivos ya hechos sirven al 100% para IG cuadrado.
-# Si en el futuro querés versiones 4:5 nativas, agregar acá funciones espejo.
+# Si en el futuro se quieren versiones 4:5 nativas, agregar aquí funciones espejo.
 
 print("IG generado:")
 for root, _, files in os.walk(OUT):

@@ -275,7 +275,7 @@ def render_personal_01_anuncio(out_path):
         "Las PYMES contratan agencias que venden estrategia.",
         "Pero a los 6 meses nadie sabe qué funcionó.",
         "Vantia nace de medir todo desde el día uno.",
-        "Si tenés una PYME, hablemos.",
+        "Si tienes una PYME, hablemos.",
     ]
     for b_text in bullets:
         dash = "—"
@@ -318,7 +318,7 @@ def render_personal_02_tecnico(out_path):
         "Instalar GA4 sin Consent Mode v2 (datos rotos en Europa).",
         "No configurar eventos personalizados (te perdés el 80%).",
         "Mirar 'sesiones' en vez de 'eventos clave' como conversión.",
-        "Si tenés alguno, te lo arreglo. Sin costo el primer chequeo.",
+        "Si detectas alguno, te lo arreglo. Sin coste el primer chequeo.",
     ]
     for b_text in bullets:
         dash = "—"
