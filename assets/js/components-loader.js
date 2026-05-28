@@ -7,11 +7,20 @@
 (() => {
   'use strict';
 
-  // Detecta el path base: si estamos en /pages/x.html, base = ..; si en /index.html, base = '.'
+  // Detecta el path base contando cuántos niveles de profundidad estamos
+  // desde la raíz del sitio. Soporta:
+  //   /index.html              → '.'    (raíz)
+  //   /pages/casos.html        → '..'   (1 nivel)
+  //   /pages/casos/gett.html   → '../..' (2 niveles)
+  //   etc.
   function getBase() {
     const path = window.location.pathname.replace(/\\/g, '/');
-    if (path.includes('/pages/')) return '..';
-    return '.';
+    // Quitar query string si lo hubiera (no aplica a pathname, pero por seguridad)
+    const cleanPath = path.split('?')[0];
+    // Segmentos del path, sin el archivo final (los que terminan en .html o son vacíos)
+    const segments = cleanPath.split('/').filter((s) => s && !/\.html?$/i.test(s));
+    if (segments.length === 0) return '.';
+    return new Array(segments.length).fill('..').join('/');
   }
 
   async function loadInto(placeholder, url) {
