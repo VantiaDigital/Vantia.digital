@@ -4,19 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#1A1813" />
-  <meta name="description" content="Agencia técnica de marketing digital para PYMES y empresas medianas. Ingeniería Web, SEO Técnico + GEO y Paid Media con ROI medible." />
+  <meta name="description" content="Agencia técnica de marketing digital para PYMES y empresas medianas. Optimización Web, SEO Técnico + GEO y Campañas de anuncios con ROI medible." />
   <meta name="author" content="Vantia · Marketing Digital" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vantia · Marketing Digital" />
   <meta property="og:title" content="Vantia · Marketing Digital" />
-  <meta property="og:description" content="Agencia técnica para PYMES y empresas medianas. Web, SEO + GEO y Paid Media con ROI medible." />
+  <meta property="og:description" content="Agencia técnica para PYMES y empresas medianas. Web, SEO + GEO y Campañas de anuncios con ROI medible." />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:url" content="https://vantia.digital/" />
+  <link rel="canonical" href="https://vantia.digital/" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Vantia · Marketing Digital" />
-  <meta name="twitter:description" content="Agencia técnica para PYMES y empresas medianas. Web, SEO + GEO y Paid Media con ROI medible." />
+  <meta name="twitter:description" content="Agencia técnica para PYMES y empresas medianas. Web, SEO + GEO y Campañas de anuncios con ROI medible." />
 
   <title>Vantia · Marketing Digital</title>
 
@@ -79,26 +80,28 @@
             </linearGradient>
           </defs>
           <g fill="none" stroke="url(#cryGrad)" stroke-width="1.2">
-            <polygon points="400,80 660,260 560,580 240,580 140,260" />
-            <polygon points="400,80 560,580 240,580" />
-            <polygon points="400,80 660,260 140,260" />
-            <polygon points="660,260 560,580 140,260" />
-            <polygon points="140,260 560,580 240,580" />
-            <line x1="400" y1="80" x2="400" y2="720" />
-            <line x1="140" y1="260" x2="660" y2="260" />
-            <line x1="240" y1="580" x2="560" y2="580" />
+            <!-- Hexágono principal (6 puntas) -->
+            <polygon points="400,100 640,240 640,540 400,680 160,540 160,240" />
+            <!-- Estrella de David: 2 triángulos equiláteros superpuestos -->
+            <polygon points="400,100 640,540 160,540" />
+            <polygon points="400,680 160,240 640,240" />
+            <!-- 3 diagonales que cruzan el centro -->
+            <line x1="400" y1="100" x2="400" y2="680" />
+            <line x1="160" y1="240" x2="640" y2="540" />
+            <line x1="640" y1="240" x2="160" y2="540" />
           </g>
           <g fill="url(#cryGrad2)" opacity="0.6">
-            <polygon points="400,80 660,260 400,400" />
-            <polygon points="400,400 140,260 400,80" opacity="0.5" />
+            <polygon points="400,100 640,240 400,390" />
+            <polygon points="400,390 160,240 400,100" opacity="0.5" />
           </g>
           <g fill="#C1834B">
-            <circle cx="400" cy="80" r="3" />
-            <circle cx="660" cy="260" r="3" />
-            <circle cx="560" cy="580" r="3" />
-            <circle cx="240" cy="580" r="3" />
-            <circle cx="140" cy="260" r="3" />
-            <circle cx="400" cy="400" r="2" opacity="0.7" />
+            <circle cx="400" cy="100" r="3" />
+            <circle cx="640" cy="240" r="3" />
+            <circle cx="640" cy="540" r="3" />
+            <circle cx="400" cy="680" r="3" />
+            <circle cx="160" cy="540" r="3" />
+            <circle cx="160" cy="240" r="3" />
+            <circle cx="400" cy="390" r="2" opacity="0.7" />
           </g>
         </svg>
         </div>
@@ -171,9 +174,9 @@
 
         <div class="pillars" data-reveal-children>
 
-          <article class="pillar" data-modal-trigger="ingenieria-web" role="button" tabindex="0" aria-label="Abrir detalle de Ingeniería Web">
+          <article class="pillar" data-modal-trigger="ingenieria-web" role="button" tabindex="0" aria-label="Abrir detalle de Optimización Web">
             <div class="pillar__num">01 / Pilar</div>
-            <h3 class="pillar__title">Ingeniería Web</h3>
+            <h3 class="pillar__title">Optimización Web</h3>
             <p class="pillar__body">
               Plataformas de alta velocidad. Arquitectura orientada a la conversión con
               código limpio y PageSpeed del 99/100.
@@ -202,9 +205,9 @@
             </div>
           </article>
 
-          <article class="pillar" data-modal-trigger="paid-media" role="button" tabindex="0" aria-label="Abrir detalle de Paid Media">
+          <article class="pillar" data-modal-trigger="paid-media" role="button" tabindex="0" aria-label="Abrir detalle de Campañas de anuncios">
             <div class="pillar__num">03 / Pilar</div>
-            <h3 class="pillar__title">Paid Media</h3>
+            <h3 class="pillar__title">Campañas de anuncios</h3>
             <p class="pillar__body">
               Campañas en <span class="brand-em">Google Ads</span> y <span class="brand-em">Meta Ads</span>.
               Tráfico predecible basado en datos puros, maximizando el ROAS y reduciendo el coste por adquisición.
@@ -244,7 +247,7 @@
 
           <div class="stat">
             <div class="stat__num">
-              <span data-count-to="250">0</span><span class="stat__suffix">%</span>
+              <span data-count-to="450">0</span><span class="stat__suffix">%</span>
             </div>
             <div class="stat__label">Crecimiento ROAS</div>
             <p class="stat__desc">Promedio en 9 meses sobre la inversión publicitaria inicial.</p>

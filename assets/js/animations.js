@@ -140,6 +140,7 @@
   // -------- HERO CRYSTAL + GRID — REACTIVO AL CURSOR --------
   // Aplica el efecto al WRAPPER (.hero__crystal-wrap) para no chocar con GSAP
   // que controla .hero__crystal (intro + scroll parallax).
+  // Pausa cuando el hero no está en viewport o la pestaña está oculta para ahorrar CPU.
   function crystalMouseFollow() {
     if (prefersReduced) return;
 
@@ -153,6 +154,9 @@
     const current = { x: 0, y: 0 };
     let t0 = performance.now();
     let mouseInside = false;
+    let isVisible = true;
+    let isTabActive = true;
+    let rafId = null;
 
     hero.addEventListener('mouseenter', () => { mouseInside = true; });
     hero.addEventListener('mousemove', (e) => {
@@ -171,6 +175,11 @@
     wrap.style.transformStyle = 'preserve-3d';
 
     function tick(now) {
+      if (!isVisible || !isTabActive) {
+        rafId = requestAnimationFrame(tick);
+        return;
+      }
+
       const t = (now - t0) / 1000;
 
       // Lerp del objetivo del cursor
@@ -203,9 +212,22 @@
           `translate3d(${-current.x * 24 + autoFloatX * 0.3}px, ${-current.y * 18 + autoFloatY * 0.3}px, 0)`;
       }
 
-      requestAnimationFrame(tick);
+      rafId = requestAnimationFrame(tick);
     }
-    requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
+
+    // Pausa cuando el hero sale del viewport (ahorra CPU)
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => { isVisible = entry.isIntersecting; });
+      }, { threshold: 0 });
+      io.observe(hero);
+    }
+
+    // Pausa cuando la pestaña no está activa
+    document.addEventListener('visibilitychange', () => {
+      isTabActive = document.visibilityState === 'visible';
+    });
   }
 
   // -------- GENERIC REVEALS --------

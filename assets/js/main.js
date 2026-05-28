@@ -186,13 +186,38 @@
   // -------- PAGE TRANSITIONS --------
   function initPageTransitions() {
     const overlay = document.querySelector('.page-transition');
-    if (!overlay || !window.gsap) return;
+    if (!overlay) return;
+
+    // Helper: garantiza overlay invisible y sin captar eventos
+    const hideOverlayHard = () => {
+      overlay.style.transform = 'scaleY(0)';
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+    };
+
+    // FALLBACK 1: si la animación de gsap nunca termina o gsap no carga,
+    // forzar overlay oculto después de 1.5s. Garantiza que el header nunca
+    // quede tapado en una navegación que falló silenciosamente.
+    const safetyTimer = setTimeout(hideOverlayHard, 1500);
+
+    // Sin gsap: limpiamos y salimos (los links funcionan como navegación nativa)
+    if (!window.gsap) {
+      hideOverlayHard();
+      return;
+    }
 
     // Entrada (overlay sale al cargar)
     gsap.set(overlay, { scaleY: 1, transformOrigin: 'top' });
     gsap.set('.page-transition__logo', { opacity: 1 });
 
-    const tlIn = gsap.timeline({ delay: 0.1 });
+    const tlIn = gsap.timeline({
+      delay: 0.1,
+      onComplete: () => {
+        clearTimeout(safetyTimer);
+        hideOverlayHard();
+      },
+      onInterrupt: hideOverlayHard,
+    });
     tlIn
       .to('.page-transition__logo', { opacity: 0, duration: 0.3, ease: 'power2.out' }, 0.2)
       .to(overlay, {
@@ -228,9 +253,19 @@
         e.preventDefault();
         const url = link.href;
 
+        // FALLBACK 2: si la animación se cuelga, navegar a la fuerza después de 900ms
+        const navigateFallback = setTimeout(() => { window.location.href = url; }, 900);
+
         gsap.set(overlay, { scaleY: 0, transformOrigin: 'bottom' });
         const tlOut = gsap.timeline({
-          onComplete: () => { window.location.href = url; },
+          onComplete: () => {
+            clearTimeout(navigateFallback);
+            window.location.href = url;
+          },
+          onInterrupt: () => {
+            clearTimeout(navigateFallback);
+            window.location.href = url;
+          },
         });
         tlOut
           .to(overlay, {
@@ -246,14 +281,11 @@
 
   // -------- ACTIVE NAV LINK --------
   function markActiveNav() {
-    // Detecta la página actual a partir del path
+    // Toma el último segmento del path (sin .html). Comparación exacta para
+    // evitar falsos positivos cuando un segmento contiene a otro como substring.
     const path = window.location.pathname;
-    let current = 'home';
-    if (path.includes('casos')) current = 'casos';
-    else if (path.includes('servicios')) current = 'servicios';
-    else if (path.includes('nosotros')) current = 'nosotros';
-    else if (path.includes('contacto')) current = 'contacto';
-    else if (path.includes('sesion')) current = 'sesion';
+    const segment = (path.split('/').filter(Boolean).pop() || '').replace(/\.html$/i, '');
+    const current = segment || 'home';
 
     document.querySelectorAll('[data-nav]').forEach((link) => {
       if (link.dataset.nav === current) link.classList.add('is-active');
@@ -310,4 +342,18 @@
   } else {
     init();
   }
+
+  // BFCACHE: si la página vuelve del back/forward cache del navegador,
+  // resetear estado del overlay y desbloquear scroll (por si quedó algo colgado).
+  window.addEventListener('pageshow', (e) => {
+    if (!e.persisted) return;
+    const ov = document.querySelector('.page-transition');
+    if (ov) {
+      ov.style.transform = 'scaleY(0)';
+      ov.style.opacity = '0';
+      ov.style.pointerEvents = 'none';
+    }
+    document.body.classList.remove('modal-open', 'is-nav-open');
+    document.body.style.overflow = '';
+  });
 })();

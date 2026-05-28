@@ -154,11 +154,11 @@ p {
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-  padding: 1.1rem 2rem;
+  padding: 0.85rem 1.5rem;
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   border-radius: 999px;
   transition:
@@ -2564,7 +2564,7 @@ body.theme-light .nav__toggle {
 .footer__contact-link:hover { color: var(--accent); }
 
 .footer__location {
-  color: rgba(236, 232, 216, 0.55);
+  color: rgba(236, 232, 216, 0.72);
   font-size: 0.95rem;
 }
 
@@ -2611,4 +2611,170 @@ body.theme-light .nav__toggle {
     grid-template-columns: 1fr 1fr;
   }
   .footer__brand { grid-column: 1 / -1; }
+}
+
+/* ============================================
+   SERVICE ARTICLE — long-form página servicios
+   ============================================ */
+.service-article {
+  position: relative;
+  padding: var(--space-3xl) 0;
+  background: var(--color-cream);
+  color: var(--color-dark);
+  border-top: 1px solid rgba(60, 58, 47, 0.08);
+}
+
+.service-article--alt {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(193, 131, 75, 0.06), transparent 70%),
+    var(--color-cream);
+}
+
+.service-article__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.service-article__header {
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid rgba(60, 58, 47, 0.1);
+}
+
+.service-article__num {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-md);
+}
+
+.service-article__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 var(--space-lg);
+  color: var(--color-dark);
+}
+
+.service-article__title-slash {
+  color: var(--color-olive);
+  font-weight: 400;
+  font-style: italic;
+  margin: 0 0.15em;
+}
+
+.service-article__lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-dark);
+  margin: 0;
+  font-style: italic;
+}
+
+.service-article__section {
+  margin-bottom: var(--space-2xl);
+}
+
+.service-article__section:last-of-type {
+  margin-bottom: var(--space-xl);
+}
+
+.service-article__h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin: 0 0 var(--space-md);
+}
+
+.service-article__section p {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-dark);
+  margin: 0 0 var(--space-md);
+}
+
+.service-article__section p:last-child {
+  margin-bottom: 0;
+}
+
+.service-article__section strong {
+  color: var(--color-deep);
+  font-weight: 600;
+}
+
+.service-article__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.service-article__list li {
+  position: relative;
+  padding-left: 1.8rem;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--color-dark);
+}
+
+.service-article__list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.service-article__list--ordered {
+  counter-reset: service-step;
+}
+
+.service-article__list--ordered li {
+  counter-increment: service-step;
+  padding-left: 2.6rem;
+}
+
+.service-article__list--ordered li::before {
+  content: counter(service-step, decimal-leading-zero);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  background: transparent;
+  top: 0.2rem;
+}
+
+.service-article__cta {
+  margin-top: var(--space-2xl);
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media (max-width: 720px) {
+  .service-article {
+    padding: var(--space-2xl) 0;
+  }
+  .service-article__inner {
+    padding: 0;
+  }
+  .service-article__list--ordered li {
+    padding-left: 2.2rem;
+  }
 }

@@ -1,7 +1,7 @@
 <!-- Overlay con 3 modales de detalle de servicios -->
 <div class="modal-overlay" data-modal-overlay aria-hidden="true">
 
-  <!-- MODAL: Ingeniería Web -->
+  <!-- MODAL: Optimización Web -->
   <div class="modal" data-lenis-prevent id="modal-ingenieria-web" role="dialog" aria-modal="true" aria-labelledby="modal-ingenieria-title" aria-hidden="true">
     <button class="modal__close" type="button" aria-label="Cerrar" data-modal-close>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -12,7 +12,7 @@
 
     <div class="modal__body">
       <span class="modal__num">01 · Pilar</span>
-      <h2 class="modal__title" id="modal-ingenieria-title">Ingeniería Web</h2>
+      <h2 class="modal__title" id="modal-ingenieria-title">Optimización Web</h2>
       <p class="modal__subtitle">Plataformas que convierten visitantes en clientes.</p>
 
       <section class="modal__section">
@@ -42,7 +42,7 @@
         </ul>
       </section>
 
-      <button type="button" class="btn btn-primary modal__cta-btn" data-budget="Ingeniería Web">
+      <button type="button" class="btn btn-primary modal__cta-btn" data-budget="Optimización Web">
         <span class="btn__label">Presupuesto de Web</span>
         <span class="arrow" aria-hidden="true">→</span>
       </button>
@@ -97,7 +97,7 @@
     </div>
   </div>
 
-  <!-- MODAL: Paid Media -->
+  <!-- MODAL: Campañas de anuncios -->
   <div class="modal" data-lenis-prevent id="modal-paid-media" role="dialog" aria-modal="true" aria-labelledby="modal-paid-title" aria-hidden="true">
     <button class="modal__close" type="button" aria-label="Cerrar" data-modal-close>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -108,7 +108,7 @@
 
     <div class="modal__body">
       <span class="modal__num">03 · Pilar</span>
-      <h2 class="modal__title" id="modal-paid-title">Paid Media</h2>
+      <h2 class="modal__title" id="modal-paid-title">Campañas de anuncios</h2>
       <p class="modal__subtitle">Campañas en <em>Google Ads</em> y <em>Meta Ads</em>. Tráfico predecible, basado en datos puros.</p>
 
       <section class="modal__section">
@@ -138,8 +138,8 @@
         </ul>
       </section>
 
-      <button type="button" class="btn btn-primary modal__cta-btn" data-budget="Paid Media">
-        <span class="btn__label">Presupuesto de Paid Media</span>
+      <button type="button" class="btn btn-primary modal__cta-btn" data-budget="Campañas de anuncios">
+        <span class="btn__label">Presupuesto de Campañas de anuncios</span>
         <span class="arrow" aria-hidden="true">→</span>
       </button>
     </div>
@@ -163,9 +163,9 @@
       <p class="budget-modal__sub">Completá el formulario y se abrirá un email con los datos. Respondemos en menos de 24h hábiles.</p>
 
       <form class="modal__form budget-modal__form" novalidate>
-        <input type="text" name="name" placeholder="Nombre" required autocomplete="name" />
-        <input type="email" name="email" placeholder="Email" required autocomplete="email" />
-        <textarea name="message" placeholder="Cuéntanos brevemente tu proyecto (opcional)" rows="3"></textarea>
+        <input type="text" name="name" placeholder="Nombre" required autocomplete="name" aria-label="Nombre" />
+        <input type="email" name="email" placeholder="Email" required autocomplete="email" aria-label="Email" />
+        <textarea name="message" placeholder="Cuéntanos brevemente tu proyecto (opcional)" rows="3" aria-label="Mensaje sobre tu proyecto"></textarea>
         <button type="submit" class="btn btn-primary modal__cta-btn">
           <span class="btn__label">Enviar solicitud</span>
           <span class="arrow" aria-hidden="true">→</span>

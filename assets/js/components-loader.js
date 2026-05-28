@@ -48,14 +48,27 @@
     }
   }
 
+  // Lista canónica de componentes que cada página debería incluir.
+  // Si alguno falta, se emite un warning para detectarlo en consola.
+  const EXPECTED_COMPONENTS = ['header', 'footer', 'whatsapp', 'cookie-banner'];
+
   async function loadAll() {
     const base = getBase();
     const tasks = [];
+    const foundNames = new Set();
 
     document.querySelectorAll('[data-component]').forEach((placeholder) => {
       const name = placeholder.dataset.component;
+      foundNames.add(name);
       const url = `${base}/components/${name}.html`;
       tasks.push(loadInto(placeholder, url));
+    });
+
+    // Warning de componentes esperados que no están en esta página.
+    EXPECTED_COMPONENTS.forEach((name) => {
+      if (!foundNames.has(name)) {
+        console.warn(`[components-loader] Falta placeholder esperado: data-component="${name}"`);
+      }
     });
 
     await Promise.all(tasks);
