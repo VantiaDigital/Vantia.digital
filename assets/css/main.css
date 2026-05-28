@@ -3058,3 +3058,105 @@ body.theme-light .nav__toggle {
     border-radius: var(--radius-md);
   }
 }
+
+/* ============================================
+   CASE CARDS — clickeable cover + acciones debajo
+   ============================================ */
+/* Cover link invisible que hace toda la card clickeable a la página detallada */
+.case__cover-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.case__cover-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+  border-radius: var(--radius-md);
+}
+
+/* Tag de acción destacada dentro del body */
+.case__action-tag {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px dashed rgba(60, 58, 47, 0.12);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Strip de acciones secundarias al pie de la card */
+.case__actions {
+  position: relative;
+  z-index: 2; /* por encima del cover-link */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid rgba(60, 58, 47, 0.08);
+  background: rgba(193, 131, 75, 0.03);
+}
+
+.case__action {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.85rem var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--accent);
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(60, 58, 47, 0.08);
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+  text-align: center;
+}
+
+.case__action:last-child {
+  border-right: 0;
+}
+
+.case__action svg {
+  flex-shrink: 0;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.case__action:hover {
+  background: rgba(193, 131, 75, 0.08);
+  color: var(--accent-hover);
+}
+
+.case__action:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.case__action--secondary {
+  color: var(--color-dark);
+}
+
+.case__action--secondary:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 520px) {
+  .case__action {
+    flex: 1 1 100%;
+    border-right: 0;
+    border-bottom: 1px solid rgba(60, 58, 47, 0.08);
+  }
+  .case__action:last-child {
+    border-bottom: 0;
+  }
+}
