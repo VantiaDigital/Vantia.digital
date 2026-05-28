@@ -3062,20 +3062,40 @@ body.theme-light .nav__toggle {
 /* ============================================
    CASE CARDS — clickeable cover + acciones debajo
    ============================================ */
-/* Cover link invisible que hace toda la card clickeable a la página detallada */
+/* Cover link invisible que hace toda la card clickeable a la página detallada.
+   Cubre desde el top del mockup hasta justo arriba del strip de acciones. */
 .case__cover-link {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: transparent;
-  text-indent: -9999px;
-  overflow: hidden;
+  font-size: 0; /* asegura cero impacto en layout si el link tuviese texto */
+  cursor: pointer;
 }
 
 .case__cover-link:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -3px;
   border-radius: var(--radius-md);
+}
+
+/* Indicación visual: toda la card es clickeable (incluye mockup y body) */
+.case--live {
+  cursor: pointer;
+}
+
+/* Hover más expresivo: además del lift, el mockup hace zoom sutil */
+.case--live:hover .case__mockup-img {
+  transform: scale(1.04);
+  transition: transform 600ms var(--ease-out);
+}
+
+.case--live .case__mockup {
+  overflow: hidden;
+}
+
+.case--live:hover .case__name {
+  color: var(--accent);
+  transition: color 300ms var(--ease-out);
 }
 
 /* Tag de acción destacada dentro del body */
