@@ -100,7 +100,7 @@ ol {
 
   /* Layout */
   --container-max: 1400px;
-  --container-pad: clamp(1.25rem, 4vw, 3rem);
+  --container-pad: clamp(1.5rem, 4vw, 3rem);
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -154,12 +154,15 @@ p {
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-  padding: 0.85rem 1.5rem;
+  padding: 1.1rem 2rem;
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  max-width: 100%;
   border-radius: 999px;
   transition:
     background-color var(--dur-fast) var(--ease-out),
@@ -241,6 +244,7 @@ p {
   align-items: center;
   gap: var(--space-xs);
   will-change: transform;
+  white-space: nowrap;
 }
 
 /* -------- HEADER -------- */
@@ -597,6 +601,7 @@ p {
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-md);
+  max-width: 100%;
 }
 
 .hero__meta {
