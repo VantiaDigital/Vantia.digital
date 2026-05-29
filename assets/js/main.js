@@ -299,6 +299,21 @@
     window.addEventListener('pagehide', () => {
       clearTimeout(slowTimer);
     });
+
+    // SI los componentes (header, footer, etc.) tardan más de 250ms en cargar
+    // tras la primera renderización, mostrar el loader. Esto cubre el caso
+    // "la página se ve pero el header no" reportado por el usuario.
+    const componentsTimer = setTimeout(() => {
+      if (!window.__componentsLoaded) showLoader();
+    }, 250);
+    document.addEventListener('components:loaded', () => {
+      clearTimeout(componentsTimer);
+      hideLoader();
+    }, { once: true });
+    // Si la página no tiene placeholders de componentes, no esperar
+    if (!document.querySelector('[data-component]')) {
+      clearTimeout(componentsTimer);
+    }
   }
 
   // -------- ACTIVE NAV LINK --------
