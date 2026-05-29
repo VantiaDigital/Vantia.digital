@@ -184,100 +184,21 @@
   }
 
   // -------- PAGE TRANSITIONS --------
+  // Política nueva (post feedback usuario):
+  // - NO interceptamos clicks de links. La navegación es nativa del navegador.
+  //   Eso permite bfcache funcionar bien (back del navegador es instantáneo).
+  //   Si la página destino tarda, el navegador muestra su propio loader.
+  // - El overlay "Vantia..." se mantiene oculto por default. Solo aparece como
+  //   fallback si en algún momento se reactiva manualmente (cookie banner, etc.).
   function initPageTransitions() {
     const overlay = document.querySelector('.page-transition');
     if (!overlay) return;
-
-    // Helper: garantiza overlay invisible y sin captar eventos
-    const hideOverlayHard = () => {
-      overlay.style.transform = 'scaleY(0)';
-      overlay.style.opacity = '0';
-      overlay.style.pointerEvents = 'none';
-    };
-
-    // FALLBACK 1: si la animación de gsap nunca termina o gsap no carga,
-    // forzar overlay oculto después de 1.5s. Garantiza que el header nunca
-    // quede tapado en una navegación que falló silenciosamente.
-    const safetyTimer = setTimeout(hideOverlayHard, 1500);
-
-    // Sin gsap: limpiamos y salimos (los links funcionan como navegación nativa)
-    if (!window.gsap) {
-      hideOverlayHard();
-      return;
-    }
-
-    // Entrada (overlay sale al cargar) — MÁS RÁPIDO para no demorar
-    // la percepción de carga, sobre todo al volver con back del navegador.
-    gsap.set(overlay, { scaleY: 1, transformOrigin: 'top' });
-    gsap.set('.page-transition__logo', { opacity: 1 });
-
-    const tlIn = gsap.timeline({
-      delay: 0,
-      onComplete: () => {
-        clearTimeout(safetyTimer);
-        hideOverlayHard();
-      },
-      onInterrupt: hideOverlayHard,
-    });
-    tlIn
-      .to('.page-transition__logo', { opacity: 0, duration: 0.15, ease: 'power2.out' }, 0)
-      .to(overlay, {
-        scaleY: 0,
-        duration: 0.4,
-        ease: 'expo.inOut',
-        transformOrigin: 'top',
-      }, 0.05);
-
-    // Salida (al hacer click en link interno)
-    document.querySelectorAll('a[href]').forEach((link) => {
-      const href = link.getAttribute('href');
-      if (!href) return;
-      // Saltar anchors-only (#algo) y links con hash al mismo path
-      if (href.startsWith('#')) return;
-      // Saltar mailto, tel, javascript:, etc.
-      if (/^(mailto:|tel:|javascript:)/.test(href)) return;
-      // Solo navegamos en links que apuntan a otro .html
-      const isInternal = href.includes('.html') ||
-                         href === '/' ||
-                         (href.startsWith('/') && !href.startsWith('//'));
-      if (!isInternal) return;
-      if (link.target === '_blank' || link.hasAttribute('download')) return;
-
-      // Si el link es a la página actual (mismo pathname), saltar también
-      try {
-        const u = new URL(link.href);
-        if (u.pathname === window.location.pathname && u.hash) return;
-      } catch (_) { /* noop */ }
-
-      link.addEventListener('click', (e) => {
-        if (e.metaKey || e.ctrlKey || e.shiftKey) return;
-        e.preventDefault();
-        const url = link.href;
-
-        // FALLBACK 2: si la animación se cuelga, navegar a la fuerza después de 500ms
-        const navigateFallback = setTimeout(() => { window.location.href = url; }, 500);
-
-        gsap.set(overlay, { scaleY: 0, transformOrigin: 'bottom' });
-        const tlOut = gsap.timeline({
-          onComplete: () => {
-            clearTimeout(navigateFallback);
-            window.location.href = url;
-          },
-          onInterrupt: () => {
-            clearTimeout(navigateFallback);
-            window.location.href = url;
-          },
-        });
-        tlOut
-          .to(overlay, {
-            scaleY: 1,
-            duration: 0.3,
-            ease: 'expo.inOut',
-            transformOrigin: 'bottom',
-          })
-          .to('.page-transition__logo', { opacity: 1, duration: 0.15, ease: 'power2.out' }, 0.15);
-      });
-    });
+    // Asegurar overlay oculto. Sin animaciones, sin interceptar clicks.
+    overlay.style.transform = 'scaleY(0)';
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    const logo = document.querySelector('.page-transition__logo');
+    if (logo) logo.style.opacity = '0';
   }
 
   // -------- ACTIVE NAV LINK --------
