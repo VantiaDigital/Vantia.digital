@@ -183,21 +183,10 @@
     });
   }
 
-  // -------- PAGE TRANSITIONS --------
-  // Política final: navegación 100% nativa del browser. Sin overlay automático.
-  // El browser muestra sus propios indicadores si la carga tarda (favicon
-  // spinner, barra de progreso, cursor). El overlay HTML queda oculto siempre,
-  // disponible solo para uso manual futuro si hiciera falta.
-  function initPageTransitions() {
-    const overlay = document.querySelector('.page-transition');
-    if (!overlay) return;
-    overlay.style.visibility = 'hidden';
-    overlay.style.opacity = '0';
-    overlay.style.transform = 'scaleY(0)';
-    overlay.style.pointerEvents = 'none';
-    const logo = document.querySelector('.page-transition__logo');
-    if (logo) logo.style.opacity = '0';
-  }
+  // Navegación 100% nativa del browser. Sin overlay, sin transición JS.
+  // El elemento .page-transition fue eliminado del HTML — esta función es noop
+  // de compatibilidad por si alguna pestaña vieja la invoca.
+  function initPageTransitions() { /* noop */ }
 
   // -------- ACTIVE NAV LINK --------
   function markActiveNav() {
