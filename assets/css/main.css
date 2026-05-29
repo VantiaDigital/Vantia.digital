@@ -79,7 +79,7 @@ ol {
   --font-body: 'Inter', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* Escala fluida */
-  --fs-hero: clamp(2.75rem, 7vw, 6.5rem);
+  --fs-hero: clamp(2.5rem, 5.6vw, 5.25rem);
   --fs-h1: clamp(2.25rem, 5vw, 4.25rem);
   --fs-h2: clamp(1.75rem, 3.5vw, 3rem);
   --fs-h3: clamp(1.25rem, 2vw, 1.75rem);
@@ -581,7 +581,7 @@ p {
   font-size: var(--fs-hero);
   line-height: 1.04;
   letter-spacing: -0.03em;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .hero__title em {
@@ -594,7 +594,7 @@ p {
   font-size: clamp(1.05rem, 1.4vw, 1.25rem);
   max-width: 56ch;
   color: rgba(236, 232, 216, 0.75);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   line-height: 1.55;
 }
 
@@ -3223,4 +3223,32 @@ select:focus-visible,
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 3px;
+}
+
+/* ============================================
+   HERO ENTRANCE — fade por CSS (sin GSAP)
+   El texto del hero ya NO depende de GSAP para verse. Visible por defecto
+   + un fade suave en la carga. Si CSS/JS fallan, el contenido igual aparece.
+   Solo anima opacity (seguro en cualquier elemento, no rompe el layout).
+   ============================================ */
+.hero__title,
+.hero__subtitle,
+.hero__cta-row {
+  animation: heroFadeIn 0.8s var(--ease-out) both;
+}
+.hero__subtitle { animation-delay: 0.12s; }
+.hero__cta-row { animation-delay: 0.24s; }
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title,
+  .hero__subtitle,
+  .hero__cta-row {
+    animation: none;
+    opacity: 1;
+  }
 }

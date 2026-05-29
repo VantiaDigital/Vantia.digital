@@ -46,49 +46,26 @@
   }
 
   // -------- HERO INTRO --------
+  // IMPORTANTE: el TEXTO del hero (título, subtítulo, CTAs) ya NO se anima con
+  // GSAP. Antes GSAP los ponía en opacity:0 y los revelaba; si GSAP tardaba o
+  // fallaba, los botones quedaban INVISIBLES. Ahora el texto se muestra siempre
+  // (visible por defecto + un fade suave por CSS, ver animations.css). Acá GSAP
+  // sólo anima el cristal y la grilla, que son decorativos y tienen opacity
+  // segura por defecto en CSS.
   function heroIntro() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
 
-    // Set initial states — más dramático
-    gsap.set('.hero__title .mask-line > *', { yPercent: 115 });
-    gsap.set('.hero__subtitle', { opacity: 0, y: 36 });
-    gsap.set('.hero__cta-row > *', { opacity: 0, y: 28, scale: 0.92 });
-    gsap.set('.hero__meta-item', { opacity: 0, y: 18 });
-    gsap.set('.hero__crystal', { opacity: 0, scale: 0.55, rotate: -25, filter: 'blur(20px)' });
     gsap.set('.hero__grid', { opacity: 0 });
-
     const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
-
     tl.to('.hero__grid', { opacity: 1, duration: 1.2, ease: 'power2.out' }, 0)
-      .to('.hero__crystal', {
-        opacity: 0.55,
-        scale: 1,
-        rotate: 0,
-        filter: 'blur(0px)',
-        duration: 2.2,
+      .from('.hero__crystal', {
+        opacity: 0,
+        scale: 0.7,
+        rotate: -18,
+        duration: 2.0,
         ease: 'expo.out',
-      }, 0)
-      .to('.hero__title .mask-line > *', {
-        yPercent: 0,
-        duration: 1.4,
-        stagger: 0.1,
-      }, 0.35)
-      .to('.hero__subtitle', { opacity: 1, y: 0, duration: 1.2 }, 0.85)
-      .to('.hero__cta-row > *', {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        stagger: 0.12,
-        ease: 'back.out(1.4)',
-      }, 1.05)
-      .to('.hero__meta-item', {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.08,
-      }, 1.25);
+      }, 0);
   }
 
   // -------- HERO PARALLAX (scroll) --------
