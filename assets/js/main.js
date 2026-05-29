@@ -300,16 +300,22 @@
       clearTimeout(slowTimer);
     });
 
-    // SI los componentes (header, footer, etc.) tardan más de 250ms en cargar
-    // tras la primera renderización, mostrar el loader. Esto cubre el caso
-    // "la página se ve pero el header no" reportado por el usuario.
+    // SI los componentes (header, footer, etc.) o el primer paint del hero
+    // tardan en estar listos, mostrar el loader. El threshold es bajo (150ms)
+    // para capturar también ese borde donde las animaciones se ven "trabadas".
     const componentsTimer = setTimeout(() => {
       if (!window.__componentsLoaded) showLoader();
-    }, 250);
+    }, 150);
+
+    // Cuando los componentes están listos, esperar 200ms extra antes de
+    // ocultar el loader. Ese buffer cubre el momento en que las animaciones
+    // GSAP del hero arrancan; si las primeras animaciones se ven trabadas,
+    // el loader las tapa hasta que estén estabilizadas.
     document.addEventListener('components:loaded', () => {
       clearTimeout(componentsTimer);
-      hideLoader();
+      setTimeout(hideLoader, 200);
     }, { once: true });
+
     // Si la página no tiene placeholders de componentes, no esperar
     if (!document.querySelector('[data-component]')) {
       clearTimeout(componentsTimer);
