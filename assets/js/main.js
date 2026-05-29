@@ -206,12 +206,13 @@
       return;
     }
 
-    // Entrada (overlay sale al cargar)
+    // Entrada (overlay sale al cargar) — MÁS RÁPIDO para no demorar
+    // la percepción de carga, sobre todo al volver con back del navegador.
     gsap.set(overlay, { scaleY: 1, transformOrigin: 'top' });
     gsap.set('.page-transition__logo', { opacity: 1 });
 
     const tlIn = gsap.timeline({
-      delay: 0.1,
+      delay: 0,
       onComplete: () => {
         clearTimeout(safetyTimer);
         hideOverlayHard();
@@ -219,13 +220,13 @@
       onInterrupt: hideOverlayHard,
     });
     tlIn
-      .to('.page-transition__logo', { opacity: 0, duration: 0.3, ease: 'power2.out' }, 0.2)
+      .to('.page-transition__logo', { opacity: 0, duration: 0.15, ease: 'power2.out' }, 0)
       .to(overlay, {
         scaleY: 0,
-        duration: 0.9,
+        duration: 0.4,
         ease: 'expo.inOut',
         transformOrigin: 'top',
-      }, 0.3);
+      }, 0.05);
 
     // Salida (al hacer click en link interno)
     document.querySelectorAll('a[href]').forEach((link) => {
@@ -253,8 +254,8 @@
         e.preventDefault();
         const url = link.href;
 
-        // FALLBACK 2: si la animación se cuelga, navegar a la fuerza después de 900ms
-        const navigateFallback = setTimeout(() => { window.location.href = url; }, 900);
+        // FALLBACK 2: si la animación se cuelga, navegar a la fuerza después de 500ms
+        const navigateFallback = setTimeout(() => { window.location.href = url; }, 500);
 
         gsap.set(overlay, { scaleY: 0, transformOrigin: 'bottom' });
         const tlOut = gsap.timeline({
@@ -270,11 +271,11 @@
         tlOut
           .to(overlay, {
             scaleY: 1,
-            duration: 0.7,
+            duration: 0.3,
             ease: 'expo.inOut',
             transformOrigin: 'bottom',
           })
-          .to('.page-transition__logo', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0.4);
+          .to('.page-transition__logo', { opacity: 1, duration: 0.15, ease: 'power2.out' }, 0.15);
       });
     });
   }
@@ -344,16 +345,34 @@
   }
 
   // BFCACHE: si la página vuelve del back/forward cache del navegador,
-  // resetear estado del overlay y desbloquear scroll (por si quedó algo colgado).
+  // resetear estado completo (overlay + body + GSAP) para evitar congelamientos
+  // o tiempos de carga visuales fantasma.
   window.addEventListener('pageshow', (e) => {
     if (!e.persisted) return;
+
+    // 1. Kill cualquier timeline de GSAP que haya quedado colgada
+    if (window.gsap && window.gsap.globalTimeline) {
+      try { window.gsap.globalTimeline.getChildren().forEach((tween) => tween.kill()); }
+      catch (_) { /* noop */ }
+    }
+
+    // 2. Reset overlay del page-transition
     const ov = document.querySelector('.page-transition');
     if (ov) {
       ov.style.transform = 'scaleY(0)';
       ov.style.opacity = '0';
       ov.style.pointerEvents = 'none';
     }
-    document.body.classList.remove('modal-open', 'is-nav-open');
+    const ovLogo = document.querySelector('.page-transition__logo');
+    if (ovLogo) ovLogo.style.opacity = '0';
+
+    // 3. Reset body (por si quedó modal abierto o scroll bloqueado)
+    document.body.classList.remove('modal-open', 'is-nav-open', 'is-pillar-active');
     document.body.style.overflow = '';
+
+    // 4. Lenis re-init si está suspendido
+    if (window.__lenis && typeof window.__lenis.start === 'function') {
+      window.__lenis.start();
+    }
   });
 })();
