@@ -27,9 +27,21 @@
   function pageName() {
     const p = window.location.pathname;
     if (p === '/' || p.endsWith('/index.html')) return 'home';
+    // Páginas de detalle de caso: /pages/casos/<slug>.html → "caso_<slug>"
+    const casoMatch = p.match(/\/pages\/casos\/([^\/]+)\.html$/);
+    if (casoMatch) return 'caso_' + casoMatch[1];
     const m = p.match(/\/([^\/]+)\.html$/);
     return m ? m[1] : 'otra';
   }
+
+  // Si estamos en una página de detalle de caso, disparar ver_caso_detalle
+  // una vez al cargar (complementa el page_view automático de GA4).
+  (function fireCaseDetailView() {
+    const m = window.location.pathname.match(/\/pages\/casos\/([^\/]+)\.html$/);
+    if (m && m[1]) {
+      track('ver_caso_detalle', { caso: m[1] });
+    }
+  })();
 
   function socialNet(href) {
     if (!href) return null;
@@ -82,11 +94,26 @@
       return;
     }
 
-    // Caso de éxito
+    // Caso de éxito (3 acciones distintas dentro de la card):
+    //   - cover-link → abre página de detalle del caso
+    //   - case__action a *.vantia.digital → ver sitio en vivo del cliente
+    //   - case__action a /pages/contacto.html → pedir presupuesto similar
     const caso = t.closest('article.case');
     if (caso) {
+      let accion = 'ver_detalle';
+      const action = t.closest('.case__action');
+      if (action) {
+        if (action.href && action.href.indexOf('/pages/contacto.html') > -1) {
+          accion = 'pedir_presupuesto';
+        } else {
+          accion = 'ver_sitio_vivo';
+        }
+      }
       const name = caso.querySelector('.case__name');
-      track('click_caso', { caso: clean(name && name.textContent) || 'desconocido' });
+      track('click_caso', {
+        caso: clean(name && name.textContent) || 'desconocido',
+        accion: accion
+      });
       return;
     }
 
