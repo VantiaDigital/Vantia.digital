@@ -177,20 +177,38 @@
         </section>
 
         <section class="case-study__section" data-reveal>
-          <h2 class="case-study__h2">Resultados técnicos</h2>
+          <h2 class="case-study__h2">Qué se optimizó para medir</h2>
+          <p>
+            La performance no se promete, se verifica. El sitio está construido
+            apuntando a las tres métricas que Google usa para evaluar la
+            experiencia (los Core Web Vitals):
+          </p>
           <ul class="case-study__list">
-            <li><strong>PageSpeed Insights:</strong> 98/100 en mobile, 100/100 en desktop.</li>
-            <li><strong>Largest Contentful Paint (LCP):</strong> 1.2s en móvil.</li>
-            <li><strong>Cumulative Layout Shift (CLS):</strong> 0.0 (perfecto).</li>
-            <li><strong>Interaction to Next Paint (INP):</strong> menos de 100ms.</li>
-            <li><strong>Accesibilidad WCAG 2.2 AA:</strong> validada.</li>
+            <li>
+              <strong>LCP (velocidad de carga del contenido principal):</strong>
+              imágenes optimizadas, CSS crítico inline y fonts no bloqueantes
+              para que el contenido aparezca cuanto antes.
+            </li>
+            <li>
+              <strong>CLS (estabilidad visual):</strong> dimensiones reservadas
+              para cada imagen y bloque, sin saltos de layout mientras carga.
+            </li>
+            <li>
+              <strong>INP (respuesta a la interacción):</strong> JavaScript
+              diferido y no bloqueante para que el sitio responda al instante
+              al primer toque.
+            </li>
+            <li>
+              <strong>Accesibilidad:</strong> contraste, navegación por teclado
+              y etiquetas semánticas siguiendo las pautas WCAG.
+            </li>
           </ul>
           <p>
-            La performance se evalúa de forma directa: Lighthouse devuelve el
-            mismo número en cada test, repetible y verificable. Los números de
-            negocio del lado del cliente (consultas que llegan, peticiones de
-            presupuesto) son visibles desde el GA4 que dejamos configurado y
-            evolucionan según el tráfico que reciba el sitio.
+            Cualquiera puede comprobar el estado actual del sitio en tiempo real
+            con <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed
+            Insights</a> de Google. La transparencia es parte del trabajo: los
+            números son los que la herramienta diga, no los que nosotros
+            afirmemos.
           </p>
         </section>
 
