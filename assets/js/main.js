@@ -271,9 +271,20 @@
 
     document.addEventListener('click', (e) => {
       if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+      // Si otro handler ya canceló la navegación (p.ej. modal.js), no mostrar loader.
+      if (e.defaultPrevented) return;
+
       const link = e.target.closest('a[href]');
       if (!link) return;
       if (link.target === '_blank' || link.hasAttribute('download')) return;
+
+      // Links que abren modales / presupuesto / scroll-top NO navegan: los maneja
+      // otro JS (modal.js / initScrollTop). Si la acción ocurre en esta página,
+      // el loader no debe aparecer (quedaría pegado porque la página no se descarga).
+      if (link.hasAttribute('data-scroll-top')) return;
+      if (link.closest('[data-budget]')) return;
+      const mt = link.closest('[data-modal-trigger]');
+      if (mt && document.getElementById('modal-' + mt.dataset.modalTrigger)) return;
 
       const href = link.getAttribute('href');
       if (!href || href.startsWith('#')) return;
@@ -284,9 +295,12 @@
                          (href.startsWith('/') && !href.startsWith('//'));
       if (!isInternal) return;
 
+      // Normalizar "/" y "/index.html" como la misma página: si el destino es
+      // la página actual (con o sin hash), no es navegación → no loader.
       try {
         const u = new URL(link.href);
-        if (u.pathname === window.location.pathname && u.hash) return;
+        const normPath = (p) => p.replace(/\/index\.html$/, '/');
+        if (normPath(u.pathname) === normPath(window.location.pathname)) return;
       } catch (_) { /* noop */ }
 
       clearTimeout(slowTimer);
