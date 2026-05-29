@@ -15,6 +15,12 @@
   animation: grainShift 8s steps(8) infinite;
 }
 
+/* P0 perf: en mobile, mix-blend-mode + animation infinito invalida la
+   composición GPU y cuesta ~2-4 ms/frame continuo. Apagar en touch. */
+@media (max-width: 768px), (pointer: coarse) {
+  .grain { display: none; }
+}
+
 @keyframes grainShift {
   0%   { transform: translate(0, 0); }
   10%  { transform: translate(-5%, -5%); }
@@ -40,14 +46,19 @@
 }
 
 /* -------- SCROLL PROGRESS (barra fina sobre el header) -------- */
+/* P1 perf: width: 0% + style.width en scroll fuerza layout cada frame.
+   Cambiamos a transform: scaleX() — solo composite layer, 0 layout cost. */
 .scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
   height: 2px;
-  width: 0%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
   background: linear-gradient(90deg, var(--color-brown), var(--color-terracotta) 60%, var(--color-olive));
   z-index: 101;
+  will-change: transform;
   transform-origin: left;
   box-shadow: 0 0 12px rgba(193, 131, 75, 0.6);
   transition: width 60ms linear;

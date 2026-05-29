@@ -54,8 +54,10 @@
       if (progress) {
         const doc = document.documentElement;
         const max = doc.scrollHeight - window.innerHeight;
-        const pct = max > 0 ? (y / max) * 100 : 0;
-        progress.style.width = pct + '%';
+        const ratio = max > 0 ? Math.min(1, y / max) : 0;
+        // P1 perf: usar transform: scaleX en lugar de style.width.
+        // scaleX es composite-only; width forzaría layout en cada frame.
+        progress.style.transform = 'scaleX(' + ratio + ')';
       }
     };
 
@@ -301,11 +303,11 @@
     });
 
     // SI los componentes (header, footer, etc.) o el primer paint del hero
-    // tardan en estar listos, mostrar el loader. El threshold es bajo (150ms)
-    // para capturar también ese borde donde las animaciones se ven "trabadas".
+    // tardan en estar listos, mostrar el loader. Threshold 300ms: solo
+    // aparece si REALMENTE tarda, no en cargas normales.
     const componentsTimer = setTimeout(() => {
       if (!window.__componentsLoaded) showLoader();
-    }, 150);
+    }, 300);
 
     // Cuando los componentes están listos, esperar 200ms extra antes de
     // ocultar el loader. Ese buffer cubre el momento en que las animaciones

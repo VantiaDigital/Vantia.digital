@@ -25,7 +25,10 @@
 
   async function loadInto(placeholder, url) {
     try {
-      const res = await fetch(url, { cache: 'no-cache' });
+      // 'default' respeta los headers Cache-Control de _headers (max-age=300
+      // para componentes). Antes era 'no-cache', lo cual forzaba revalidación
+      // ETag en cada request anulando el preload y el cache del browser.
+      const res = await fetch(url, { cache: 'default' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       let html = await res.text();
 

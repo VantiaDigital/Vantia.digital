@@ -531,11 +531,13 @@ p {
   content: '';
   position: absolute;
   inset: -10%;
+  /* P0 perf: gradientes ampliados para reemplazar el efecto de blur(20px)
+     que era el principal frame-drop del LCP en mobile. Sin filter:blur el
+     primer paint del hero baja ~200-400 ms en GPUs débiles. */
   background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(193, 131, 75, 0.22), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(169, 155, 128, 0.18), transparent 65%),
-    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(119, 67, 28, 0.18), transparent 70%);
-  filter: blur(20px);
+    radial-gradient(ellipse 80% 70% at 80% 20%, rgba(193, 131, 75, 0.18), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 10% 80%, rgba(169, 155, 128, 0.15), transparent 75%),
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(119, 67, 28, 0.15), transparent 80%);
 }
 
 .hero__grid {
