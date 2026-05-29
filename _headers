@@ -9,15 +9,15 @@
 /assets/images/*
   Cache-Control: public, max-age=2592000
 
-# CSS y JS: ahora con cache-bust en URL (?v=N en cada referencia desde HTML).
-# Cuando se actualiza un archivo, bump del ?v en los <link>/<script> y los
-# clientes reciben la versión nueva. Con immutable evitamos 1 RTT de
-# revalidación ETag por archivo en cada navegación interna.
+# CSS y JS: revalidar SIEMPRE con ETag (no-cache). Durante desarrollo activo
+# esto evita que el navegador sirva versiones viejas cacheadas. El costo es
+# 1 RTT de revalidación por archivo (responde 304 si no cambió). Si el sitio
+# se estabiliza, se puede volver a immutable + versionado estricto.
 /assets/css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, no-cache
 
 /assets/js/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, no-cache
 
 # Components HTML (header, footer, modales)
 /components/*
