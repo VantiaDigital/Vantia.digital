@@ -274,62 +274,6 @@
   opacity: 1;
 }
 
-/* -------- PAGE TRANSITION OVERLAY -------- */
-.page-transition {
-  position: fixed;
-  inset: 0;
-  z-index: 9000;
-  background: var(--color-dark);
-  pointer-events: none;
-  transform: scaleY(0);
-  transform-origin: bottom;
-  will-change: transform;
-}
-
-.page-transition__logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--color-cream);
-  opacity: 0;
-  display: inline-flex;
-  align-items: baseline;
-}
-
-/* Animación de los 3 puntos: cada uno aparece y sube ligeramente */
-.page-transition__dots {
-  display: inline-flex;
-  margin-left: 2px;
-}
-
-.page-transition__dots span {
-  display: inline-block;
-  color: var(--accent);
-  opacity: 0;
-  animation: dotsLoading 1.4s infinite ease-in-out both;
-}
-
-.page-transition__dots span:nth-child(1) { animation-delay: 0s; }
-.page-transition__dots span:nth-child(2) { animation-delay: 0.18s; }
-.page-transition__dots span:nth-child(3) { animation-delay: 0.36s; }
-
-@keyframes dotsLoading {
-  0%   { opacity: 0; transform: translateY(0); }
-  20%  { opacity: 1; transform: translateY(-4px); }
-  40%  { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .page-transition__dots span {
-    animation: none;
-    opacity: 1;
-  }
-}
-
 /* -------- LOADER INICIAL -------- */
 .preloader {
   position: fixed;
