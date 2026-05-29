@@ -183,10 +183,123 @@
     });
   }
 
-  // Navegación 100% nativa del browser. Sin overlay, sin transición JS.
-  // El elemento .page-transition fue eliminado del HTML — esta función es noop
-  // de compatibilidad por si alguna pestaña vieja la invoca.
-  function initPageTransitions() { /* noop */ }
+  // -------- LOADER DINÁMICO "Vantia..." (solo si la carga tarda) --------
+  // Política:
+  // - Click en link interno → setTimeout 350ms.
+  // - Si la nueva página termina de cargar antes → no se muestra nada.
+  // - Si tarda más de 350ms → se crea el overlay dinámicamente y se muestra.
+  // - El overlay se descarta automáticamente cuando el browser descarta la
+  //   página vieja para mostrar la nueva. La nueva página no tiene loader
+  //   (el HTML no lo contiene), entonces queda limpia.
+  // - bfcache: pageshow + pagehide limpian el timer y el overlay.
+  function initPageTransitions() {
+    const LOADER_ID = '__vantia_loader__';
+    let slowTimer = null;
+
+    function createLoader() {
+      let el = document.getElementById(LOADER_ID);
+      if (el) return el;
+      el = document.createElement('div');
+      el.id = LOADER_ID;
+      el.setAttribute('aria-hidden', 'true');
+      el.innerHTML =
+        '<div class="__vl-inner">Vantia' +
+        '<span class="__vl-dots"><span>.</span><span>.</span><span>.</span></span>' +
+        '</div>';
+      el.style.cssText = [
+        'position:fixed',
+        'inset:0',
+        'z-index:99999',
+        'background:#1A1813',
+        'display:flex',
+        'align-items:center',
+        'justify-content:center',
+        'opacity:0',
+        'transition:opacity 200ms ease-out',
+        'pointer-events:none',
+      ].join(';');
+
+      const inner = el.querySelector('.__vl-inner');
+      inner.style.cssText = [
+        'font-family:"Fraunces",serif',
+        'font-size:1.5rem',
+        'color:#ECE8D8',
+        'display:inline-flex',
+        'align-items:baseline',
+        'letter-spacing:-0.01em',
+      ].join(';');
+
+      // Estilo para los puntos animados
+      const styleId = '__vl-style';
+      if (!document.getElementById(styleId)) {
+        const s = document.createElement('style');
+        s.id = styleId;
+        s.textContent =
+          '.__vl-dots{display:inline-flex;margin-left:2px}' +
+          '.__vl-dots span{display:inline-block;color:#C1834B;opacity:0;' +
+          'animation:__vl-d 1.4s infinite ease-in-out both}' +
+          '.__vl-dots span:nth-child(2){animation-delay:.18s}' +
+          '.__vl-dots span:nth-child(3){animation-delay:.36s}' +
+          '@keyframes __vl-d{0%{opacity:0;transform:translateY(0)}' +
+          '20%{opacity:1;transform:translateY(-4px)}' +
+          '40%{opacity:1;transform:translateY(0)}' +
+          '100%{opacity:0;transform:translateY(0)}}';
+        document.head.appendChild(s);
+      }
+
+      document.body.appendChild(el);
+      // Forzar reflow para que la transición opacity funcione
+      void el.offsetWidth;
+      return el;
+    }
+
+    function showLoader() {
+      const el = createLoader();
+      el.style.opacity = '1';
+      el.style.pointerEvents = 'auto';
+    }
+
+    function hideLoader() {
+      const el = document.getElementById(LOADER_ID);
+      if (el) {
+        el.style.opacity = '0';
+        el.style.pointerEvents = 'none';
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      if (link.target === '_blank' || link.hasAttribute('download')) return;
+
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+      if (/^(mailto:|tel:|javascript:)/.test(href)) return;
+
+      const isInternal = href.includes('.html') ||
+                         href === '/' ||
+                         (href.startsWith('/') && !href.startsWith('//'));
+      if (!isInternal) return;
+
+      try {
+        const u = new URL(link.href);
+        if (u.pathname === window.location.pathname && u.hash) return;
+      } catch (_) { /* noop */ }
+
+      clearTimeout(slowTimer);
+      slowTimer = setTimeout(showLoader, 350);
+    });
+
+    // bfcache: al volver con back, asegurar todo limpio
+    window.addEventListener('pageshow', () => {
+      clearTimeout(slowTimer);
+      hideLoader();
+    });
+    window.addEventListener('pagehide', () => {
+      clearTimeout(slowTimer);
+    });
+  }
 
   // -------- ACTIVE NAV LINK --------
   function markActiveNav() {
