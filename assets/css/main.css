@@ -3252,3 +3252,70 @@ select:focus-visible,
     opacity: 1;
   }
 }
+
+/* ============================================
+   SERVICIO → CASO DESTACADO (cross-link en servicios.html)
+   ============================================ */
+.service-case-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid rgba(60, 58, 47, 0.15);
+  border-radius: var(--radius-md);
+  background: rgba(193, 131, 75, 0.04);
+  text-decoration: none;
+  transition: border-color var(--dur-fast) var(--ease-out),
+              background var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.service-case-link:hover {
+  border-color: var(--accent);
+  background: rgba(193, 131, 75, 0.08);
+  transform: translateY(-2px);
+}
+.service-case-link__media {
+  flex: 0 0 auto;
+  width: 96px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-deep);
+}
+.service-case-link__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.service-case-link__text { flex: 1 1 auto; min-width: 0; }
+.service-case-link__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.service-case-link__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+.service-case-link__arrow {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 1.2rem;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.service-case-link:hover .service-case-link__arrow {
+  transform: translateX(4px);
+}
+@media (max-width: 520px) {
+  .service-case-link__media { display: none; }
+}
