@@ -184,80 +184,19 @@
   }
 
   // -------- PAGE TRANSITIONS --------
-  // Política:
-  // - NO se hace preventDefault: la navegación es nativa del browser.
-  //   Eso preserva bfcache (back del browser es instantáneo cuando aplica).
-  // - El overlay "Vantia..." aparece SOLO si la nueva página tarda más de
-  //   250ms en cargar. Cargas rápidas: no se ve overlay.
+  // Política final: navegación 100% nativa del browser. Sin overlay automático.
+  // El browser muestra sus propios indicadores si la carga tarda (favicon
+  // spinner, barra de progreso, cursor). El overlay HTML queda oculto siempre,
+  // disponible solo para uso manual futuro si hiciera falta.
   function initPageTransitions() {
     const overlay = document.querySelector('.page-transition');
     if (!overlay) return;
-
+    overlay.style.visibility = 'hidden';
+    overlay.style.opacity = '0';
+    overlay.style.transform = 'scaleY(0)';
+    overlay.style.pointerEvents = 'none';
     const logo = document.querySelector('.page-transition__logo');
-
-    const hideOverlay = () => {
-      overlay.style.visibility = 'hidden';
-      overlay.style.opacity = '0';
-      overlay.style.transform = 'scaleY(0)';
-      overlay.style.pointerEvents = 'none';
-      if (logo) logo.style.opacity = '0';
-    };
-
-    const showOverlay = () => {
-      overlay.style.visibility = 'visible';
-      overlay.style.opacity = '1';
-      overlay.style.transform = 'scaleY(1)';
-      overlay.style.transformOrigin = 'bottom';
-      overlay.style.pointerEvents = 'auto';
-      if (logo) logo.style.opacity = '1';
-    };
-
-    // Estado inicial: oculto
-    hideOverlay();
-
-    let slowTimer = null;
-
-    // Listener delegado: programa overlay si la navegación tarda > 250ms.
-    // NO usamos preventDefault — el browser navega nativo a su máxima velocidad.
-    document.addEventListener('click', (e) => {
-      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
-      const link = e.target.closest('a[href]');
-      if (!link) return;
-      if (link.target === '_blank' || link.hasAttribute('download')) return;
-
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#')) return;
-      if (/^(mailto:|tel:|javascript:)/.test(href)) return;
-
-      // Solo navegación interna (mismo origen + termina en .html o ruta absoluta)
-      const isInternal = href.includes('.html') ||
-                         href === '/' ||
-                         (href.startsWith('/') && !href.startsWith('//'));
-      if (!isInternal) return;
-
-      // Si el link es a la misma URL (solo hash), no es navegación
-      try {
-        const u = new URL(link.href);
-        if (u.pathname === window.location.pathname && u.hash) return;
-      } catch (_) { /* noop */ }
-
-      // Programar overlay: aparece SOLO si la nueva página no terminó de cargar
-      // en 250ms. Si el browser navega rápido, este setTimeout no llega a ejecutarse.
-      clearTimeout(slowTimer);
-      slowTimer = setTimeout(showOverlay, 250);
-    });
-
-    // Si la página vuelve del bfcache (back/forward), asegurar overlay oculto
-    window.addEventListener('pageshow', (e) => {
-      clearTimeout(slowTimer);
-      hideOverlay();
-    });
-
-    // Si la página entra en hide (browser está navegando o cambiando de pestaña),
-    // limpiar el timer para que no quede colgado en la página vieja
-    window.addEventListener('pagehide', () => {
-      clearTimeout(slowTimer);
-    });
+    if (logo) logo.style.opacity = '0';
   }
 
   // -------- ACTIVE NAV LINK --------
