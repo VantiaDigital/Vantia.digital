@@ -338,7 +338,9 @@
     heroIntro();
     heroParallax();
     crystalMouseFollow();
-    setupReveals();
+    // setupReveals() eliminado: los reveals ahora los maneja un
+    // IntersectionObserver nativo en main.js (initReveals), independiente de
+    // GSAP. Así el contenido nunca queda invisible esperando que cargue GSAP.
     pillarsInteraction();
     footerParallax();
 

@@ -302,26 +302,56 @@
       clearTimeout(slowTimer);
     });
 
-    // SI los componentes (header, footer, etc.) o el primer paint del hero
-    // tardan en estar listos, mostrar el loader. Threshold 300ms: solo
-    // aparece si REALMENTE tarda, no en cargas normales.
-    const componentsTimer = setTimeout(() => {
-      if (!window.__componentsLoaded) showLoader();
-    }, 300);
+    // NOTA: ya NO mostramos el loader esperando a los componentes. El header
+    // ahora está inline en el HTML (instantáneo) y el contenido se revela vía
+    // IntersectionObserver nativo (instantáneo arriba). Los componentes que
+    // quedan (footer, whatsapp, cookie-banner) están abajo o son overlays:
+    // su carga no bloquea nada visible. El loader solo aparece en navegación
+    // realmente lenta (el setTimeout de 350ms arriba).
+  }
 
-    // Cuando los componentes están listos, esperar 200ms extra antes de
-    // ocultar el loader. Ese buffer cubre el momento en que las animaciones
-    // GSAP del hero arrancan; si las primeras animaciones se ven trabadas,
-    // el loader las tapa hasta que estén estabilizadas.
-    document.addEventListener('components:loaded', () => {
-      clearTimeout(componentsTimer);
-      setTimeout(hideLoader, 200);
-    }, { once: true });
+  // -------- REVEAL NATIVO (IntersectionObserver, sin GSAP) --------
+  // Reemplaza el setupReveals de GSAP. El contenido nunca queda invisible
+  // esperando que cargue una librería: arriba se revela al instante (el IO lo
+  // ve en viewport al cargar), abajo al hacer scroll. Cero dependencia de GSAP.
+  function initReveals() {
+    const reveals = document.querySelectorAll('[data-reveal]');
+    const childWraps = document.querySelectorAll('[data-reveal-children]');
 
-    // Si la página no tiene placeholders de componentes, no esperar
-    if (!document.querySelector('[data-component]')) {
-      clearTimeout(componentsTimer);
+    // Aplicar delays declarados (data-reveal-delay) como transition-delay
+    reveals.forEach((el) => {
+      const d = parseFloat(el.dataset.revealDelay || 0);
+      if (d) el.style.transitionDelay = d + 's';
+    });
+    // Stagger de los hijos
+    childWraps.forEach((parent) => {
+      Array.from(parent.children).forEach((c, i) => {
+        c.style.transitionDelay = (i * 0.08) + 's';
+      });
+    });
+
+    const targets = [
+      ...reveals,
+      ...Array.from(childWraps).flatMap((p) => Array.from(p.children)),
+    ];
+    if (!targets.length) return;
+
+    // Sin IntersectionObserver: mostrar todo de una (fallback seguro)
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('is-visible'));
+      return;
     }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach((el) => io.observe(el));
   }
 
   // -------- ACTIVE NAV LINK --------
@@ -354,20 +384,24 @@
 
   // -------- INIT --------
   function initInline() {
-    // Cosas que no dependen de componentes (Lenis, counters)
+    // Cosas que no dependen de componentes ni de GSAP. Corre siempre, primero.
+    initReveals();          // reveal nativo IO — el contenido se muestra sí o sí
+    initPageTransitions();  // loader de navegación lenta (no depende de componentes)
     initLenis();
     initCounters();
     initScrollTop();
   }
 
   function initWithComponents() {
-    // Cosas que SÍ dependen del header/footer/whatsapp/modales cargados
+    // Cosas que dependen del footer/whatsapp/modales cargados vía fetch.
+    // (El header ahora es inline, pero initHeader/initMobileNav/markActiveNav
+    // operan sobre él igual — está presente desde el inicio.)
     initHeader();
     initMobileNav();
     initMagnetic();
     initWhatsapp();
     markActiveNav();
-    requestAnimationFrame(initPageTransitions);
+    // initPageTransitions se movió a initInline (no depende de componentes).
   }
 
   function init() {

@@ -62,7 +62,9 @@
 
   // Lista canónica de componentes que cada página debería incluir.
   // Si alguno falta, se emite un warning para detectarlo en consola.
-  const EXPECTED_COMPONENTS = ['header', 'footer', 'whatsapp', 'cookie-banner'];
+  // 'header' ya NO está acá: ahora se inlinea en el HTML (build_inline_header.py)
+  // para que aparezca instantáneo, no vía fetch.
+  const EXPECTED_COMPONENTS = ['footer', 'whatsapp', 'cookie-banner'];
 
   async function loadAll() {
     const base = getBase();

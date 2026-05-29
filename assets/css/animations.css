@@ -271,18 +271,40 @@
   font-style: italic;
 }
 
-/* Elementos animados por GSAP empiezan invisibles
-   para evitar FOUC. JS los revela. */
+/* REVEAL — animación de entrada vía IntersectionObserver nativo (no GSAP).
+   Elementos arrancan ligeramente abajo + invisibles; .is-visible (lo agrega
+   un IO en main.js, instantáneo y sin dependencias) los muestra con transición
+   CSS. Above-the-fold se revela al instante (IO los ve en viewport al cargar);
+   below-the-fold al hacer scroll. Si JS no corre, .no-js los muestra. */
 [data-reveal],
 [data-reveal-children] > * {
   opacity: 0;
-  will-change: transform, opacity;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
 }
 
-/* Fallback si JS no carga: muestra el contenido */
+[data-reveal].is-visible,
+[data-reveal-children] > .is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Fallback si JS no carga: muestra el contenido sin animación */
 .no-js [data-reveal],
 .no-js [data-reveal-children] > * {
   opacity: 1;
+  transform: none;
+}
+
+/* Respeta usuarios que pidieron menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal-children] > * {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* -------- LOADER INICIAL -------- */

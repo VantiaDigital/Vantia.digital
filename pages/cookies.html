@@ -16,8 +16,7 @@
 
   <title>Política de Cookies · Vantia Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
-  <link rel="preload" href="/components/header.html" as="fetch" crossorigin />
-  <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
+<link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
   <link rel="preload" href="/assets/css/main.css?v=2" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
@@ -77,7 +76,30 @@
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <div data-component="header"></div>
+  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+      <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
+        <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
+        <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
+      </svg>
+      <span class="logo__brand">Vantia<span>Digital</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
+      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
+      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
+      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
+    </nav>
+
+    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+  <!-- BUILD:header:end -->
 
   <main id="main">
 
