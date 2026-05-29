@@ -3183,3 +3183,44 @@ body.theme-light .nav__toggle {
     border-bottom: 0;
   }
 }
+
+/* ============================================
+   ACCESIBILIDAD — skip-link + focus visible
+   (recomendado por auditoría ui-ux-pro-max, prioridad 1)
+   ============================================ */
+
+/* Skip-link: oculto hasta que se enfoca con teclado (Tab). Permite saltar
+   directo al contenido sin tabular por todo el header. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100000;
+  background: var(--color-deep);
+  color: var(--color-cream);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Focus visible: anillo de foco claro SOLO en navegación por teclado
+   (no aparece al click de mouse, gracias a :focus-visible). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
