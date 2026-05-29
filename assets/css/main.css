@@ -3063,12 +3063,13 @@ body.theme-light .nav__toggle {
    CASE CARDS — clickeable cover + acciones debajo
    ============================================ */
 /* Cover link invisible que hace toda la card clickeable a la página detallada.
-   Cubre desde el top del mockup hasta justo arriba del strip de acciones. */
+   z-index alto (5) para estar por encima del mockup-img (que tenía z-index: 2)
+   pero por debajo del strip de actions (z-index 6) que necesita interceptar clicks. */
 .case__cover-link {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  font-size: 0; /* asegura cero impacto en layout si el link tuviese texto */
+  z-index: 5;
+  font-size: 0;
   cursor: pointer;
 }
 
@@ -3114,7 +3115,7 @@ body.theme-light .nav__toggle {
 /* Strip de acciones secundarias al pie de la card */
 .case__actions {
   position: relative;
-  z-index: 2; /* por encima del cover-link */
+  z-index: 6; /* por encima del cover-link (5) para que los botones intercepten clicks */
   display: flex;
   flex-wrap: wrap;
   gap: 0;
