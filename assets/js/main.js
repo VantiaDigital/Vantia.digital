@@ -13,6 +13,7 @@
   let lenis;
 
   function initLenis() {
+    if (window.__lenis) return;            // ya inicializado (idempotente)
     if (typeof Lenis === 'undefined') return;
 
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -72,6 +73,8 @@
     if (!targets.length || !window.gsap) return;
 
     targets.forEach((el) => {
+      if (el.dataset.magneticBound) return;  // idempotente (GSAP carga diferido)
+      el.dataset.magneticBound = '1';
       const label = el.querySelector('.btn__label') || el;
       const strength = 0.32;
       const radius = 80;
@@ -114,29 +117,47 @@
   }
 
   // -------- COUNTERS --------
+  // Contador nativo (sin GSAP) — RAF + IntersectionObserver.
+  // Así funciona en móvil aunque GSAP no se cargue (se carga solo en desktop).
   function initCounters() {
     const els = document.querySelectorAll('[data-count-to]');
-    if (!els.length || !window.gsap || !window.ScrollTrigger) return;
+    if (!els.length) return;
 
-    els.forEach((el) => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const animate = (el) => {
       const target = parseFloat(el.dataset.countTo);
       if (isNaN(target)) return;
-      const obj = { v: 0 };
+      if (prefersReduced) { el.textContent = String(target); return; }
 
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top 85%',
-        once: true,
-        onEnter: () => {
-          gsap.to(obj, {
-            v: target,
-            duration: 2.2,
-            ease: 'power2.out',
-            onUpdate: () => { el.textContent = Math.round(obj.v); },
-          });
-        },
+      const duration = 1800;
+      let start = null;
+      const ease = (t) => 1 - Math.pow(1 - t, 3); // easeOutCubic
+      const step = (ts) => {
+        if (start === null) start = ts;
+        const p = Math.min(1, (ts - start) / duration);
+        el.textContent = String(Math.round(target * ease(p)));
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = String(target);
+      };
+      requestAnimationFrame(step);
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach((el) => { el.textContent = el.dataset.countTo; });
+      return;
+    }
+
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          obs.unobserve(entry.target);
+        }
       });
-    });
+    }, { rootMargin: '0px 0px -15% 0px' });
+
+    els.forEach((el) => io.observe(el));
   }
 
   // -------- MOBILE NAV --------
@@ -429,6 +450,12 @@
       document.addEventListener('components:loaded', initWithComponents, { once: true });
     }
   }
+
+  // Expuesto para el loader diferido de desktop: GSAP/Lenis se cargan después
+  // del window.load (fuera del critical path). Cuando terminan, el loader llama
+  // a estas dos para activar smooth scroll + botones magnéticos (que necesitan GSAP).
+  window.__vantiaInitLenis = initLenis;
+  window.__vantiaInitMagnetic = initMagnetic;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

@@ -233,13 +233,38 @@
   <div data-component="footer"></div>
   <div data-component="cookie-banner"></div>
 
-  <script src="/assets/js/vendor/gsap.min.js" defer></script>
-  <script src="/assets/js/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="/assets/js/vendor/lenis.min.js" defer></script>
 
+  <!-- vantia-enhancements-loader: GSAP + ScrollTrigger + Lenis + animations.js.
+       Solo en desktop con puntero fino. En movil NO se cargan (~125KB menos de
+       JS): el contenido, los reveals (IntersectionObserver) y los contadores son
+       nativos y no dependen de estas libs. Respeta prefers-reduced-motion. -->
+  <script>
+    (function () {
+      var fine = window.matchMedia && window.matchMedia('(min-width: 900px) and (pointer: fine)').matches;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!fine || reduce) return;
+      var srcs = [
+        '/assets/js/vendor/gsap.min.js',
+        '/assets/js/vendor/ScrollTrigger.min.js',
+        '/assets/js/vendor/lenis.min.js',
+        '/assets/js/animations.js?v=6'
+      ];
+      srcs.forEach(function (src, i) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.async = false; // descarga en paralelo, ejecuta en orden
+        if (i === srcs.length - 1) {
+          s.onload = function () {
+            if (window.__vantiaInitLenis) window.__vantiaInitLenis();
+            if (window.__vantiaInitMagnetic) window.__vantiaInitMagnetic();
+          };
+        }
+        document.head.appendChild(s);
+      });
+    })();
+  </script>
   <script src="/assets/js/components-loader.js?v=6" defer></script>
   <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/animations.js?v=6" defer></script>
   <script src="/assets/js/main.js?v=6" defer></script>
   <script src="/assets/js/analytics-events.js?v=6" defer></script>
 
