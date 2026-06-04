@@ -1,0 +1,25 @@
+Tu web puede cargar en un segundo y, aun así, no venderte nada.
+
+La velocidad es la mitad del trabajo. La otra mitad es la conversión.
+
+Una web rápida que no convierte sigue siendo dinero perdido: pagaste por traer a esa persona y se fue sin hacer nada.
+
+Por eso, cuando optimizamos una web, trabajamos las dos capas.
+
+La técnica: que cargue rápido, que se vea bien en el móvil, que Google la entienda. Son los Core Web Vitals, las métricas con las que Google decide si tu web sirve.
+
+Y la de conversión, el CRO: qué pasa una vez que la página carga. Dónde se frena la gente, dónde abandona, qué versión de un titular o un formulario hace que más visitas terminen en clientes.
+
+Cómo lo hacemos:
+
+— Auditoría técnica real (Lighthouse, PageSpeed): el diagnóstico de cómo está hoy.
+— Optimización de velocidad: imágenes, código, carga. Rápida de verdad, no en teoría.
+— CRO: mapas de calor y grabaciones de sesión, y tests A/B sobre lo que importa. No asumimos qué convierte; lo medimos.
+
+El resultado no es "una web más bonita". Es una web que trabaja: que convierte más de la gente que ya estás trayendo.
+
+Antes de gastar otro euro en traer tráfico, pregúntate qué hace tu web con el que ya recibe.
+
+¿Sabes qué porcentaje de tus visitas termina en contacto? Te lo miramos gratis.
+
+#OptimizacionWeb #CRO #CoreWebVitals #PYMES #MarketingDeResultados

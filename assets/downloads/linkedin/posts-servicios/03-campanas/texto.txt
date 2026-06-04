@@ -1,0 +1,26 @@
+Los anuncios son el atajo más rápido para conseguir clientes. Y el agujero negro más rápido si no mides bien.
+
+Una campaña bien hecha es el canal más predecible que existe: pones un euro, sabes cuánto vuelve.
+
+Mal hecha, es dinero que se va sin saber a dónde.
+
+¿La diferencia? Casi nunca es la creatividad. Es el tracking.
+
+Cuando la medición está mal montada, los algoritmos de Google y Meta no aprenden qué clics se convierten en clientes. Entonces optimizan hacia clics baratos, no hacia ventas. Pagas visitas que no compran.
+
+Por eso nunca empezamos por el anuncio. Empezamos por la medición.
+
+Cómo lo hacemos:
+
+— Primero, tracking limpio: GA4, Google Tag Manager, Conversions API en Meta, Enhanced Conversions en Google. Validamos que cada conversión se mida bien antes de gastar.
+— Estructura por intención: audiencias frías y remarketing no se mezclan. Cada nivel del embudo, su campaña y su KPI.
+— Creatividades testeadas con A/B, no a ojo.
+— Optimización semanal y un informe con números útiles: CPL, CAC, ROAS. No "impresiones".
+
+Hecho así, dejas de apostar. Sabes cuánto te cuesta un cliente y cuánto te devuelve cada canal.
+
+Antes de subir el presupuesto, asegúrate de que estás midiendo lo que de verdad importa.
+
+¿Sabes cuánto te cuesta conseguir un cliente por anuncios? Si dudas, hablemos.
+
+#GoogleAds #MetaAds #ROAS #PYMES #MarketingDeResultados
