@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ECE8D8" />
-  <meta name="description" content="Aviso Legal de Vantia Digital. Información obligatoria conforme a la LSSI-CE." />
+  <meta name="description" content="Aviso Legal de Vantia Digital. Información obligatoria conforme a la LSSI-CE." data-i18n-content="leg_aviso.meta_desc" />
   <meta name="robots" content="noindex, follow" />
 
   <meta property="og:type" content="website" />
@@ -14,18 +16,18 @@
   <meta property="og:url" content="https://vantia.digital/pages/aviso-legal.html" />
   <link rel="canonical" href="https://vantia.digital/pages/aviso-legal.html" />
 
-  <title>Aviso Legal · Vantia Digital</title>
+  <title data-i18n="leg_aviso.title">Aviso Legal · Vantia Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
 
 
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
@@ -33,7 +35,7 @@
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
   <!-- End Google Tag Manager -->
@@ -51,7 +53,7 @@
   </style>
 </head>
 <body class="theme-light" id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -60,10 +62,10 @@
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -71,16 +73,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -89,11 +99,11 @@
 
     <section class="page-hero">
       <div class="container">
-        <span class="page-hero__eyebrow" data-reveal>Documento legal</span>
-        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1">
+        <span class="page-hero__eyebrow" data-reveal data-i18n="leg_aviso.eyebrow">Documento legal</span>
+        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1" data-i18n="leg_aviso.h1">
           Aviso <em>Legal</em>.
         </h1>
-        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2">
+        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2" data-i18n="leg_aviso.subtitle">
           Información obligatoria conforme a la Ley 34/2002 de Servicios de la Sociedad de la Información.
         </p>
       </div>
@@ -102,51 +112,51 @@
     <section class="legal section--light">
       <div class="container">
         <div class="legal__inner">
-          <p class="legal__meta">Última actualización: 20 de mayo de 2026</p>
+          <p class="legal__meta" data-i18n="leg_aviso.meta">Última actualización: 20 de mayo de 2026</p>
 
-          <h2>1. Datos identificativos del titular</h2>
-          <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa a los usuarios de los datos identificativos del titular del sitio web:</p>
+          <h2 data-i18n="leg_aviso.s1.h2">1. Datos identificativos del titular</h2>
+          <p data-i18n="leg_aviso.s1.p1">En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa a los usuarios de los datos identificativos del titular del sitio web:</p>
           <ul>
-            <li><strong>Titular:</strong> [RELLENAR — Nombre y apellidos / Razón social]</li>
-            <li><strong>NIF:</strong> [RELLENAR]</li>
-            <li><strong>Domicilio:</strong> [RELLENAR — Dirección fiscal completa], Barcelona, España</li>
-            <li><strong>Email:</strong> <a href="mailto:admin@vantia.digital">admin@vantia.digital</a></li>
-            <li><strong>Teléfono:</strong> +34 645 720 420</li>
-            <li><strong>Sitio web:</strong> <a href="https://vantia.digital">https://vantia.digital</a></li>
+            <li data-i18n="leg_aviso.s1.li1"><strong>Titular:</strong> [RELLENAR — Nombre y apellidos / Razón social]</li>
+            <li data-i18n="leg_aviso.s1.li2"><strong>NIF:</strong> [RELLENAR]</li>
+            <li data-i18n="leg_aviso.s1.li3"><strong>Domicilio:</strong> [RELLENAR — Dirección fiscal completa], Barcelona, España</li>
+            <li data-i18n="leg_aviso.s1.li4"><strong>Email:</strong> <a href="mailto:admin@vantia.digital">admin@vantia.digital</a></li>
+            <li data-i18n="leg_aviso.s1.li5"><strong>Teléfono:</strong> +34 645 720 420</li>
+            <li data-i18n="leg_aviso.s1.li6"><strong>Sitio web:</strong> <a href="https://vantia.digital">https://vantia.digital</a></li>
           </ul>
 
-          <h2>2. Objeto</h2>
-          <p>El presente aviso legal regula el uso del sitio web <a href="https://vantia.digital">vantia.digital</a> (en adelante, "el Sitio"), titularidad de Vantia Digital. La navegación por el Sitio atribuye la condición de usuario e implica la aceptación plena de las condiciones aquí expuestas.</p>
+          <h2 data-i18n="leg_aviso.s2.h2">2. Objeto</h2>
+          <p data-i18n="leg_aviso.s2.p1">El presente aviso legal regula el uso del sitio web <a href="https://vantia.digital">vantia.digital</a> (en adelante, "el Sitio"), titularidad de Vantia Digital. La navegación por el Sitio atribuye la condición de usuario e implica la aceptación plena de las condiciones aquí expuestas.</p>
 
-          <h2>3. Servicios prestados</h2>
-          <p>A través del Sitio se ofrece información sobre los servicios profesionales de Vantia Digital en las áreas de desarrollo web, SEO técnico, GEO (Generative Engine Optimization) y gestión de campañas publicitarias (Paid Media).</p>
+          <h2 data-i18n="leg_aviso.s3.h2">3. Servicios prestados</h2>
+          <p data-i18n="leg_aviso.s3.p1">A través del Sitio se ofrece información sobre los servicios profesionales de Vantia Digital en las áreas de desarrollo web, SEO técnico, GEO (Generative Engine Optimization) y gestión de campañas publicitarias (Paid Media).</p>
 
-          <h2>4. Condiciones de uso</h2>
-          <p>El usuario se compromete a hacer un uso adecuado de los contenidos y servicios del Sitio y a no emplearlos para:</p>
+          <h2 data-i18n="leg_aviso.s4.h2">4. Condiciones de uso</h2>
+          <p data-i18n="leg_aviso.s4.p1">El usuario se compromete a hacer un uso adecuado de los contenidos y servicios del Sitio y a no emplearlos para:</p>
           <ul>
-            <li>Realizar actividades ilícitas, ilegales o contrarias a la buena fe y al orden público.</li>
-            <li>Difundir contenidos de carácter racista, xenófobo, ilegal o que atenten contra los derechos humanos.</li>
-            <li>Provocar daños en los sistemas físicos y lógicos del titular del Sitio o de terceros, introducir virus informáticos o cualquier otro sistema susceptible de causar daños.</li>
-            <li>Intentar acceder y, en su caso, utilizar las cuentas de email de otros usuarios y modificar o manipular sus mensajes.</li>
+            <li data-i18n="leg_aviso.s4.li1">Realizar actividades ilícitas, ilegales o contrarias a la buena fe y al orden público.</li>
+            <li data-i18n="leg_aviso.s4.li2">Difundir contenidos de carácter racista, xenófobo, ilegal o que atenten contra los derechos humanos.</li>
+            <li data-i18n="leg_aviso.s4.li3">Provocar daños en los sistemas físicos y lógicos del titular del Sitio o de terceros, introducir virus informáticos o cualquier otro sistema susceptible de causar daños.</li>
+            <li data-i18n="leg_aviso.s4.li4">Intentar acceder y, en su caso, utilizar las cuentas de email de otros usuarios y modificar o manipular sus mensajes.</li>
           </ul>
 
-          <h2>5. Propiedad intelectual e industrial</h2>
-          <p>Todos los contenidos del Sitio (textos, fotografías, gráficos, imágenes, iconos, código fuente, marcas, logotipos, nombres comerciales y demás signos distintivos) son propiedad exclusiva del titular o de terceros con los que existen los correspondientes acuerdos. Queda prohibida cualquier reproducción, distribución, comunicación pública, transformación o cualquier otra modalidad de explotación, total o parcial, sin la autorización previa y por escrito del titular.</p>
+          <h2 data-i18n="leg_aviso.s5.h2">5. Propiedad intelectual e industrial</h2>
+          <p data-i18n="leg_aviso.s5.p1">Todos los contenidos del Sitio (textos, fotografías, gráficos, imágenes, iconos, código fuente, marcas, logotipos, nombres comerciales y demás signos distintivos) son propiedad exclusiva del titular o de terceros con los que existen los correspondientes acuerdos. Queda prohibida cualquier reproducción, distribución, comunicación pública, transformación o cualquier otra modalidad de explotación, total o parcial, sin la autorización previa y por escrito del titular.</p>
 
-          <h2>6. Enlaces a terceros</h2>
-          <p>El Sitio puede contener enlaces a sitios web de terceros. El titular no se responsabiliza del contenido, exactitud o veracidad de los sitios enlazados ni de los servicios u opiniones que en ellos se ofrezcan.</p>
+          <h2 data-i18n="leg_aviso.s6.h2">6. Enlaces a terceros</h2>
+          <p data-i18n="leg_aviso.s6.p1">El Sitio puede contener enlaces a sitios web de terceros. El titular no se responsabiliza del contenido, exactitud o veracidad de los sitios enlazados ni de los servicios u opiniones que en ellos se ofrezcan.</p>
 
-          <h2>7. Exclusión de responsabilidad</h2>
-          <p>El titular no será responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.</p>
+          <h2 data-i18n="leg_aviso.s7.h2">7. Exclusión de responsabilidad</h2>
+          <p data-i18n="leg_aviso.s7.p1">El titular no será responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.</p>
 
-          <h2>8. Modificaciones</h2>
-          <p>El titular se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su Sitio, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través del mismo como la forma en que éstos aparezcan presentados o localizados.</p>
+          <h2 data-i18n="leg_aviso.s8.h2">8. Modificaciones</h2>
+          <p data-i18n="leg_aviso.s8.p1">El titular se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su Sitio, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través del mismo como la forma en que éstos aparezcan presentados o localizados.</p>
 
-          <h2>9. Legislación aplicable y jurisdicción</h2>
-          <p>La relación entre el titular y el usuario se regirá por la normativa española vigente. Para la resolución de cualquier controversia, las partes se someten a los Juzgados y Tribunales del domicilio del titular, con renuncia expresa a cualquier otro fuero que pudiera corresponderles.</p>
+          <h2 data-i18n="leg_aviso.s9.h2">9. Legislación aplicable y jurisdicción</h2>
+          <p data-i18n="leg_aviso.s9.p1">La relación entre el titular y el usuario se regirá por la normativa española vigente. Para la resolución de cualquier controversia, las partes se someten a los Juzgados y Tribunales del domicilio del titular, con renuncia expresa a cualquier otro fuero que pudiera corresponderles.</p>
 
-          <h2>10. Protección de datos</h2>
-          <p>El tratamiento de los datos personales se rige por nuestra <a href="/pages/privacidad.html">Política de Privacidad</a> y nuestra <a href="/pages/cookies.html">Política de Cookies</a>.</p>
+          <h2 data-i18n="leg_aviso.s10.h2">10. Protección de datos</h2>
+          <p data-i18n="leg_aviso.s10.p1">El tratamiento de los datos personales se rige por nuestra <a href="/pages/privacidad.html">Política de Privacidad</a> y nuestra <a href="/pages/cookies.html">Política de Cookies</a>.</p>
         </div>
       </div>
     </section>
@@ -188,10 +198,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
 </body>
 </html>

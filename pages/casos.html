@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ECE8D8" />
-  <meta name="description" content="Casos de éxito de Vantia · Marketing Digital — Resultados reales comprobados en E-commerce, SaaS, servicios profesionales y retail." />
+  <meta name="description" content="Casos de éxito de Vantia · Marketing Digital — Resultados reales comprobados en E-commerce, SaaS, servicios profesionales y retail." data-i18n-content="cases.meta.description" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vantia · Marketing Digital" />
@@ -14,10 +16,10 @@
   <meta property="og:url" content="https://vantia.digital/pages/casos.html" />
   <link rel="canonical" href="https://vantia.digital/pages/casos.html" />
 
-  <title>Casos de éxito · Vantia · Marketing Digital</title>
+  <title data-i18n="cases.title">Casos de éxito · Vantia · Marketing Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
@@ -25,8 +27,8 @@
 
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
@@ -34,7 +36,7 @@
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
   <!-- End Google Tag Manager -->
@@ -51,7 +53,7 @@
   </style>
 </head>
 <body class="theme-light" id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -62,10 +64,10 @@
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -73,16 +75,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -91,11 +101,11 @@
 
     <section class="page-hero">
       <div class="container">
-        <span class="page-hero__eyebrow" data-reveal>Casos de éxito</span>
-        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1">
+        <span class="page-hero__eyebrow" data-reveal data-i18n="cases.hero.eyebrow">Casos de éxito</span>
+        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1" data-i18n="cases.hero.title">
           Resultados <em>reales</em> comprobados.
         </h1>
-        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2">
+        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2" data-i18n="cases.hero.subtitle">
           Selección por sector.
         </p>
       </div>
@@ -108,12 +118,12 @@
         <!-- Filtro cliente-céntrico: Industria (single-select) -->
         <div class="cases-filters" data-reveal>
           <div class="filter-group">
-            <span class="filter-label">Industria</span>
-            <button class="filter-chip is-active" type="button" data-filter="industry" data-value="all">Todas</button>
-            <button class="filter-chip" type="button" data-filter="industry" data-value="comercio">Comercio · Retail</button>
-            <button class="filter-chip" type="button" data-filter="industry" data-value="gastronomia">Gastronomía</button>
-            <button class="filter-chip" type="button" data-filter="industry" data-value="diseno">Diseño · Creativo</button>
-            <button class="filter-chip" type="button" data-filter="industry" data-value="editorial">Editorial · Cultural</button>
+            <span class="filter-label" data-i18n="cases.filter.label">Industria</span>
+            <button class="filter-chip is-active" type="button" data-filter="industry" data-value="all" data-i18n="cases.filter.all">Todas</button>
+            <button class="filter-chip" type="button" data-filter="industry" data-value="comercio" data-i18n="cases.filter.comercio">Comercio · Retail</button>
+            <button class="filter-chip" type="button" data-filter="industry" data-value="gastronomia" data-i18n="cases.filter.gastronomia">Gastronomía</button>
+            <button class="filter-chip" type="button" data-filter="industry" data-value="diseno" data-i18n="cases.filter.diseno">Diseño · Creativo</button>
+            <button class="filter-chip" type="button" data-filter="industry" data-value="editorial" data-i18n="cases.filter.editorial">Editorial · Cultural</button>
           </div>
         </div>
 
@@ -121,8 +131,8 @@
         <div class="case-grid" data-reveal-children>
 
           <article class="case case--live" data-industry="comercio">
-            <a class="case__cover-link" href="/pages/casos/gett.html" aria-label="Leer caso de éxito de GeTT Studio"></a>
-            <div class="case__mockup mockup--01" aria-label="Vista previa de GeTT Studio">
+            <a class="case__cover-link" href="/pages/casos/gett.html" aria-label="Leer caso de éxito de GeTT Studio" data-i18n-aria-label="cases.card.gett.cover_aria"></a>
+            <div class="case__mockup mockup--01" aria-label="Vista previa de GeTT Studio" data-i18n-aria-label="cases.card.gett.mockup_aria">
               <img class="case__mockup-img"
                    src="/assets/images/gett-studio.jpg?v=2"
                    alt="Vista previa del estudio GeTT"
@@ -132,31 +142,31 @@
             </div>
             <div class="case__body">
               <h3 class="case__name">GeTT Studio</h3>
-              <span class="case__sector">Estudio de mobiliario y objetos en madera noble</span>
+              <span class="case__sector" data-i18n="cases.card.gett.sector">Estudio de mobiliario y objetos en madera noble</span>
               <div class="case__tags">
-                <span class="case__tag">Mobiliario</span>
-                <span class="case__tag">Estudio de diseño</span>
-                <span class="case__tag">Landing</span>
+                <span class="case__tag" data-i18n="cases.tag.mobiliario">Mobiliario</span>
+                <span class="case__tag" data-i18n="cases.tag.estudio_diseno">Estudio de diseño</span>
+                <span class="case__tag" data-i18n="cases.tag.landing">Landing</span>
               </div>
-              <div class="case__action-tag">Performance + mobile-first →</div>
+              <div class="case__action-tag" data-i18n="cases.card.gett.action_tag">Performance + mobile-first →</div>
             </div>
             <div class="case__actions">
-              <a class="case__action" href="https://gett.vantia.digital" target="_blank" rel="noopener noreferrer">
+              <a class="case__action" href="https://gett.vantia.digital" target="_blank" rel="noopener noreferrer" data-i18n="cases.live">
                 Ver sitio en vivo
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M7 17 17 7"/>
                   <path d="M7 7h10v10"/>
                 </svg>
               </a>
-              <a class="case__action case__action--secondary" href="/pages/contacto.html">
+              <a class="case__action case__action--secondary" href="/pages/contacto.html" data-i18n="cases.quote">
                 Pedir presupuesto similar
               </a>
             </div>
           </article>
 
           <article class="case case--live" data-industry="gastronomia">
-            <a class="case__cover-link" href="/pages/casos/mendieta.html" aria-label="Leer caso de éxito de Mendieta"></a>
-            <div class="case__mockup mockup--09" aria-label="Vista previa de Mendieta">
+            <a class="case__cover-link" href="/pages/casos/mendieta.html" aria-label="Leer caso de éxito de Mendieta" data-i18n-aria-label="cases.card.mendieta.cover_aria"></a>
+            <div class="case__mockup mockup--09" aria-label="Vista previa de Mendieta" data-i18n-aria-label="cases.card.mendieta.mockup_aria">
               <img class="case__mockup-img"
                    src="/assets/images/mendieta.jpg"
                    alt="Vista previa del sitio Mendieta"
@@ -166,31 +176,31 @@
             </div>
             <div class="case__body">
               <h3 class="case__name">Mendieta</h3>
-              <span class="case__sector">Pastelería argentina en Barcelona · pedidos online</span>
+              <span class="case__sector" data-i18n="cases.card.mendieta.sector">Pastelería argentina en Barcelona · pedidos online</span>
               <div class="case__tags">
-                <span class="case__tag">Gastronomía</span>
-                <span class="case__tag">Pedidos por WhatsApp</span>
-                <span class="case__tag">Landing custom</span>
+                <span class="case__tag" data-i18n="cases.tag.gastronomia">Gastronomía</span>
+                <span class="case__tag" data-i18n="cases.tag.pedidos_whatsapp">Pedidos por WhatsApp</span>
+                <span class="case__tag" data-i18n="cases.tag.landing_custom">Landing custom</span>
               </div>
-              <div class="case__action-tag">Tracking conversiones WhatsApp →</div>
+              <div class="case__action-tag" data-i18n="cases.card.mendieta.action_tag">Tracking conversiones WhatsApp →</div>
             </div>
             <div class="case__actions">
-              <a class="case__action" href="https://mendieta.vantia.digital" target="_blank" rel="noopener noreferrer">
+              <a class="case__action" href="https://mendieta.vantia.digital" target="_blank" rel="noopener noreferrer" data-i18n="cases.live">
                 Ver sitio en vivo
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M7 17 17 7"/>
                   <path d="M7 7h10v10"/>
                 </svg>
               </a>
-              <a class="case__action case__action--secondary" href="/pages/contacto.html">
+              <a class="case__action case__action--secondary" href="/pages/contacto.html" data-i18n="cases.quote">
                 Pedir presupuesto similar
               </a>
             </div>
           </article>
 
           <article class="case case--live" data-industry="gastronomia">
-            <a class="case__cover-link" href="/pages/casos/salamat.html" aria-label="Leer caso de éxito de Salamat Clot"></a>
-            <div class="case__mockup mockup--12" aria-label="Vista previa de Salamat Clot">
+            <a class="case__cover-link" href="/pages/casos/salamat.html" aria-label="Leer caso de éxito de Salamat Clot" data-i18n-aria-label="cases.card.salamat.cover_aria"></a>
+            <div class="case__mockup mockup--12" aria-label="Vista previa de Salamat Clot" data-i18n-aria-label="cases.card.salamat.mockup_aria">
               <img class="case__mockup-img"
                    src="/assets/images/salamat.jpg"
                    alt="Vista previa del sitio Salamat Clot"
@@ -200,31 +210,31 @@
             </div>
             <div class="case__body">
               <h3 class="case__name">Salamat Clot</h3>
-              <span class="case__sector">Restaurante 100% sin gluten en el Clot, Barcelona</span>
+              <span class="case__sector" data-i18n="cases.card.salamat.sector">Restaurante 100% sin gluten en el Clot, Barcelona</span>
               <div class="case__tags">
-                <span class="case__tag">Gastronomía</span>
-                <span class="case__tag">Sin gluten · vegano</span>
-                <span class="case__tag">Landing</span>
+                <span class="case__tag" data-i18n="cases.tag.gastronomia">Gastronomía</span>
+                <span class="case__tag" data-i18n="cases.tag.sin_gluten">Sin gluten · vegano</span>
+                <span class="case__tag" data-i18n="cases.tag.landing">Landing</span>
               </div>
-              <div class="case__action-tag">SEO local + nicho dietético →</div>
+              <div class="case__action-tag" data-i18n="cases.card.salamat.action_tag">SEO local + nicho dietético →</div>
             </div>
             <div class="case__actions">
-              <a class="case__action" href="https://salamat.vantia.digital" target="_blank" rel="noopener noreferrer">
+              <a class="case__action" href="https://salamat.vantia.digital" target="_blank" rel="noopener noreferrer" data-i18n="cases.live">
                 Ver sitio en vivo
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M7 17 17 7"/>
                   <path d="M7 7h10v10"/>
                 </svg>
               </a>
-              <a class="case__action case__action--secondary" href="/pages/contacto.html">
+              <a class="case__action case__action--secondary" href="/pages/contacto.html" data-i18n="cases.quote">
                 Pedir presupuesto similar
               </a>
             </div>
           </article>
 
           <article class="case case--live" data-industry="gastronomia">
-            <a class="case__cover-link" href="/pages/casos/parrilleros.html" aria-label="Leer caso de éxito de Los Hermanos Parrilleros"></a>
-            <div class="case__mockup mockup--13" aria-label="Vista previa de Los Hermanos Parrilleros">
+            <a class="case__cover-link" href="/pages/casos/parrilleros.html" aria-label="Leer caso de éxito de Los Hermanos Parrilleros" data-i18n-aria-label="cases.card.parrilleros.cover_aria"></a>
+            <div class="case__mockup mockup--13" aria-label="Vista previa de Los Hermanos Parrilleros" data-i18n-aria-label="cases.card.parrilleros.mockup_aria">
               <img class="case__mockup-img"
                    src="/assets/images/parrilla.jpg?v=2"
                    alt="Vista previa del sitio Los Hermanos Parrilleros"
@@ -234,31 +244,31 @@
             </div>
             <div class="case__body">
               <h3 class="case__name">Los Hermanos Parrilleros</h3>
-              <span class="case__sector">Catering de asado argentino en Barcelona · eventos privados</span>
+              <span class="case__sector" data-i18n="cases.card.parrilleros.sector">Catering de asado argentino en Barcelona · eventos privados</span>
               <div class="case__tags">
-                <span class="case__tag">Gastronomía</span>
-                <span class="case__tag">Catering · asado</span>
-                <span class="case__tag">Landing</span>
+                <span class="case__tag" data-i18n="cases.tag.gastronomia">Gastronomía</span>
+                <span class="case__tag" data-i18n="cases.tag.catering_asado">Catering · asado</span>
+                <span class="case__tag" data-i18n="cases.tag.landing">Landing</span>
               </div>
-              <div class="case__action-tag">Lead gen + cualificación →</div>
+              <div class="case__action-tag" data-i18n="cases.card.parrilleros.action_tag">Lead gen + cualificación →</div>
             </div>
             <div class="case__actions">
-              <a class="case__action" href="https://parrilleros.vantia.digital" target="_blank" rel="noopener noreferrer">
+              <a class="case__action" href="https://parrilleros.vantia.digital" target="_blank" rel="noopener noreferrer" data-i18n="cases.live">
                 Ver sitio en vivo
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M7 17 17 7"/>
                   <path d="M7 7h10v10"/>
                 </svg>
               </a>
-              <a class="case__action case__action--secondary" href="/pages/contacto.html">
+              <a class="case__action case__action--secondary" href="/pages/contacto.html" data-i18n="cases.quote">
                 Pedir presupuesto similar
               </a>
             </div>
           </article>
 
           <article class="case case--live" data-industry="diseno">
-            <a class="case__cover-link" href="/pages/casos/lulitas.html" aria-label="Leer caso de éxito de Lulitas Designs"></a>
-            <div class="case__mockup mockup--10" aria-label="Vista previa de Lulitas Designs">
+            <a class="case__cover-link" href="/pages/casos/lulitas.html" aria-label="Leer caso de éxito de Lulitas Designs" data-i18n-aria-label="cases.card.lulitas.cover_aria"></a>
+            <div class="case__mockup mockup--10" aria-label="Vista previa de Lulitas Designs" data-i18n-aria-label="cases.card.lulitas.mockup_aria">
               <img class="case__mockup-img"
                    src="/assets/images/lulitas.jpg"
                    alt="Vista previa del catálogo Lulitas Designs"
@@ -268,31 +278,31 @@
             </div>
             <div class="case__body">
               <h3 class="case__name">Lulitas Designs</h3>
-              <span class="case__sector">Papelería digital e imprimible · marca personal</span>
+              <span class="case__sector" data-i18n="cases.card.lulitas.sector">Papelería digital e imprimible · marca personal</span>
               <div class="case__tags">
-                <span class="case__tag">Marca personal</span>
-                <span class="case__tag">Mostrar productos</span>
-                <span class="case__tag">Catálogo</span>
+                <span class="case__tag" data-i18n="cases.tag.marca_personal">Marca personal</span>
+                <span class="case__tag" data-i18n="cases.tag.mostrar_productos">Mostrar productos</span>
+                <span class="case__tag" data-i18n="cases.tag.catalogo">Catálogo</span>
               </div>
-              <div class="case__action-tag">Catálogo digital simple →</div>
+              <div class="case__action-tag" data-i18n="cases.card.lulitas.action_tag">Catálogo digital simple →</div>
             </div>
             <div class="case__actions">
-              <a class="case__action" href="https://lulitas.vantia.digital" target="_blank" rel="noopener noreferrer">
+              <a class="case__action" href="https://lulitas.vantia.digital" target="_blank" rel="noopener noreferrer" data-i18n="cases.live">
                 Ver sitio en vivo
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M7 17 17 7"/>
                   <path d="M7 7h10v10"/>
                 </svg>
               </a>
-              <a class="case__action case__action--secondary" href="/pages/contacto.html">
+              <a class="case__action case__action--secondary" href="/pages/contacto.html" data-i18n="cases.quote">
                 Pedir presupuesto similar
               </a>
             </div>
           </article>
 
           <article class="case case--live" data-industry="editorial">
-            <a class="case__cover-link" href="/pages/casos/estanteria.html" aria-label="Leer caso de éxito de La Estantería"></a>
-            <div class="case__mockup mockup--11" aria-label="Vista previa de La Estantería">
+            <a class="case__cover-link" href="/pages/casos/estanteria.html" aria-label="Leer caso de éxito de La Estantería" data-i18n-aria-label="cases.card.estanteria.cover_aria"></a>
+            <div class="case__mockup mockup--11" aria-label="Vista previa de La Estantería" data-i18n-aria-label="cases.card.estanteria.mockup_aria">
               <img class="case__mockup-img"
                    src="/assets/images/estanteria.jpg?v=2"
                    alt="Vista previa de La Estantería"
@@ -302,23 +312,23 @@
             </div>
             <div class="case__body">
               <h3 class="case__name">La Estantería</h3>
-              <span class="case__sector">Biblioteca digital de cuentos breves</span>
+              <span class="case__sector" data-i18n="cases.card.estanteria.sector">Biblioteca digital de cuentos breves</span>
               <div class="case__tags">
-                <span class="case__tag">Editorial · cultural</span>
-                <span class="case__tag">Lectura online</span>
-                <span class="case__tag">Sitio editorial</span>
+                <span class="case__tag" data-i18n="cases.tag.editorial_cultural">Editorial · cultural</span>
+                <span class="case__tag" data-i18n="cases.tag.lectura_online">Lectura online</span>
+                <span class="case__tag" data-i18n="cases.tag.sitio_editorial">Sitio editorial</span>
               </div>
-              <div class="case__action-tag">SEO Técnico + GEO →</div>
+              <div class="case__action-tag" data-i18n="cases.card.estanteria.action_tag">SEO Técnico + GEO →</div>
             </div>
             <div class="case__actions">
-              <a class="case__action" href="https://estanteria.vantia.digital" target="_blank" rel="noopener noreferrer">
+              <a class="case__action" href="https://estanteria.vantia.digital" target="_blank" rel="noopener noreferrer" data-i18n="cases.live">
                 Ver sitio en vivo
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M7 17 17 7"/>
                   <path d="M7 7h10v10"/>
                 </svg>
               </a>
-              <a class="case__action case__action--secondary" href="/pages/contacto.html">
+              <a class="case__action case__action--secondary" href="/pages/contacto.html" data-i18n="cases.quote">
                 Pedir presupuesto similar
               </a>
             </div>
@@ -328,8 +338,8 @@
 
         <!-- Empty state (oculto por default, aparece cuando ningún case matchea filtros) -->
         <div class="cases-empty" hidden>
-          <p>No hay casos que coincidan con esos filtros.</p>
-          <button type="button" class="filter-reset">Limpiar filtros</button>
+          <p data-i18n="cases.empty.text">No hay casos que coincidan con esos filtros.</p>
+          <button type="button" class="filter-reset" data-i18n="cases.empty.reset">Limpiar filtros</button>
         </div>
 
       </div>
@@ -338,14 +348,14 @@
     <!-- CTA banner -->
     <section class="cta-banner">
       <div class="container">
-        <h2 class="cta-banner__title" data-reveal>
+        <h2 class="cta-banner__title" data-reveal data-i18n="cases.cta.title">
           Quiero <em>resultados</em> así.
         </h2>
-        <p class="cta-banner__subtitle" data-reveal data-reveal-delay="0.1">
+        <p class="cta-banner__subtitle" data-reveal data-reveal-delay="0.1" data-i18n="cases.cta.subtitle">
           Reserva una sesión de 30 minutos. Te decimos sin filtros si tu caso encaja.
         </p>
         <a href="https://calendly.com/admin-vantia/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic data-reveal data-reveal-delay="0.2">
-          <span class="btn__label">Reservar sesión gratis</span>
+          <span class="btn__label" data-i18n="cases.cta.btn">Reservar sesión gratis</span>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
       </div>
@@ -388,10 +398,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
   <!-- Filtros de casos (página-específico) -->
   <script>

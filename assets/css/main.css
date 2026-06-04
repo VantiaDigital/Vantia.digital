@@ -423,6 +423,46 @@ p {
   width: 16px;
 }
 
+/* -------- GRUPO DERECHO DEL HEADER (nav + idioma + hamburguesa) -------- */
+.site-header__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* -------- LANG SWITCH (ES · EN) — sutil -------- */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  user-select: none;
+}
+
+.lang-switch__btn {
+  color: var(--text-on-dark);
+  opacity: 0.45;
+  padding: 0.25rem 0.15rem;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: opacity var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.lang-switch__btn:hover { opacity: 0.85; }
+
+.lang-switch__btn.is-active {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.lang-switch__sep {
+  color: var(--text-on-dark);
+  opacity: 0.28;
+}
+
 @media (max-width: 860px) {
   .nav {
     /* Posicionamiento explícito (evita problemas con inset+calc+env en Safari mobile) */
@@ -1578,6 +1618,15 @@ body.theme-light .nav__link.is-active:not(.nav__contact) {
 
 body.theme-light .nav__toggle {
   color: var(--color-dark);
+}
+
+body.theme-light .lang-switch__btn,
+body.theme-light .lang-switch__sep {
+  color: var(--color-dark);
+}
+
+body.theme-light .lang-switch__btn.is-active {
+  color: var(--accent-hover);
 }
 
 @media (max-width: 860px) {

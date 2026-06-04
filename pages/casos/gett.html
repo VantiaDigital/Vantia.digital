@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ECE8D8" />
-  <meta name="description" content="Caso de éxito · GeTT Studio — Performance y mobile-first para un estudio de mobiliario en madera noble." />
+  <meta name="description" content="Caso de éxito · GeTT Studio — Performance y mobile-first para un estudio de mobiliario en madera noble." data-i18n-content="cs_gett.meta.description" />
 
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vantia · Marketing Digital" />
@@ -15,18 +17,18 @@
   <meta property="og:image" content="https://vantia.digital/assets/images/gett-studio.jpg" />
   <link rel="canonical" href="https://vantia.digital/pages/casos/gett.html" />
 
-  <title>GeTT Studio — Performance + mobile-first · Vantia · Marketing Digital</title>
+  <title data-i18n="cs_gett.page.title">GeTT Studio — Performance + mobile-first · Vantia · Marketing Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
 
 
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
@@ -34,23 +36,23 @@
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
   <!-- End Google Tag Manager -->
 </head>
 <body class="theme-light" id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="scroll-progress" aria-hidden="true"></div>
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -58,16 +60,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -78,15 +88,15 @@
     <section class="case-study__hero">
       <div class="container case-study__hero-inner">
         <nav class="case-study__breadcrumb" aria-label="Navegación de migas">
-          <a href="/pages/casos.html">Casos</a>
+          <a href="/pages/casos.html" data-i18n="cs_gett.breadcrumb.casos">Casos</a>
           <span aria-hidden="true">·</span>
           <span>GeTT Studio</span>
         </nav>
-        <span class="case-study__eyebrow" data-reveal>Acción destacada · Performance y mobile-first</span>
-        <h1 class="case-study__title" data-reveal data-reveal-delay="0.1">
+        <span class="case-study__eyebrow" data-reveal data-i18n="cs_gett.hero.eyebrow">Acción destacada · Performance y mobile-first</span>
+        <h1 class="case-study__title" data-reveal data-reveal-delay="0.1" data-i18n="cs_gett.hero.title">
           Una landing <em>visual</em> que no sacrifica velocidad.
         </h1>
-        <p class="case-study__lead" data-reveal data-reveal-delay="0.2">
+        <p class="case-study__lead" data-reveal data-reveal-delay="0.2" data-i18n="cs_gett.hero.lead">
           GeTT Studio trabaja madera noble pieza por pieza. Su web tenía que mostrar
           el detalle del material sin sacrificar velocidad. Performance no como adorno,
           sino como condición.
@@ -98,23 +108,23 @@
     <section class="case-study__meta" data-reveal>
       <div class="container case-study__meta-inner">
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Cliente</span>
+          <span class="case-study__meta-label" data-i18n="cs_gett.meta.client_l">Cliente</span>
           <span class="case-study__meta-value">GeTT Studio</span>
         </div>
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Sector</span>
-          <span class="case-study__meta-value">Mobiliario · Diseño</span>
+          <span class="case-study__meta-label" data-i18n="cs_gett.meta.sector_l">Sector</span>
+          <span class="case-study__meta-value" data-i18n="cs_gett.meta.sector_v">Mobiliario · Diseño</span>
         </div>
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Año</span>
+          <span class="case-study__meta-label" data-i18n="cs_gett.meta.year_l">Año</span>
           <span class="case-study__meta-value">2026</span>
         </div>
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Acción destacada</span>
-          <span class="case-study__meta-value">Optimización Web</span>
+          <span class="case-study__meta-label" data-i18n="cs_gett.meta.action_l">Acción destacada</span>
+          <span class="case-study__meta-value" data-i18n="cs_gett.meta.action_v">Optimización Web</span>
         </div>
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Stack</span>
+          <span class="case-study__meta-label" data-i18n="cs_gett.meta.stack_l">Stack</span>
           <span class="case-study__meta-value">HTML · CSS · GA4 · Cloudflare</span>
         </div>
       </div>
@@ -137,8 +147,8 @@
       <div class="container case-study__article-inner">
 
         <section class="case-study__section" data-reveal>
-          <h2 class="case-study__h2">El reto</h2>
-          <p>
+          <h2 class="case-study__h2" data-i18n="cs_gett.s1.h2">El reto</h2>
+          <p data-i18n="cs_gett.s1.p1">
             Cuando el producto es artesanal, la fotografía pesa. Cada pieza necesita
             verse con detalle, en alta resolución, con la veta de la madera definida.
             El problema obvio: las imágenes pesadas matan la performance, y los sitios
@@ -146,7 +156,7 @@
             quien busca mobiliario único entra desde el móvil, espera 3 segundos
             como mucho, y se va.
           </p>
-          <p>
+          <p data-i18n="cs_gett.s1.p2">
             El reto técnico era claro. Mostrar la pieza con peso visual real,
             que el sitio cargara rápido en una conexión 4G de barrio,
             y que Google lo recompensara con buen posicionamiento orgánico.
@@ -154,14 +164,14 @@
         </section>
 
         <section class="case-study__section" data-reveal>
-          <h2 class="case-study__h2">Cómo lo abordamos</h2>
-          <p>
+          <h2 class="case-study__h2" data-i18n="cs_gett.s2.h2">Cómo lo abordamos</h2>
+          <p data-i18n="cs_gett.s2.p1">
             Mobile-first de verdad, no como etiqueta de venta. Diseñamos toda la
             experiencia desde el viewport del móvil hacia arriba. Esto cambia
             decisiones desde el inicio: peso del bundle, jerarquía visual,
             qué información se ve en el primer scroll, qué se posterga.
           </p>
-          <p>
+          <p data-i18n="cs_gett.s2.p2">
             Cada imagen pasa por un pipeline de optimización antes de subirse.
             Formatos modernos (WebP y AVIF con fallback a JPG), tamaños responsivos
             servidos con <code>srcset</code>, lazy loading nativo para todo lo que
@@ -171,33 +181,33 @@
         </section>
 
         <section class="case-study__section" data-reveal>
-          <h2 class="case-study__h2">Qué se hizo en concreto</h2>
+          <h2 class="case-study__h2" data-i18n="cs_gett.s3.h2">Qué se hizo en concreto</h2>
           <ul class="case-study__list">
-            <li>
+            <li data-i18n="cs_gett.s3.li1">
               <strong>Pipeline de imágenes optimizado.</strong>
               Compresión WebP con calidad visual indistinguible, dimensiones
               servidas según viewport, lazy loading nativo. Las imágenes que
               antes pesaban 2 MB pasaron a pesar 180 KB sin pérdida perceptible.
             </li>
-            <li>
+            <li data-i18n="cs_gett.s3.li2">
               <strong>CSS crítico inline.</strong>
               El CSS necesario para renderizar la primera vista va inline en el HTML.
               El navegador no espera al CSS externo para pintar. Resultado:
               First Contentful Paint en menos de 800ms.
             </li>
-            <li>
+            <li data-i18n="cs_gett.s3.li3">
               <strong>Fonts con display:swap.</strong>
               La tipografía custom no bloquea el render. El texto aparece con
               fallback del sistema y se sustituye cuando carga la fuente real,
               sin Cumulative Layout Shift.
             </li>
-            <li>
+            <li data-i18n="cs_gett.s3.li4">
               <strong>JavaScript no bloqueante.</strong>
               Todo el JS no esencial se carga con <code>defer</code>. Las
               animaciones se ejecutan después de que el contenido principal
               esté visible, no antes.
             </li>
-            <li>
+            <li data-i18n="cs_gett.s3.li5">
               <strong>Cache headers de Cloudflare configurados.</strong>
               Recursos estáticos cacheados al máximo, HTML con cache corto.
               La segunda visita es prácticamente instantánea.
@@ -206,33 +216,33 @@
         </section>
 
         <section class="case-study__section" data-reveal>
-          <h2 class="case-study__h2">Qué se optimizó para medir</h2>
-          <p>
+          <h2 class="case-study__h2" data-i18n="cs_gett.s4.h2">Qué se optimizó para medir</h2>
+          <p data-i18n="cs_gett.s4.p1">
             La performance no se promete, se verifica. El sitio está construido
             apuntando a las tres métricas que Google usa para evaluar la
             experiencia (los Core Web Vitals):
           </p>
           <ul class="case-study__list">
-            <li>
+            <li data-i18n="cs_gett.s4.li1">
               <strong>LCP (velocidad de carga del contenido principal):</strong>
               imágenes optimizadas, CSS crítico inline y fonts no bloqueantes
               para que el contenido aparezca cuanto antes.
             </li>
-            <li>
+            <li data-i18n="cs_gett.s4.li2">
               <strong>CLS (estabilidad visual):</strong> dimensiones reservadas
               para cada imagen y bloque, sin saltos de layout mientras carga.
             </li>
-            <li>
+            <li data-i18n="cs_gett.s4.li3">
               <strong>INP (respuesta a la interacción):</strong> JavaScript
               diferido y no bloqueante para que el sitio responda al instante
               al primer toque.
             </li>
-            <li>
+            <li data-i18n="cs_gett.s4.li4">
               <strong>Accesibilidad:</strong> contraste, navegación por teclado
               y etiquetas semánticas siguiendo las pautas WCAG.
             </li>
           </ul>
-          <p>
+          <p data-i18n="cs_gett.s4.p2">
             Cualquiera puede comprobar el estado actual del sitio en tiempo real
             con <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed
             Insights</a> de Google. La transparencia es parte del trabajo: los
@@ -244,11 +254,11 @@
         <!-- CTA -->
         <div class="case-study__cta-row" data-reveal>
           <a href="https://gett.vantia.digital" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>
-            <span class="btn__label">Ver sitio en vivo</span>
+            <span class="btn__label" data-i18n="cs_gett.cta.live">Ver sitio en vivo</span>
             <span class="arrow" aria-hidden="true">→</span>
           </a>
           <a href="/pages/contacto.html" class="btn btn-ghost-dark" data-magnetic>
-            <span class="btn__label">Quiero algo así</span>
+            <span class="btn__label" data-i18n="cs_gett.cta.contact">Quiero algo así</span>
           </a>
         </div>
 
@@ -259,7 +269,7 @@
     <nav class="case-study__nav" aria-label="Navegación entre casos">
       <div class="container case-study__nav-inner">
         <a href="/pages/casos.html" class="case-study__nav-link">
-          <span class="case-study__nav-label">Volver a todos los casos</span>
+          <span class="case-study__nav-label" data-i18n="cs_gett.nav.back">Volver a todos los casos</span>
         </a>
       </div>
     </nav>
@@ -299,10 +309,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
 </body>
 </html>

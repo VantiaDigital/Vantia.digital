@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ECE8D8" />
-  <meta name="description" content="Política de Privacidad de Vantia Digital. Tratamiento de datos personales conforme al RGPD y la LOPD-DDD." />
+  <meta name="description" content="Política de Privacidad de Vantia Digital. Tratamiento de datos personales conforme al RGPD y la LOPD-DDD." data-i18n-content="leg_priv.meta_desc" />
   <meta name="robots" content="noindex, follow" />
 
   <meta property="og:type" content="website" />
@@ -14,18 +16,18 @@
   <meta property="og:url" content="https://vantia.digital/pages/privacidad.html" />
   <link rel="canonical" href="https://vantia.digital/pages/privacidad.html" />
 
-  <title>Política de Privacidad · Vantia Digital</title>
+  <title data-i18n="leg_priv.title">Política de Privacidad · Vantia Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
 
 
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
@@ -33,7 +35,7 @@
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
   <!-- End Google Tag Manager -->
@@ -54,7 +56,7 @@
   </style>
 </head>
 <body class="theme-light" id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -63,10 +65,10 @@
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -74,16 +76,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -92,11 +102,11 @@
 
     <section class="page-hero">
       <div class="container">
-        <span class="page-hero__eyebrow" data-reveal>Documento legal</span>
-        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1">
+        <span class="page-hero__eyebrow" data-reveal data-i18n="leg_priv.eyebrow">Documento legal</span>
+        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1" data-i18n="leg_priv.h1">
           Política de <em>Privacidad</em>.
         </h1>
-        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2">
+        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2" data-i18n="leg_priv.subtitle">
           Cómo tratamos sus datos personales conforme al RGPD y la LOPD-DDD.
         </p>
       </div>
@@ -105,82 +115,82 @@
     <section class="legal section--light">
       <div class="container">
         <div class="legal__inner">
-          <p class="legal__meta">Última actualización: 20 de mayo de 2026</p>
+          <p class="legal__meta" data-i18n="leg_priv.meta">Última actualización: 20 de mayo de 2026</p>
 
-          <h2>1. Responsable del tratamiento</h2>
-          <p>De conformidad con lo establecido en el Reglamento (UE) 2016/679 General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPD-DDD), le informamos de los siguientes datos del responsable:</p>
+          <h2 data-i18n="leg_priv.s1.h2">1. Responsable del tratamiento</h2>
+          <p data-i18n="leg_priv.s1.p1">De conformidad con lo establecido en el Reglamento (UE) 2016/679 General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPD-DDD), le informamos de los siguientes datos del responsable:</p>
           <ul>
-            <li><strong>Titular:</strong> [RELLENAR — Nombre y apellidos / Razón social]</li>
-            <li><strong>NIF:</strong> [RELLENAR]</li>
-            <li><strong>Dirección:</strong> [RELLENAR — Dirección fiscal completa], Barcelona, España</li>
-            <li><strong>Email:</strong> <a href="mailto:admin@vantia.digital">admin@vantia.digital</a></li>
-            <li><strong>Sitio web:</strong> <a href="https://vantia.digital">https://vantia.digital</a></li>
+            <li data-i18n="leg_priv.s1.li1"><strong>Titular:</strong> [RELLENAR — Nombre y apellidos / Razón social]</li>
+            <li data-i18n="leg_priv.s1.li2"><strong>NIF:</strong> [RELLENAR]</li>
+            <li data-i18n="leg_priv.s1.li3"><strong>Dirección:</strong> [RELLENAR — Dirección fiscal completa], Barcelona, España</li>
+            <li data-i18n="leg_priv.s1.li4"><strong>Email:</strong> <a href="mailto:admin@vantia.digital">admin@vantia.digital</a></li>
+            <li data-i18n="leg_priv.s1.li5"><strong>Sitio web:</strong> <a href="https://vantia.digital">https://vantia.digital</a></li>
           </ul>
 
-          <h2>2. Datos que recopilamos</h2>
-          <p>Tratamos los datos personales que usted nos proporciona voluntariamente a través de los formularios y canales de contacto del sitio, así como los datos que se generan de forma automática mediante cookies analíticas (previo consentimiento).</p>
+          <h2 data-i18n="leg_priv.s2.h2">2. Datos que recopilamos</h2>
+          <p data-i18n="leg_priv.s2.p1">Tratamos los datos personales que usted nos proporciona voluntariamente a través de los formularios y canales de contacto del sitio, así como los datos que se generan de forma automática mediante cookies analíticas (previo consentimiento).</p>
 
           <table class="legal__table">
             <thead>
-              <tr><th>Origen</th><th>Datos</th><th>Finalidad</th></tr>
+              <tr><th data-i18n="leg_priv.s2.th1">Origen</th><th data-i18n="leg_priv.s2.th2">Datos</th><th data-i18n="leg_priv.s2.th3">Finalidad</th></tr>
             </thead>
             <tbody>
               <tr>
-                <td>Formulario de contacto</td>
-                <td>Nombre, email, teléfono (opcional), empresa, mensaje</td>
-                <td>Atender la solicitud comercial o consulta</td>
+                <td data-i18n="leg_priv.s2.td1a">Formulario de contacto</td>
+                <td data-i18n="leg_priv.s2.td1b">Nombre, email, teléfono (opcional), empresa, mensaje</td>
+                <td data-i18n="leg_priv.s2.td1c">Atender la solicitud comercial o consulta</td>
               </tr>
               <tr>
-                <td>Email directo o WhatsApp</td>
-                <td>Datos que el usuario decida facilitar</td>
-                <td>Mantener la comunicación</td>
+                <td data-i18n="leg_priv.s2.td2a">Email directo o WhatsApp</td>
+                <td data-i18n="leg_priv.s2.td2b">Datos que el usuario decida facilitar</td>
+                <td data-i18n="leg_priv.s2.td2c">Mantener la comunicación</td>
               </tr>
               <tr>
-                <td>Google Analytics 4 (con consentimiento)</td>
-                <td>Datos de navegación pseudonimizados, IP anonimizada</td>
-                <td>Análisis estadístico agregado del sitio</td>
+                <td data-i18n="leg_priv.s2.td3a">Google Analytics 4 (con consentimiento)</td>
+                <td data-i18n="leg_priv.s2.td3b">Datos de navegación pseudonimizados, IP anonimizada</td>
+                <td data-i18n="leg_priv.s2.td3c">Análisis estadístico agregado del sitio</td>
               </tr>
             </tbody>
           </table>
 
-          <h2>3. Base jurídica del tratamiento</h2>
+          <h2 data-i18n="leg_priv.s3.h2">3. Base jurídica del tratamiento</h2>
           <ul>
-            <li><strong>Consentimiento</strong> (art. 6.1.a RGPD): para envío de comunicaciones comerciales y para cookies no necesarias.</li>
-            <li><strong>Ejecución de un contrato o medidas precontractuales</strong> (art. 6.1.b RGPD): para gestionar consultas y prestar los servicios solicitados.</li>
-            <li><strong>Interés legítimo</strong> (art. 6.1.f RGPD): para mantener la seguridad del sitio.</li>
-            <li><strong>Obligación legal</strong> (art. 6.1.c RGPD): para cumplir obligaciones fiscales y mercantiles.</li>
+            <li data-i18n="leg_priv.s3.li1"><strong>Consentimiento</strong> (art. 6.1.a RGPD): para envío de comunicaciones comerciales y para cookies no necesarias.</li>
+            <li data-i18n="leg_priv.s3.li2"><strong>Ejecución de un contrato o medidas precontractuales</strong> (art. 6.1.b RGPD): para gestionar consultas y prestar los servicios solicitados.</li>
+            <li data-i18n="leg_priv.s3.li3"><strong>Interés legítimo</strong> (art. 6.1.f RGPD): para mantener la seguridad del sitio.</li>
+            <li data-i18n="leg_priv.s3.li4"><strong>Obligación legal</strong> (art. 6.1.c RGPD): para cumplir obligaciones fiscales y mercantiles.</li>
           </ul>
 
-          <h2>4. Plazo de conservación</h2>
-          <p>Conservaremos sus datos durante el tiempo estrictamente necesario para la finalidad del tratamiento y, en su caso, durante los plazos legales aplicables (Código de Comercio, normativa fiscal). Los datos analíticos se conservan un máximo de <strong>14 meses</strong>. Los datos de contactos comerciales se conservan mientras exista relación o hasta que solicite su supresión.</p>
+          <h2 data-i18n="leg_priv.s4.h2">4. Plazo de conservación</h2>
+          <p data-i18n="leg_priv.s4.p1">Conservaremos sus datos durante el tiempo estrictamente necesario para la finalidad del tratamiento y, en su caso, durante los plazos legales aplicables (Código de Comercio, normativa fiscal). Los datos analíticos se conservan un máximo de <strong>14 meses</strong>. Los datos de contactos comerciales se conservan mientras exista relación o hasta que solicite su supresión.</p>
 
-          <h2>5. Destinatarios y encargados del tratamiento</h2>
-          <p>No cedemos sus datos a terceros salvo obligación legal. Trabajamos con los siguientes encargados del tratamiento, todos ellos con garantías adecuadas conforme al RGPD:</p>
+          <h2 data-i18n="leg_priv.s5.h2">5. Destinatarios y encargados del tratamiento</h2>
+          <p data-i18n="leg_priv.s5.p1">No cedemos sus datos a terceros salvo obligación legal. Trabajamos con los siguientes encargados del tratamiento, todos ellos con garantías adecuadas conforme al RGPD:</p>
           <ul>
-            <li><strong>Google Ireland Limited</strong> (Google Analytics 4) — datos analíticos pseudonimizados. Transferencias internacionales amparadas por las Cláusulas Contractuales Tipo (SCC) y el Marco UE-EE.UU. de Privacidad de Datos.</li>
-            <li><strong>Cloudflare, Inc.</strong> — hosting (Cloudflare Pages) y CDN. Transferencia amparada por SCC.</li>
-            <li><strong>Google Workspace</strong> — email corporativo.</li>
+            <li data-i18n="leg_priv.s5.li1"><strong>Google Ireland Limited</strong> (Google Analytics 4) — datos analíticos pseudonimizados. Transferencias internacionales amparadas por las Cláusulas Contractuales Tipo (SCC) y el Marco UE-EE.UU. de Privacidad de Datos.</li>
+            <li data-i18n="leg_priv.s5.li2"><strong>Cloudflare, Inc.</strong> — hosting (Cloudflare Pages) y CDN. Transferencia amparada por SCC.</li>
+            <li data-i18n="leg_priv.s5.li3"><strong>Google Workspace</strong> — email corporativo.</li>
           </ul>
 
-          <h2>6. Sus derechos</h2>
-          <p>Como titular de los datos, puede ejercer en cualquier momento los siguientes derechos:</p>
+          <h2 data-i18n="leg_priv.s6.h2">6. Sus derechos</h2>
+          <p data-i18n="leg_priv.s6.p1">Como titular de los datos, puede ejercer en cualquier momento los siguientes derechos:</p>
           <ul>
-            <li><strong>Acceso, rectificación y supresión</strong> de sus datos.</li>
-            <li><strong>Oposición</strong> al tratamiento y <strong>limitación</strong> del mismo.</li>
-            <li><strong>Portabilidad</strong> de los datos.</li>
-            <li><strong>Retirar el consentimiento</strong> en cualquier momento sin que ello afecte a la licitud del tratamiento previo.</li>
-            <li><strong>Reclamación ante la Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>).</li>
+            <li data-i18n="leg_priv.s6.li1"><strong>Acceso, rectificación y supresión</strong> de sus datos.</li>
+            <li data-i18n="leg_priv.s6.li2"><strong>Oposición</strong> al tratamiento y <strong>limitación</strong> del mismo.</li>
+            <li data-i18n="leg_priv.s6.li3"><strong>Portabilidad</strong> de los datos.</li>
+            <li data-i18n="leg_priv.s6.li4"><strong>Retirar el consentimiento</strong> en cualquier momento sin que ello afecte a la licitud del tratamiento previo.</li>
+            <li data-i18n="leg_priv.s6.li5"><strong>Reclamación ante la Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>).</li>
           </ul>
-          <p>Para ejercer estos derechos, envíe un email a <a href="mailto:admin@vantia.digital">admin@vantia.digital</a> indicando el derecho que desea ejercer y adjuntando copia de un documento identificativo.</p>
+          <p data-i18n="leg_priv.s6.p2">Para ejercer estos derechos, envíe un email a <a href="mailto:admin@vantia.digital">admin@vantia.digital</a> indicando el derecho que desea ejercer y adjuntando copia de un documento identificativo.</p>
 
-          <h2>7. Medidas de seguridad</h2>
-          <p>Aplicamos las medidas técnicas y organizativas apropiadas para garantizar un nivel de seguridad adecuado al riesgo del tratamiento, incluyendo cifrado en tránsito (HTTPS/TLS), control de accesos y registro de actividades.</p>
+          <h2 data-i18n="leg_priv.s7.h2">7. Medidas de seguridad</h2>
+          <p data-i18n="leg_priv.s7.p1">Aplicamos las medidas técnicas y organizativas apropiadas para garantizar un nivel de seguridad adecuado al riesgo del tratamiento, incluyendo cifrado en tránsito (HTTPS/TLS), control de accesos y registro de actividades.</p>
 
-          <h2>8. Cookies</h2>
-          <p>Para información detallada sobre las cookies que utilizamos, consulte nuestra <a href="/pages/cookies.html">Política de Cookies</a>.</p>
+          <h2 data-i18n="leg_priv.s8.h2">8. Cookies</h2>
+          <p data-i18n="leg_priv.s8.p1">Para información detallada sobre las cookies que utilizamos, consulte nuestra <a href="/pages/cookies.html">Política de Cookies</a>.</p>
 
-          <h2>9. Modificaciones</h2>
-          <p>Nos reservamos el derecho a modificar esta política para adaptarla a novedades legislativas o jurisprudenciales. En tal caso publicaremos los cambios en esta página con la fecha actualizada.</p>
+          <h2 data-i18n="leg_priv.s9.h2">9. Modificaciones</h2>
+          <p data-i18n="leg_priv.s9.p1">Nos reservamos el derecho a modificar esta política para adaptarla a novedades legislativas o jurisprudenciales. En tal caso publicaremos los cambios en esta página con la fecha actualizada.</p>
         </div>
       </div>
     </section>
@@ -222,10 +232,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
 </body>
 </html>

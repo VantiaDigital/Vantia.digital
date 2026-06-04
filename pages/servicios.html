@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ECE8D8" />
-  <meta name="description" content="Servicios de Vantia · Marketing Digital — Optimización Web, SEO Técnico + GEO y Campañas de anuncios. Tres pilares para escalar tu negocio." />
+  <meta name="description" content="Servicios de Vantia · Marketing Digital — Optimización Web, SEO Técnico + GEO y Campañas de anuncios. Tres pilares para escalar tu negocio." data-i18n-content="serv.meta.desc" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vantia · Marketing Digital" />
@@ -14,10 +16,10 @@
   <meta property="og:url" content="https://vantia.digital/pages/servicios.html" />
   <link rel="canonical" href="https://vantia.digital/pages/servicios.html" />
 
-  <title>Servicios · Vantia · Marketing Digital</title>
+  <title data-i18n="serv.title">Servicios · Vantia · Marketing Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
@@ -25,8 +27,8 @@
 
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
@@ -34,13 +36,13 @@
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
   <!-- End Google Tag Manager -->
 </head>
 <body class="theme-light" id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -51,10 +53,10 @@
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -62,16 +64,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -81,12 +91,12 @@
 
     <section class="page-hero">
       <div class="container">
-        <span class="page-hero__eyebrow" data-reveal>Servicios en detalle</span>
-        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1">
+        <span class="page-hero__eyebrow" data-reveal data-i18n="serv.hero.eyebrow">Servicios en detalle</span>
+        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1" data-i18n="serv.hero.title">
           Tres servicios <em>técnicos</em>.<br/>
           Un solo ecosistema.
         </h1>
-        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2">
+        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2" data-i18n="serv.hero.subtitle">
           Cada servicio está pensado para integrarse con los demás. No vendemos piezas sueltas:
           construimos sistemas completos donde web, SEO y campañas trabajan al unísono.
           Bajá y leé en detalle qué hacemos en cada uno, por qué importa para tu PYME y qué te entregamos.
@@ -101,25 +111,30 @@
       <div class="container service-article__inner">
 
         <header class="service-article__header" data-reveal>
-          <span class="service-article__num">01 — Servicio</span>
-          <h2 class="service-article__title">Optimización Web</h2>
-          <p class="service-article__lead">
+          <span class="service-article__num" data-i18n="serv.s1.num">01 — Servicio</span>
+          <h2 class="service-article__title" data-i18n="serv.s1.title">Optimización Web</h2>
+          <p class="service-article__lead" data-i18n="serv.s1.lead">
             La web es la base donde todo lo demás se mide. Si carga lento, si no se ve en mobile,
             si Google la marca como insegura, ningún otro esfuerzo de marketing rinde.
-            Antes de invertir en anuncios o SEO, optimizamos la web.
+            Antes de invertir en anuncios o SEO, optimizamos la web: velocidad técnica y CRO
+            (optimización de la tasa de conversión). Porque una web rápida que no convierte
+            sigue siendo dinero perdido.
           </p>
         </header>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">¿Qué significa "optimización web" en la práctica?</h3>
-          <p>
-            Es el conjunto de mejoras técnicas que hacen que tu sitio cargue rápido, se vea bien
-            en cualquier dispositivo y sea entendido por buscadores y motores de IA. Las tres métricas
-            que Google mira para decidir si tu web sirve son los <strong>Core Web Vitals</strong>:
-            cuánto tarda en aparecer el contenido principal (LCP), cuán rápido reacciona a un click
-            (INP), y si los elementos se mueven mientras carga (CLS).
+          <h3 class="service-article__h3" data-i18n="serv.s1.h3a">¿Qué significa "optimización web" en la práctica?</h3>
+          <p data-i18n="serv.s1.p1">
+            Es el conjunto de mejoras técnicas y de conversión que hacen que tu sitio cargue rápido,
+            se vea bien en cualquier dispositivo, sea entendido por buscadores y motores de IA, y
+            convierta más visitas en clientes. Por un lado, las tres métricas que Google mira para
+            decidir si tu web sirve son los <strong>Core Web Vitals</strong>: cuánto tarda en aparecer
+            el contenido principal (LCP), cuán rápido reacciona a un click (INP), y si los elementos
+            se mueven mientras carga (CLS). Por otro, el <strong>CRO</strong> (optimización de la tasa
+            de conversión) trabaja sobre lo que pasa una vez que la página carga: qué frena al usuario,
+            dónde abandona, y qué versión de un titular o un formulario convierte más.
           </p>
-          <p>
+          <p data-i18n="serv.s1.p2">
             La realidad: el 70% de las PYMES tiene al menos una de estas métricas en rojo.
             Eso significa que Google les baja el ranking, los usuarios se van antes de que la página termine
             de cargar, y los anuncios que pagás cuestan más porque la calidad del destino es baja.
@@ -127,14 +142,14 @@
         </section>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">Por qué importa para tu PYME</h3>
-          <p>
+          <h3 class="service-article__h3" data-i18n="serv.s1.h3b">Por qué importa para tu PYME</h3>
+          <p data-i18n="serv.s1.p3">
             Cada 100 milisegundos extra que tu web tarda en cargar, perdés entre 1% y 2% de conversiones.
             Una web que tarda 4 segundos en cargar pierde aproximadamente la mitad de las visitas
             antes de mostrar nada. Y como cada visita vino de un click pagado o de SEO ganado con esfuerzo,
             eso es dinero real desperdiciado.
           </p>
-          <p>
+          <p data-i18n="serv.s1.p4">
             Además: Google premia las webs rápidas con mejor posicionamiento orgánico, y los motores
             de IA (ChatGPT, Perplexity, Gemini) solo citan fuentes que pueden cargar bien. Si tu web
             es lenta o tiene errores técnicos, ni Google ni la IA te recomiendan.
@@ -142,34 +157,40 @@
         </section>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">Cómo lo hacemos en Vantia</h3>
+          <h3 class="service-article__h3" data-i18n="serv.s1.h3c">Cómo lo hacemos en Vantia</h3>
           <ol class="service-article__list service-article__list--ordered">
-            <li>
+            <li data-i18n="serv.s1.li1">
               <strong>Auditoría técnica con Lighthouse y PageSpeed Insights.</strong>
               Sacamos el diagnóstico real de tu web actual: Core Web Vitals, accesibilidad, SEO técnico,
               best practices. Si ya tienes sitio, partimos de ahí. Si no, lo construimos desde cero.
             </li>
-            <li>
+            <li data-i18n="serv.s1.li2">
               <strong>Performance budget.</strong>
               Definimos un presupuesto técnico: cuánto puede pesar cada página, cuántos requests puede hacer,
               cuántos KB de JavaScript son aceptables. Sin esto, las webs se hinchan con cada cambio.
             </li>
-            <li>
+            <li data-i18n="serv.s1.li3">
               <strong>Refactor selectivo o reconstrucción.</strong>
               Reescribimos solo lo necesario: optimización de imágenes (WebP/AVIF), lazy loading,
               CSS crítico inline, JavaScript no bloqueante, fonts con display:swap, cache headers correctos.
             </li>
-            <li>
+            <li data-i18n="serv.s1.li_cro">
+              <strong>CRO (optimización de la tasa de conversión).</strong>
+              Analizamos el comportamiento real con mapas de calor y grabaciones de sesión (Microsoft Clarity),
+              detectamos los puntos de fricción y abandono, y testeamos con A/B titulares, llamadas a la acción
+              y formularios. No asumimos qué convierte: lo medimos.
+            </li>
+            <li data-i18n="serv.s1.li4">
               <strong>Accesibilidad (WCAG 2.2).</strong>
               Cumplir accesibilidad no es solo legal en Europa (Directiva 2025), también amplía tu mercado:
               contraste correcto, navegación por teclado, etiquetas semánticas, alt en imágenes.
             </li>
-            <li>
+            <li data-i18n="serv.s1.li5">
               <strong>SEO técnico de base.</strong>
               Schema markup, sitemap XML, robots.txt, canonical tags, hreflang si aplicas multi-idioma,
               meta tags Open Graph para que se vea bien cuando alguien comparte tu link.
             </li>
-            <li>
+            <li data-i18n="serv.s1.li6">
               <strong>Monitoreo continuo.</strong>
               Dejamos configurado un dashboard que monitorea performance, errores JS, uptime y velocidad
               de cada página. Si algo se rompe, lo sabemos antes que tú.
@@ -178,20 +199,21 @@
         </section>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">Qué te entregamos</h3>
+          <h3 class="service-article__h3" data-i18n="serv.s1.h3d">Qué te entregamos</h3>
           <ul class="service-article__list">
-            <li>Web con PageSpeed Insights 95+ en mobile y desktop.</li>
-            <li>Core Web Vitals en verde (LCP &lt; 2.5s, INP &lt; 200ms, CLS &lt; 0.1).</li>
-            <li>Accesibilidad WCAG 2.2 nivel AA validada.</li>
-            <li>Stack analítico instalado: GA4, GTM, Consent Mode v2, Microsoft Clarity.</li>
-            <li>Dashboard de monitoreo en Looker Studio que puedes leer tú mismo.</li>
-            <li>Documentación técnica del proyecto (qué se hizo, por qué y cómo mantenerlo).</li>
+            <li data-i18n="serv.s1.del1">Web con PageSpeed Insights 95+ en mobile y desktop.</li>
+            <li data-i18n="serv.s1.del2">Core Web Vitals en verde (LCP &lt; 2.5s, INP &lt; 200ms, CLS &lt; 0.1).</li>
+            <li data-i18n="serv.s1.del3">Accesibilidad WCAG 2.2 nivel AA validada.</li>
+            <li data-i18n="serv.s1.del4">Stack analítico instalado: GA4, GTM, Consent Mode v2, Microsoft Clarity.</li>
+            <li data-i18n="serv.s1.del_cro">Roadmap de CRO con hipótesis priorizadas, tests A/B documentados y análisis de mapas de calor y grabaciones de sesión.</li>
+            <li data-i18n="serv.s1.del5">Dashboard de monitoreo en Looker Studio que puedes leer tú mismo.</li>
+            <li data-i18n="serv.s1.del6">Documentación técnica del proyecto (qué se hizo, por qué y cómo mantenerlo).</li>
           </ul>
         </section>
 
         <div class="service-article__cta" data-reveal>
           <button type="button" class="btn btn-primary" data-budget="Optimización Web" data-magnetic>
-            <span class="btn__label">Pedir presupuesto · Optimización Web</span>
+            <span class="btn__label" data-i18n="serv.s1.cta">Pedir presupuesto · Optimización Web</span>
             <span class="arrow" aria-hidden="true">→</span>
           </button>
         </div>
@@ -201,8 +223,8 @@
             <img src="/assets/images/gett-studio.jpg?v=2" alt="Caso GeTT Studio" width="96" height="64" loading="lazy" />
           </span>
           <span class="service-case-link__text">
-            <span class="service-case-link__eyebrow">Caso real · Optimización Web</span>
-            <span class="service-case-link__title">GeTT Studio — performance y mobile-first</span>
+            <span class="service-case-link__eyebrow" data-i18n="serv.s1.case.eyebrow">Caso real · Optimización Web</span>
+            <span class="service-case-link__title" data-i18n="serv.s1.case.title">GeTT Studio — performance y mobile-first</span>
           </span>
           <span class="service-case-link__arrow" aria-hidden="true">→</span>
         </a>
@@ -217,9 +239,9 @@
       <div class="container service-article__inner">
 
         <header class="service-article__header" data-reveal>
-          <span class="service-article__num">02 — Servicio</span>
-          <h2 class="service-article__title">SEO Técnico <span class="service-article__title-slash">/</span> GEO</h2>
-          <p class="service-article__lead">
+          <span class="service-article__num" data-i18n="serv.s2.num">02 — Servicio</span>
+          <h2 class="service-article__title" data-i18n="serv.s2.title">SEO Técnico <span class="service-article__title-slash">/</span> GEO</h2>
+          <p class="service-article__lead" data-i18n="serv.s2.lead">
             El SEO ya no es solo "aparecer primero en Google". Es aparecer en las respuestas
             de ChatGPT, Perplexity, Gemini y los nuevos motores de IA. Combinamos SEO técnico
             tradicional con GEO (Generative Engine Optimization) para que tu marca sea citada
@@ -228,19 +250,19 @@
         </header>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">¿Qué es el SEO técnico y qué es el GEO?</h3>
-          <p>
+          <h3 class="service-article__h3" data-i18n="serv.s2.h3a">¿Qué es el SEO técnico y qué es el GEO?</h3>
+          <p data-i18n="serv.s2.p1">
             <strong>SEO técnico</strong> es la parte de SEO que se ocupa de cómo Google entiende tu web:
             estructura del sitio, código limpio, schema markup, velocidad, indexación, sitemap.
             Es la base sobre la que después se construye el SEO de contenido (artículos, keywords).
           </p>
-          <p>
+          <p data-i18n="serv.s2.p2">
             <strong>GEO (Generative Engine Optimization)</strong> es la disciplina nueva, surgida en 2024-2025,
             que se ocupa de cómo los motores de IA generativa citan e incorporan tu contenido en sus respuestas.
             Cuando alguien le pregunta a ChatGPT "cuál es la mejor agencia técnica de Barcelona", el modelo
             elige qué fuentes citar basándose en señales muy distintas a las de Google.
           </p>
-          <p>
+          <p data-i18n="serv.s2.p3">
             Las dos disciplinas se solapan en la base técnica (web rápida, schema correcto, contenido claro)
             pero divergen en táctica: SEO clásico mira backlinks y autoridad de dominio, GEO mira
             "citabilidad" del contenido (claridad, datos verificables, autoridad temática).
@@ -248,13 +270,13 @@
         </section>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">Por qué importa para tu PYME</h3>
-          <p>
+          <h3 class="service-article__h3" data-i18n="serv.s2.h3b">Por qué importa para tu PYME</h3>
+          <p data-i18n="serv.s2.p4">
             El comportamiento de búsqueda está cambiando rápido: Gartner estima que para 2026 el tráfico
             orgánico tradicional va a caer un 25% mientras la búsqueda en IA crece. Si tu estrategia
             de SEO solo apunta a Google, vas a perder relevancia gradualmente sin darte cuenta.
           </p>
-          <p>
+          <p data-i18n="serv.s2.p5">
             Y la buena noticia es que GEO todavía está en sus primeros años — quien optimice ahora,
             captura una ventaja difícil de revertir. Las PYMES que se posicionan como fuentes citables
             en ChatGPT hoy van a tener una autoridad muy difícil de competir en 2027.
@@ -262,34 +284,34 @@
         </section>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">Cómo lo hacemos en Vantia</h3>
+          <h3 class="service-article__h3" data-i18n="serv.s2.h3c">Cómo lo hacemos en Vantia</h3>
           <ol class="service-article__list service-article__list--ordered">
-            <li>
+            <li data-i18n="serv.s2.li1">
               <strong>Auditoría SEO técnica completa.</strong>
               Screaming Frog + Google Search Console + Ahrefs: detectamos problemas de indexación,
               contenido duplicado, schema mal configurado, URLs canónicas rotas, redirects en cascada.
             </li>
-            <li>
+            <li data-i18n="serv.s2.li2">
               <strong>Optimización de Core Web Vitals.</strong>
               Como en Optimización Web — la performance también es señal de SEO.
             </li>
-            <li>
+            <li data-i18n="serv.s2.li3">
               <strong>Schema markup avanzado.</strong>
               Datos estructurados Organization, LocalBusiness, Service, FAQPage, Article, BreadcrumbList.
               Esto hace que Google y los motores de IA entiendan exactamente qué hace tu negocio.
             </li>
-            <li>
+            <li data-i18n="serv.s2.li4">
               <strong>Estrategia de contenido dual.</strong>
               Cada artículo o página se piensa con dos objetivos: rankear en Google (keywords, intent)
               y ser citado por IA (claridad, datos, autoridad). No son ejercicios separados.
             </li>
-            <li>
+            <li data-i18n="serv.s2.li5">
               <strong>Citation engineering.</strong>
               Posicionamos tu marca como fuente fiable: perfiles consistentes (Google Business, LinkedIn,
               Wikipedia si aplica), menciones en medios sectoriales, participación en datasets que
               los modelos de IA usan para entrenar.
             </li>
-            <li>
+            <li data-i18n="serv.s2.li6">
               <strong>Monitorización mensual.</strong>
               Reporte de posicionamiento en Google + checks regulares en ChatGPT/Perplexity/Gemini sobre
               keywords clave de tu nicho. Si la marca no aparece, ajustamos estrategia.
@@ -298,20 +320,20 @@
         </section>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">Qué te entregamos</h3>
+          <h3 class="service-article__h3" data-i18n="serv.s2.h3d">Qué te entregamos</h3>
           <ul class="service-article__list">
-            <li>Auditoría técnica con priorización de issues (P0 a P3).</li>
-            <li>Schema markup implementado en todas las páginas relevantes.</li>
-            <li>Estrategia de contenido con calendario editorial trimestral.</li>
-            <li>Posicionamiento orgánico mejorado (Google) y citabilidad (IA).</li>
-            <li>Dashboard mensual de keywords + visibilidad en motores de IA.</li>
-            <li>Recomendaciones accionables cada mes, no solo reportes pasivos.</li>
+            <li data-i18n="serv.s2.del1">Auditoría técnica con priorización de issues (P0 a P3).</li>
+            <li data-i18n="serv.s2.del2">Schema markup implementado en todas las páginas relevantes.</li>
+            <li data-i18n="serv.s2.del3">Estrategia de contenido con calendario editorial trimestral.</li>
+            <li data-i18n="serv.s2.del4">Posicionamiento orgánico mejorado (Google) y citabilidad (IA).</li>
+            <li data-i18n="serv.s2.del5">Dashboard mensual de keywords + visibilidad en motores de IA.</li>
+            <li data-i18n="serv.s2.del6">Recomendaciones accionables cada mes, no solo reportes pasivos.</li>
           </ul>
         </section>
 
         <div class="service-article__cta" data-reveal>
           <button type="button" class="btn btn-primary" data-budget="SEO Técnico / GEO" data-magnetic>
-            <span class="btn__label">Pedir presupuesto · SEO + GEO</span>
+            <span class="btn__label" data-i18n="serv.s2.cta">Pedir presupuesto · SEO + GEO</span>
             <span class="arrow" aria-hidden="true">→</span>
           </button>
         </div>
@@ -321,8 +343,8 @@
             <img src="/assets/images/estanteria.jpg?v=2" alt="Caso La Estantería" width="96" height="64" loading="lazy" />
           </span>
           <span class="service-case-link__text">
-            <span class="service-case-link__eyebrow">Caso real · SEO Técnico + GEO</span>
-            <span class="service-case-link__title">La Estantería — posicionar en Google y en la IA</span>
+            <span class="service-case-link__eyebrow" data-i18n="serv.s2.case.eyebrow">Caso real · SEO Técnico + GEO</span>
+            <span class="service-case-link__title" data-i18n="serv.s2.case.title">La Estantería — posicionar en Google y en la IA</span>
           </span>
           <span class="service-case-link__arrow" aria-hidden="true">→</span>
         </a>
@@ -337,9 +359,9 @@
       <div class="container service-article__inner">
 
         <header class="service-article__header" data-reveal>
-          <span class="service-article__num">03 — Servicio</span>
-          <h2 class="service-article__title">Campañas de anuncios</h2>
-          <p class="service-article__lead">
+          <span class="service-article__num" data-i18n="serv.s3.num">03 — Servicio</span>
+          <h2 class="service-article__title" data-i18n="serv.s3.title">Campañas de anuncios</h2>
+          <p class="service-article__lead" data-i18n="serv.s3.lead">
             Las campañas pagadas son el atajo más rápido para generar tráfico cualificado.
             Pero solo funcionan si la web carga bien, si el tracking está limpio y si medís
             qué clic se convierte en cliente real. Sin esa base, gastas dinero sin saber dónde se va.
@@ -347,14 +369,14 @@
         </header>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">¿Qué incluye una campaña de anuncios bien hecha?</h3>
-          <p>
+          <h3 class="service-article__h3" data-i18n="serv.s3.h3a">¿Qué incluye una campaña de anuncios bien hecha?</h3>
+          <p data-i18n="serv.s3.p1">
             Una campaña no es solo "subir un anuncio a Google o Meta". Son cinco capas que tienen que
             estar bien coordinadas: <strong>tracking</strong> (medir qué pasa), <strong>audiencia</strong>
             (a quién le hablás), <strong>creatividad</strong> (qué le mostrás), <strong>landing</strong>
             (a dónde lo envías) y <strong>optimización</strong> (qué haces con los datos que llegan).
           </p>
-          <p>
+          <p data-i18n="serv.s3.p2">
             La mayoría de las PYMES tiene problemas en la primera capa: el tracking está mal configurado,
             entonces los algoritmos de Google y Meta no aprenden qué clics convierten. Sin esa
             retroalimentación, las campañas optimizan hacia clics baratos en vez de clientes reales.
@@ -363,14 +385,14 @@
         </section>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">Por qué importa para tu PYME</h3>
-          <p>
+          <h3 class="service-article__h3" data-i18n="serv.s3.h3b">Por qué importa para tu PYME</h3>
+          <p data-i18n="serv.s3.p3">
             Bien hechas, las campañas son el canal más medible y predecible que existe.
             Con tracking limpio puedes saber exactamente cuánto te cuesta un cliente, cuál es tu
             ROAS por canal, qué creatividades funcionan y cuáles no. Pero mal hechas, son el
             agujero negro más rápido del marketing digital.
           </p>
-          <p>
+          <p data-i18n="serv.s3.p4">
             Vantia parte siempre del tracking: antes de gastar un euro en anuncios, dejamos
             configurado GA4 + GTM + Conversions API (Meta) + Enhanced Conversions (Google).
             Solo cuando los datos llegan limpios al algoritmo, empezamos a invertir.
@@ -378,37 +400,37 @@
         </section>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">Cómo lo hacemos en Vantia</h3>
+          <h3 class="service-article__h3" data-i18n="serv.s3.h3c">Cómo lo hacemos en Vantia</h3>
           <ol class="service-article__list service-article__list--ordered">
-            <li>
+            <li data-i18n="serv.s3.li1">
               <strong>Setup técnico antes que setup creativo.</strong>
               GA4 con eventos personalizados, conversiones marcadas, Conversions API en Meta,
               Enhanced Conversions en Google. Validamos que cada conversión se mida correctamente
               antes de lanzar.
             </li>
-            <li>
+            <li data-i18n="serv.s3.li2">
               <strong>Investigación de audiencia.</strong>
               Análisis de tu cliente real (no del avatar genérico): quién compra, cuánto vale,
               de dónde viene, qué hace antes y después de comprar. Esto define a quién apuntan
               las campañas.
             </li>
-            <li>
+            <li data-i18n="serv.s3.li3">
               <strong>Estructura de campañas por intención.</strong>
               No mezclamos audiencias frías con remarketing. Cada nivel del embudo tiene su
               campaña, su presupuesto, su KPI. Esto se llama "estructura ABC" y es lo que
               permite escalar sin perder eficiencia.
             </li>
-            <li>
+            <li data-i18n="serv.s3.li4">
               <strong>Creatividades testeadas.</strong>
               A/B testing sistemático en cada nivel: copy, imagen, vídeo, CTA. No asumimos qué
               funciona, lo verificamos con datos.
             </li>
-            <li>
+            <li data-i18n="serv.s3.li5">
               <strong>Optimización semanal con datos limpios.</strong>
               Cada lunes revisamos performance, cortamos lo que no funciona, escalamos lo que sí.
               Sin "set and forget" — las campañas que se dejan corriendo solas degradan rápido.
             </li>
-            <li>
+            <li data-i18n="serv.s3.li6">
               <strong>Reporte mensual con números reales.</strong>
               No vanity metrics ("impresiones", "alcance"), sino números útiles: CPL, CAC, ROAS,
               LTV proyectado. Sabes exactamente qué te está dando cada euro invertido.
@@ -417,20 +439,20 @@
         </section>
 
         <section class="service-article__section" data-reveal>
-          <h3 class="service-article__h3">Qué te entregamos</h3>
+          <h3 class="service-article__h3" data-i18n="serv.s3.h3d">Qué te entregamos</h3>
           <ul class="service-article__list">
-            <li>Tracking validado end-to-end (web → GA4 → algoritmo → reporte).</li>
-            <li>Campañas en Google Ads (Search, PMax, YouTube) y Meta Ads (Facebook, Instagram).</li>
-            <li>Audiencias customizadas + remarketing inteligente.</li>
-            <li>Banco de creatividades testeadas con datos reales.</li>
-            <li>Dashboard de campañas en Looker Studio con CAC, ROAS y atribución.</li>
-            <li>Optimización semanal con recomendaciones accionables.</li>
+            <li data-i18n="serv.s3.del1">Tracking validado end-to-end (web → GA4 → algoritmo → reporte).</li>
+            <li data-i18n="serv.s3.del2">Campañas en Google Ads (Search, PMax, YouTube) y Meta Ads (Facebook, Instagram).</li>
+            <li data-i18n="serv.s3.del3">Audiencias customizadas + remarketing inteligente.</li>
+            <li data-i18n="serv.s3.del4">Banco de creatividades testeadas con datos reales.</li>
+            <li data-i18n="serv.s3.del5">Dashboard de campañas en Looker Studio con CAC, ROAS y atribución.</li>
+            <li data-i18n="serv.s3.del6">Optimización semanal con recomendaciones accionables.</li>
           </ul>
         </section>
 
         <div class="service-article__cta" data-reveal>
           <button type="button" class="btn btn-primary" data-budget="Campañas de anuncios" data-magnetic>
-            <span class="btn__label">Pedir presupuesto · Campañas</span>
+            <span class="btn__label" data-i18n="serv.s3.cta">Pedir presupuesto · Campañas</span>
             <span class="arrow" aria-hidden="true">→</span>
           </button>
         </div>
@@ -440,8 +462,8 @@
             <img src="/assets/images/mendieta.jpg" alt="Caso Mendieta" width="96" height="64" loading="lazy" />
           </span>
           <span class="service-case-link__text">
-            <span class="service-case-link__eyebrow">Caso real · Medición y conversión</span>
-            <span class="service-case-link__title">Mendieta — tracking de conversiones por WhatsApp</span>
+            <span class="service-case-link__eyebrow" data-i18n="serv.s3.case.eyebrow">Caso real · Medición y conversión</span>
+            <span class="service-case-link__title" data-i18n="serv.s3.case.title">Mendieta — tracking de conversiones por WhatsApp</span>
           </span>
           <span class="service-case-link__arrow" aria-hidden="true">→</span>
         </a>
@@ -452,14 +474,14 @@
     <!-- CTA banner -->
     <section class="cta-banner">
       <div class="container">
-        <h2 class="cta-banner__title" data-reveal>
+        <h2 class="cta-banner__title" data-reveal data-i18n="serv.cta.title">
           ¿Listos para <em>escalar</em>?
         </h2>
-        <p class="cta-banner__subtitle" data-reveal data-reveal-delay="0.1">
+        <p class="cta-banner__subtitle" data-reveal data-reveal-delay="0.1" data-i18n="serv.cta.subtitle">
           Reserva una sesión de 30 minutos. Auditamos tu caso y diseñamos un plan concreto.
         </p>
         <a href="https://calendly.com/admin-vantia/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic data-reveal data-reveal-delay="0.2">
-          <span class="btn__label">Reservar sesión gratis</span>
+          <span class="btn__label" data-i18n="serv.cta.btn">Reservar sesión gratis</span>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
       </div>
@@ -502,10 +524,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
 </body>
 </html>

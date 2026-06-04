@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#1A1813" />
-  <meta name="description" content="Agencia técnica de marketing digital para PYMES y empresas medianas. Optimización Web, SEO Técnico + GEO y Campañas de anuncios con ROI medible." />
+  <meta name="description" content="Agencia técnica de marketing digital para PYMES y empresas medianas. Optimización Web, SEO Técnico + GEO y Campañas de anuncios con ROI medible." data-i18n-content="home.meta.desc" />
   <meta name="author" content="Vantia · Marketing Digital" />
 
   <meta property="og:type" content="website" />
@@ -19,10 +21,10 @@
   <meta name="twitter:title" content="Vantia · Marketing Digital" />
   <meta name="twitter:description" content="Agencia técnica para PYMES y empresas medianas. Web, SEO + GEO y Campañas de anuncios con ROI medible." />
 
-  <title>Vantia · Marketing Digital</title>
+  <title data-i18n="home.meta.title">Vantia · Marketing Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
@@ -30,8 +32,8 @@
 
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
@@ -39,13 +41,13 @@
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
   <!-- End Google Tag Manager -->
 </head>
 <body id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -61,10 +63,10 @@
 
   <!-- Componentes compartidos (cargados via fetch) -->
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -72,16 +74,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -137,23 +147,23 @@
 
       <div class="container hero__inner">
         <h1 id="hero-title" class="hero__title">
-          <span class="mask-line"><span>Ecosistemas web</span></span>
-          <span class="mask-line"><span>y Marketing Digital</span></span>
-          <span class="mask-line"><span>con <em>precisión matemática</em>.</span></span>
+          <span class="mask-line"><span data-i18n="home.hero.l1">Ecosistemas web</span></span>
+          <span class="mask-line"><span data-i18n="home.hero.l2">y Marketing Digital</span></span>
+          <span class="mask-line"><span data-i18n="home.hero.l3">con <em>precisión matemática</em>.</span></span>
         </h1>
 
-        <p class="hero__subtitle">
+        <p class="hero__subtitle" data-i18n="home.hero.sub">
           Somos expertos en escalar la facturación de su empresa. Reserve su primera sesión
           gratuita para evaluar su caso y estructurar su próximo proyecto.
         </p>
 
         <div class="hero__cta-row">
           <a href="https://calendly.com/admin-vantia/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>
-            <span class="btn__label">Sesión gratis</span>
+            <span class="btn__label" data-i18n="home.hero.cta1">Sesión gratis</span>
             <span class="arrow" aria-hidden="true">→</span>
           </a>
           <a href="/pages/servicios.html" class="btn btn-ghost" data-magnetic>
-            <span class="btn__label">Ver servicios</span>
+            <span class="btn__label" data-i18n="home.hero.cta2">Ver servicios</span>
           </a>
         </div>
       </div>
@@ -163,27 +173,27 @@
     <div class="marquee marquee--quotes" aria-hidden="true">
       <div class="marquee__track">
         <div class="marquee__item">
-          <span class="m-quote">&ldquo;El mejor momento para plantar un árbol fue hace 20 años. El segundo mejor momento es ahora&rdquo;</span><span class="m-dash"> — </span><span class="m-author">Proverbio chino</span>
+          <span class="m-quote" data-i18n="home.q1">&ldquo;El mejor momento para plantar un árbol fue hace 20 años. El segundo mejor momento es ahora&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q1a">Proverbio chino</span>
           <span class="marquee__sep" aria-hidden="true"></span>
-          <span class="m-quote">&ldquo;Todo modelo es incorrecto. Algunos son útiles&rdquo;</span><span class="m-dash"> — </span><span class="m-author">George Box</span>
+          <span class="m-quote" data-i18n="home.q2">&ldquo;Todo modelo es incorrecto. Algunos son útiles&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q2a">George Box</span>
           <span class="marquee__sep" aria-hidden="true"></span>
-          <span class="m-quote">&ldquo;La paciencia es amarga, pero su fruto es dulce&rdquo;</span><span class="m-dash"> — </span><span class="m-author">Aristóteles</span>
+          <span class="m-quote" data-i18n="home.q3">&ldquo;La paciencia es amarga, pero su fruto es dulce&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q3a">Aristóteles</span>
           <span class="marquee__sep" aria-hidden="true"></span>
-          <span class="m-quote">&ldquo;Lo esencial es invisible a los ojos&rdquo;</span><span class="m-dash"> — </span><span class="m-author">Antoine de Saint-Exupéry</span>
+          <span class="m-quote" data-i18n="home.q4">&ldquo;Lo esencial es invisible a los ojos&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q4a">Antoine de Saint-Exupéry</span>
           <span class="marquee__sep" aria-hidden="true"></span>
-          <span class="m-quote">&ldquo;La simplicidad es la máxima sofisticación&rdquo;</span><span class="m-dash"> — </span><span class="m-author">Leonardo da Vinci</span>
+          <span class="m-quote" data-i18n="home.q5">&ldquo;La simplicidad es la máxima sofisticación&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q5a">Leonardo da Vinci</span>
           <span class="marquee__sep" aria-hidden="true"></span>
         </div>
         <div class="marquee__item" aria-hidden="true">
-          <span class="m-quote">&ldquo;El mejor momento para plantar un árbol fue hace 20 años. El segundo mejor momento es ahora&rdquo;</span><span class="m-dash"> — </span><span class="m-author">Proverbio chino</span>
+          <span class="m-quote" data-i18n="home.q1">&ldquo;El mejor momento para plantar un árbol fue hace 20 años. El segundo mejor momento es ahora&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q1a">Proverbio chino</span>
           <span class="marquee__sep" aria-hidden="true"></span>
-          <span class="m-quote">&ldquo;Todo modelo es incorrecto. Algunos son útiles&rdquo;</span><span class="m-dash"> — </span><span class="m-author">George Box</span>
+          <span class="m-quote" data-i18n="home.q2">&ldquo;Todo modelo es incorrecto. Algunos son útiles&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q2a">George Box</span>
           <span class="marquee__sep" aria-hidden="true"></span>
-          <span class="m-quote">&ldquo;La paciencia es amarga, pero su fruto es dulce&rdquo;</span><span class="m-dash"> — </span><span class="m-author">Aristóteles</span>
+          <span class="m-quote" data-i18n="home.q3">&ldquo;La paciencia es amarga, pero su fruto es dulce&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q3a">Aristóteles</span>
           <span class="marquee__sep" aria-hidden="true"></span>
-          <span class="m-quote">&ldquo;Lo esencial es invisible a los ojos&rdquo;</span><span class="m-dash"> — </span><span class="m-author">Antoine de Saint-Exupéry</span>
+          <span class="m-quote" data-i18n="home.q4">&ldquo;Lo esencial es invisible a los ojos&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q4a">Antoine de Saint-Exupéry</span>
           <span class="marquee__sep" aria-hidden="true"></span>
-          <span class="m-quote">&ldquo;La simplicidad es la máxima sofisticación&rdquo;</span><span class="m-dash"> — </span><span class="m-author">Leonardo da Vinci</span>
+          <span class="m-quote" data-i18n="home.q5">&ldquo;La simplicidad es la máxima sofisticación&rdquo;</span><span class="m-dash"> — </span><span class="m-author" data-i18n="home.q5a">Leonardo da Vinci</span>
           <span class="marquee__sep" aria-hidden="true"></span>
         </div>
       </div>
@@ -193,21 +203,21 @@
     <section class="methodology" aria-labelledby="method-title">
       <div class="container">
         <header class="methodology__head">
-          <span class="eyebrow" data-reveal>Nuestra metodología</span>
+          <span class="eyebrow" data-reveal data-i18n="home.method.eyebrow">Nuestra metodología</span>
           <h2 id="method-title" class="methodology__title" data-reveal data-reveal-delay="0.1">
-            <span class="methodology__title-line">Tres pilares técnicos:</span>
-            <em class="methodology__title-em">Un solo ecosistema de conversión.</em>
+            <span class="methodology__title-line" data-i18n="home.method.line">Tres pilares técnicos:</span>
+            <em class="methodology__title-em" data-i18n="home.method.em">Un solo ecosistema de conversión.</em>
           </h2>
         </header>
 
         <div class="pillars" data-reveal-children>
 
-          <article class="pillar" data-modal-trigger="ingenieria-web" role="button" tabindex="0" aria-label="Abrir detalle de Optimización Web">
-            <div class="pillar__num">01 / Pilar</div>
-            <h3 class="pillar__title">Optimización Web</h3>
-            <p class="pillar__body">
-              Plataformas de alta velocidad. Arquitectura orientada a la conversión con
-              código limpio y PageSpeed del 99/100.
+          <article class="pillar" data-modal-trigger="ingenieria-web" role="button" tabindex="0" aria-label="Abrir detalle de Optimización Web" data-i18n-aria-label="home.p1.aria">
+            <div class="pillar__num" data-i18n="home.p1.num">01 / Pilar</div>
+            <h3 class="pillar__title" data-i18n="home.p1.title">Optimización Web</h3>
+            <p class="pillar__body" data-i18n="home.p1.body">
+              Plataformas de alta velocidad y CRO (optimización de conversión).
+              Arquitectura orientada a convertir, con código limpio y PageSpeed del 99/100.
             </p>
             <div class="pillar__icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -218,10 +228,10 @@
             </div>
           </article>
 
-          <article class="pillar" data-modal-trigger="seo-tecnico" role="button" tabindex="0" aria-label="Abrir detalle de SEO Técnico y GEO">
-            <div class="pillar__num">02 / Pilar</div>
-            <h3 class="pillar__title">SEO Técnico <span style="color: var(--color-olive); font-weight: 400;">/</span> GEO</h3>
-            <p class="pillar__body">
+          <article class="pillar" data-modal-trigger="seo-tecnico" role="button" tabindex="0" aria-label="Abrir detalle de SEO Técnico y GEO" data-i18n-aria-label="home.p2.aria">
+            <div class="pillar__num" data-i18n="home.p2.num">02 / Pilar</div>
+            <h3 class="pillar__title" data-i18n="home.p2.title">SEO Técnico <span style="color: var(--color-olive); font-weight: 400;">/</span> GEO</h3>
+            <p class="pillar__body" data-i18n="home.p2.body">
               SEO Técnico combinado con GEO (Generative Engine Optimization),
               adaptado a las nuevas búsquedas con IA.
             </p>
@@ -233,10 +243,10 @@
             </div>
           </article>
 
-          <article class="pillar" data-modal-trigger="paid-media" role="button" tabindex="0" aria-label="Abrir detalle de Campañas de anuncios">
-            <div class="pillar__num">03 / Pilar</div>
-            <h3 class="pillar__title">Campañas de anuncios</h3>
-            <p class="pillar__body">
+          <article class="pillar" data-modal-trigger="paid-media" role="button" tabindex="0" aria-label="Abrir detalle de Campañas de anuncios" data-i18n-aria-label="home.p3.aria">
+            <div class="pillar__num" data-i18n="home.p3.num">03 / Pilar</div>
+            <h3 class="pillar__title" data-i18n="home.p3.title">Campañas de anuncios</h3>
+            <p class="pillar__body" data-i18n="home.p3.body">
               Campañas en <span class="brand-em">Google Ads</span> y <span class="brand-em">Meta Ads</span>.
               Tráfico predecible basado en datos puros, maximizando el ROAS y reduciendo el coste por adquisición.
             </p>
@@ -252,7 +262,7 @@
 
         <div style="text-align: center; margin-top: var(--space-2xl);" data-reveal>
           <a href="/pages/servicios.html" class="btn btn-ghost" style="border-color: rgba(60,58,47,0.3); color: var(--color-dark);">
-            <span class="btn__label">Ver detalle de servicios</span>
+            <span class="btn__label" data-i18n="home.method.cta">Ver detalle de servicios</span>
             <span class="arrow" aria-hidden="true">→</span>
           </a>
         </div>
@@ -262,31 +272,31 @@
     <!-- STATS -->
     <section class="stats" aria-labelledby="stats-title">
       <div class="container">
-        <h2 id="stats-title" class="sr-only">Métricas clave</h2>
+        <h2 id="stats-title" class="sr-only" data-i18n="home.stats.sr">Métricas clave</h2>
         <div class="stats__grid" data-reveal-children>
 
           <div class="stat">
             <div class="stat__num">
               <span data-count-to="99">0</span><span class="stat__suffix">/100</span>
             </div>
-            <div class="stat__label">PageSpeed promedio</div>
-            <p class="stat__desc">Core Web Vitals en verde en cada proyecto que entregamos.</p>
+            <div class="stat__label" data-i18n="home.stat1.label">PageSpeed promedio</div>
+            <p class="stat__desc" data-i18n="home.stat1.desc">Core Web Vitals en verde en cada proyecto que entregamos.</p>
           </div>
 
           <div class="stat">
             <div class="stat__num">
               <span data-count-to="450">0</span><span class="stat__suffix">%</span>
             </div>
-            <div class="stat__label">Crecimiento ROAS</div>
-            <p class="stat__desc">Promedio en 9 meses sobre la inversión publicitaria inicial.</p>
+            <div class="stat__label" data-i18n="home.stat2.label">Crecimiento ROAS</div>
+            <p class="stat__desc" data-i18n="home.stat2.desc">Promedio en 9 meses sobre la inversión publicitaria inicial.</p>
           </div>
 
           <div class="stat">
             <div class="stat__num">
               <span data-count-to="100">0</span><span class="stat__suffix">%</span>
             </div>
-            <div class="stat__label">Código a medida</div>
-            <p class="stat__desc">Cero plantillas. Cada línea es propiedad del cliente.</p>
+            <div class="stat__label" data-i18n="home.stat3.label">Código a medida</div>
+            <p class="stat__desc" data-i18n="home.stat3.desc">Cero plantillas. Cada línea es propiedad del cliente.</p>
           </div>
 
         </div>
@@ -332,10 +342,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
 </body>
 </html>

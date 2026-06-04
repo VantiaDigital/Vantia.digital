@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ECE8D8" />
-  <meta name="description" content="Caso de éxito · Mendieta — Cómo se mide una conversión que pasa por WhatsApp. Tracking offline-online." />
+  <meta name="description" data-i18n-content="cs_men.meta_desc" content="Caso de éxito · Mendieta — Cómo se mide una conversión que pasa por WhatsApp. Tracking offline-online." />
 
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Vantia · Marketing Digital" />
@@ -15,38 +17,38 @@
   <meta property="og:image" content="https://vantia.digital/assets/images/mendieta.jpg" />
   <link rel="canonical" href="https://vantia.digital/pages/casos/mendieta.html" />
 
-  <title>Mendieta — Pedidos por WhatsApp + tracking · Vantia · Marketing Digital</title>
+  <title data-i18n="cs_men.page_title">Mendieta — Pedidos por WhatsApp + tracking · Vantia · Marketing Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
 
 
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
 </head>
 <body class="theme-light" id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="scroll-progress" aria-hidden="true"></div>
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -54,16 +56,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -73,15 +83,15 @@
     <section class="case-study__hero">
       <div class="container case-study__hero-inner">
         <nav class="case-study__breadcrumb" aria-label="Navegación de migas">
-          <a href="/pages/casos.html">Casos</a>
+          <a href="/pages/casos.html" data-i18n="cs_men.breadcrumb_cases">Casos</a>
           <span aria-hidden="true">·</span>
           <span>Mendieta</span>
         </nav>
-        <span class="case-study__eyebrow" data-reveal>Acción destacada · Tracking de conversiones por WhatsApp</span>
-        <h1 class="case-study__title" data-reveal data-reveal-delay="0.1">
+        <span class="case-study__eyebrow" data-i18n="cs_men.eyebrow" data-reveal>Acción destacada · Tracking de conversiones por WhatsApp</span>
+        <h1 class="case-study__title" data-i18n="cs_men.h1" data-reveal data-reveal-delay="0.1">
           Cómo medir una <em>conversión</em> que pasa por WhatsApp.
         </h1>
-        <p class="case-study__lead" data-reveal data-reveal-delay="0.2">
+        <p class="case-study__lead" data-i18n="cs_men.lead" data-reveal data-reveal-delay="0.2">
           Mendieta vende pastelería argentina en Barcelona. El cliente entra a la web,
           ve el catálogo y termina pidiendo por WhatsApp. El cierre es offline,
           pero el dato no se puede perder.
@@ -92,23 +102,23 @@
     <section class="case-study__meta" data-reveal>
       <div class="container case-study__meta-inner">
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Cliente</span>
+          <span class="case-study__meta-label" data-i18n="cs_men.meta.client_l">Cliente</span>
           <span class="case-study__meta-value">Mendieta</span>
         </div>
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Sector</span>
-          <span class="case-study__meta-value">Gastronomía · Pastelería</span>
+          <span class="case-study__meta-label" data-i18n="cs_men.meta.sector_l">Sector</span>
+          <span class="case-study__meta-value" data-i18n="cs_men.meta.sector_v">Gastronomía · Pastelería</span>
         </div>
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Año</span>
+          <span class="case-study__meta-label" data-i18n="cs_men.meta.year_l">Año</span>
           <span class="case-study__meta-value">2026</span>
         </div>
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Acción destacada</span>
-          <span class="case-study__meta-value">Medición offline-online</span>
+          <span class="case-study__meta-label" data-i18n="cs_men.meta.action_l">Acción destacada</span>
+          <span class="case-study__meta-value" data-i18n="cs_men.meta.action_v">Medición offline-online</span>
         </div>
         <div class="case-study__meta-item">
-          <span class="case-study__meta-label">Stack</span>
+          <span class="case-study__meta-label" data-i18n="cs_men.meta.stack_l">Stack</span>
           <span class="case-study__meta-value">GA4 · GTM · WhatsApp Click-to-Chat · UTM</span>
         </div>
       </div>
@@ -126,8 +136,8 @@
       <div class="container case-study__article-inner">
 
         <section class="case-study__section" data-reveal>
-          <h2 class="case-study__h2">El reto</h2>
-          <p>
+          <h2 class="case-study__h2" data-i18n="cs_men.s1.h2">El reto</h2>
+          <p data-i18n="cs_men.s1.p1">
             En gastronomía, el e-commerce tradicional no siempre encaja. Muchos negocios
             chicos cierran sus ventas por WhatsApp: el cliente pregunta, ajusta el pedido,
             confirma fecha y recoge en persona. Pero el típico problema es que cuando el
@@ -138,8 +148,8 @@
         </section>
 
         <section class="case-study__section" data-reveal>
-          <h2 class="case-study__h2">Cómo lo abordamos</h2>
-          <p>
+          <h2 class="case-study__h2" data-i18n="cs_men.s2.h2">Cómo lo abordamos</h2>
+          <p data-i18n="cs_men.s2.p1">
             Diseñamos un sistema de medición que conecta el click en "Pedir por WhatsApp"
             con el embudo completo: desde el canal de adquisición hasta la conversión final.
             La clave es entender que el click es la <strong>conversión medible</strong>:
@@ -149,33 +159,33 @@
         </section>
 
         <section class="case-study__section" data-reveal>
-          <h2 class="case-study__h2">Qué se hizo en concreto</h2>
+          <h2 class="case-study__h2" data-i18n="cs_men.s3.h2">Qué se hizo en concreto</h2>
           <ul class="case-study__list">
-            <li>
+            <li data-i18n="cs_men.s3.li1">
               <strong>Click-to-Chat con mensaje pre-rellenado.</strong>
               Cada botón "Pedir por WhatsApp" abre la conversación con un mensaje que
               incluye el producto o sección de interés. Esto cualifica al lead antes
               de que escriba la primera palabra.
             </li>
-            <li>
+            <li data-i18n="cs_men.s3.li2">
               <strong>Evento personalizado en GA4 al click.</strong>
               Cada click en "Pedir por WhatsApp" dispara un evento <code>click_whatsapp</code>
               con parámetros: producto, ubicación en la página, dispositivo, fuente.
               Ese evento se marca como conversión en GA4.
             </li>
-            <li>
+            <li data-i18n="cs_men.s3.li3">
               <strong>UTM tags en todos los canales de entrada.</strong>
               Posts de Instagram, links de Google Business Profile, mailings:
               cada link saliente lleva UTMs únicos. Sabemos exactamente desde dónde
               llegó cada cliente que terminó en WhatsApp.
             </li>
-            <li>
+            <li data-i18n="cs_men.s3.li4">
               <strong>Dashboard en Looker Studio con embudo completo.</strong>
               Visitas → Vistas de producto → Clicks en WhatsApp → Coste por click WhatsApp
               (calculado contra inversión en cada canal). El dueño del negocio lee el
               reporte sin entender de marketing.
             </li>
-            <li>
+            <li data-i18n="cs_men.s3.li5">
               <strong>Consent Mode v2 correctamente integrado.</strong>
               El tracking respeta la elección del usuario en el banner de cookies sin
               perder señal en GA4 (gracias al modelado de datos de Google).
@@ -184,8 +194,8 @@
         </section>
 
         <section class="case-study__section" data-reveal>
-          <h2 class="case-study__h2">Resultados del setup</h2>
-          <p>
+          <h2 class="case-study__h2" data-i18n="cs_men.s4.h2">Resultados del setup</h2>
+          <p data-i18n="cs_men.s4.p1">
             Lo que antes era una caja negra ahora es un embudo medible. El dueño
             del negocio puede responder con datos preguntas que antes eran intuición:
             qué producto del catálogo genera más consultas, qué canal de origen
@@ -193,7 +203,7 @@
             cambia decisiones reales: dónde invertir en publicidad, qué producto
             destacar en la home, qué horarios de atención son críticos.
           </p>
-          <p>
+          <p data-i18n="cs_men.s4.p2">
             El tablero ya está encendido desde el primer pedido recibido. Cada
             click en WhatsApp queda registrado, atribuido por canal y horario.
             El operador puede leer los reportes semanales y tomar decisiones
@@ -203,11 +213,11 @@
 
         <div class="case-study__cta-row" data-reveal>
           <a href="https://mendieta.vantia.digital" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>
-            <span class="btn__label">Ver sitio en vivo</span>
+            <span class="btn__label" data-i18n="cs_men.cta.live">Ver sitio en vivo</span>
             <span class="arrow" aria-hidden="true">→</span>
           </a>
           <a href="/pages/contacto.html" class="btn btn-ghost-dark" data-magnetic>
-            <span class="btn__label">Quiero algo así</span>
+            <span class="btn__label" data-i18n="cs_men.cta.contact">Quiero algo así</span>
           </a>
         </div>
 
@@ -217,7 +227,7 @@
     <nav class="case-study__nav" aria-label="Navegación entre casos">
       <div class="container case-study__nav-inner">
         <a href="/pages/casos.html" class="case-study__nav-link">
-          <span class="case-study__nav-label">Volver a todos los casos</span>
+          <span class="case-study__nav-label" data-i18n="cs_men.nav_back">Volver a todos los casos</span>
         </a>
       </div>
     </nav>
@@ -257,10 +267,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
 </body>
 </html>

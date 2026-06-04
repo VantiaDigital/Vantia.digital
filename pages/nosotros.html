@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ECE8D8" />
-  <meta name="description" content="Sobre Vantia · Marketing Digital — Agencia técnica para PYMES y empresas medianas. Sistemas que generan ROI, no diseño." />
+  <meta name="description" content="Sobre Vantia · Marketing Digital — Agencia técnica para PYMES y empresas medianas. Sistemas que generan ROI, no diseño." data-i18n-content="nos.meta.desc" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vantia · Marketing Digital" />
@@ -14,10 +16,10 @@
   <meta property="og:url" content="https://vantia.digital/pages/nosotros.html" />
   <link rel="canonical" href="https://vantia.digital/pages/nosotros.html" />
 
-  <title>Nosotros · Vantia · Marketing Digital</title>
+  <title data-i18n="nos.meta.title">Nosotros · Vantia · Marketing Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
@@ -25,8 +27,8 @@
 
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
@@ -34,13 +36,13 @@
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
   <!-- End Google Tag Manager -->
 </head>
 <body class="theme-light" id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -51,10 +53,10 @@
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -62,16 +64,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -80,11 +90,11 @@
 
     <section class="page-hero">
       <div class="container">
-        <span class="page-hero__eyebrow" data-reveal>Sobre Vantia Digital</span>
-        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1">
+        <span class="page-hero__eyebrow" data-reveal data-i18n="nos.hero.eyebrow">Sobre Vantia Digital</span>
+        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1" data-i18n="nos.hero.title">
           Construimos <em>sistemas</em> que generan ROI. No diseño bonito.
         </h1>
-        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2">
+        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2" data-i18n="nos.hero.subtitle">
           Agencia de marketing digital especializada en <strong>PYMES y empresas medianas</strong>.
           Combinamos arquitectura técnica, IA y GEO para que tu negocio crezca de forma medible y sostenible.
         </p>
@@ -96,15 +106,15 @@
       <div class="container">
         <div class="section__head" data-reveal>
           <span class="section__eyebrow">— 01</span>
-          <h2 class="section__title">Orígenes</h2>
+          <h2 class="section__title" data-i18n="nos.s1.title">Orígenes</h2>
         </div>
         <div class="text-block" data-reveal data-reveal-delay="0.1">
-          <p>
+          <p data-i18n="nos.s1.p1">
             Vantia Digital nace de algo evidente que el mercado prefiere ignorar: <strong>la mayoría de agencias venden diseño</strong>.
             Webs preciosas que no convierten. Campañas creativas sin tracking. Estrategias virales sin retorno medible.
             Resultados imposibles de auditar.
           </p>
-          <p>
+          <p data-i18n="nos.s1.p2">
             Fundada en Barcelona, Vantia se construyó como la antítesis: <strong>construimos sistemas digitales
             que funcionan para el ROI</strong>. Donde cada decisión se justifica con datos y cada acción
             tiene una métrica al lado.
@@ -118,15 +128,15 @@
       <div class="container">
         <div class="section__head" data-reveal>
           <span class="section__eyebrow">— 02</span>
-          <h2 class="section__title">Filosofía</h2>
+          <h2 class="section__title" data-i18n="nos.s2.title">Filosofía</h2>
         </div>
         <div class="text-block" data-reveal data-reveal-delay="0.1">
-          <p>
+          <p data-i18n="nos.s2.p1">
             El marketing digital ha cambiado. La búsqueda ya no es solo Google: es <strong>ChatGPT, Perplexity, Gemini</strong>.
             Las decisiones de compra ya no son lineales: son fragmentadas, multi-canal, asistidas por IA.
             Y la mayoría de agencias siguen vendiendo lo que funcionaba hace cinco años.
           </p>
-          <p>
+          <p data-i18n="nos.s2.p2">
             Nuestra filosofía es construir para esta nueva realidad. Trabajamos con <strong>PYMES y empresas
             medianas</strong> que entienden que el crecimiento sostenible se construye con <strong>arquitectura
             técnica + IA + datos</strong>. No con creatividad sin medición. No con atajos.
@@ -140,28 +150,28 @@
       <div class="container">
         <div class="section__head" data-reveal>
           <span class="section__eyebrow">— 03</span>
-          <h2 class="section__title">¿Te suena <em>familiar</em>?</h2>
-          <p class="section__subtitle">Si alguna de estas frases describe tu situación, estás en el lugar correcto.</p>
+          <h2 class="section__title" data-i18n="nos.s3.title">¿Te suena <em>familiar</em>?</h2>
+          <p class="section__subtitle" data-i18n="nos.s3.subtitle">Si alguna de estas frases describe tu situación, estás en el lugar correcto.</p>
         </div>
 
         <div class="pain-points" data-reveal-children>
           <div class="pain-point">
-            <div class="pain-point__quote">"Tengo una web bonita pero no convierte."</div>
+            <div class="pain-point__quote" data-i18n="nos.pain1">"Tengo una web bonita pero no convierte."</div>
           </div>
           <div class="pain-point">
-            <div class="pain-point__quote">"Invierto en ads pero no sé si están funcionando."</div>
+            <div class="pain-point__quote" data-i18n="nos.pain2">"Invierto en ads pero no sé si están funcionando."</div>
           </div>
           <div class="pain-point">
-            <div class="pain-point__quote">"Mi competencia aparece en ChatGPT y yo no."</div>
+            <div class="pain-point__quote" data-i18n="nos.pain3">"Mi competencia aparece en ChatGPT y yo no."</div>
           </div>
           <div class="pain-point">
-            <div class="pain-point__quote">"Tengo agencia, pero los reportes no me dicen nada útil."</div>
+            <div class="pain-point__quote" data-i18n="nos.pain4">"Tengo agencia, pero los reportes no me dicen nada útil."</div>
           </div>
           <div class="pain-point">
-            <div class="pain-point__quote">"Mi negocio funciona, pero no escala. Y no sé por qué."</div>
+            <div class="pain-point__quote" data-i18n="nos.pain5">"Mi negocio funciona, pero no escala. Y no sé por qué."</div>
           </div>
           <div class="pain-point">
-            <div class="pain-point__quote">"Quiero crecer con tecnología, pero no sé por dónde empezar."</div>
+            <div class="pain-point__quote" data-i18n="nos.pain6">"Quiero crecer con tecnología, pero no sé por dónde empezar."</div>
           </div>
         </div>
       </div>
@@ -172,38 +182,38 @@
       <div class="container">
         <div class="section__head" data-reveal>
           <span class="section__eyebrow">— 04</span>
-          <h2 class="section__title">Metodología</h2>
-          <p class="section__subtitle">Cuatro fases secuenciales. Sin saltos, sin atajos.</p>
+          <h2 class="section__title" data-i18n="nos.s4.title">Metodología</h2>
+          <p class="section__subtitle" data-i18n="nos.s4.subtitle">Cuatro fases secuenciales. Sin saltos, sin atajos.</p>
         </div>
 
         <div class="steps" data-reveal-children>
 
           <div class="step">
             <div class="step__num"></div>
-            <div class="step__label">Auditoría</div>
-            <h3 class="step__title">Diagnóstico</h3>
-            <p class="step__desc">Analizamos cada métrica, cada flujo, cada punto de fuga.</p>
+            <div class="step__label" data-i18n="nos.step1.label">Auditoría</div>
+            <h3 class="step__title" data-i18n="nos.step1.title">Diagnóstico</h3>
+            <p class="step__desc" data-i18n="nos.step1.desc">Analizamos cada métrica, cada flujo, cada punto de fuga.</p>
           </div>
 
           <div class="step">
             <div class="step__num"></div>
-            <div class="step__label">Estrategia</div>
-            <h3 class="step__title">Plan</h3>
-            <p class="step__desc">Diseñamos un plan con objetivos medibles y plazos realistas.</p>
+            <div class="step__label" data-i18n="nos.step2.label">Estrategia</div>
+            <h3 class="step__title" data-i18n="nos.step2.title">Plan</h3>
+            <p class="step__desc" data-i18n="nos.step2.desc">Diseñamos un plan con objetivos medibles y plazos realistas.</p>
           </div>
 
           <div class="step">
             <div class="step__num"></div>
-            <div class="step__label">Implementación</div>
-            <h3 class="step__title">Ejecución</h3>
-            <p class="step__desc">Ejecutamos con precisión técnica y reporting transparente.</p>
+            <div class="step__label" data-i18n="nos.step3.label">Implementación</div>
+            <h3 class="step__title" data-i18n="nos.step3.title">Ejecución</h3>
+            <p class="step__desc" data-i18n="nos.step3.desc">Ejecutamos con precisión técnica y reporting transparente.</p>
           </div>
 
           <div class="step">
             <div class="step__num"></div>
-            <div class="step__label">Optimización</div>
-            <h3 class="step__title">Iteración</h3>
-            <p class="step__desc">Mejora continua basada en datos reales, no en intuiciones.</p>
+            <div class="step__label" data-i18n="nos.step4.label">Optimización</div>
+            <h3 class="step__title" data-i18n="nos.step4.title">Iteración</h3>
+            <p class="step__desc" data-i18n="nos.step4.desc">Mejora continua basada en datos reales, no en intuiciones.</p>
           </div>
 
         </div>
@@ -215,29 +225,29 @@
       <div class="container">
         <div class="section__head" data-reveal>
           <span class="section__eyebrow">— 05</span>
-          <h2 class="section__title">Valores</h2>
+          <h2 class="section__title" data-i18n="nos.s5.title">Valores</h2>
         </div>
 
         <div class="values" data-reveal-children>
 
           <div class="value">
-            <h3 class="value__title">Transparencia radical</h3>
-            <p class="value__desc">Cada euro invertido tiene trazabilidad completa. Sin cajas negras.</p>
+            <h3 class="value__title" data-i18n="nos.value1.title">Transparencia radical</h3>
+            <p class="value__desc" data-i18n="nos.value1.desc">Cada euro invertido tiene trazabilidad completa. Sin cajas negras.</p>
           </div>
 
           <div class="value">
-            <h3 class="value__title">Precisión sobre velocidad</h3>
-            <p class="value__desc">Preferimos hacer menos, mejor. La velocidad sin dirección es ruido.</p>
+            <h3 class="value__title" data-i18n="nos.value2.title">Precisión sobre velocidad</h3>
+            <p class="value__desc" data-i18n="nos.value2.desc">Preferimos hacer menos, mejor. La velocidad sin dirección es ruido.</p>
           </div>
 
           <div class="value">
-            <h3 class="value__title">Resultados sobre apariencias</h3>
-            <p class="value__desc">Las métricas hablan más que las palabras. Y nuestras métricas se auditan.</p>
+            <h3 class="value__title" data-i18n="nos.value3.title">Resultados sobre apariencias</h3>
+            <p class="value__desc" data-i18n="nos.value3.desc">Las métricas hablan más que las palabras. Y nuestras métricas se auditan.</p>
           </div>
 
           <div class="value">
-            <h3 class="value__title">Asociación a largo plazo</h3>
-            <p class="value__desc">No buscamos clientes, buscamos socios. La relación es la base del compounding.</p>
+            <h3 class="value__title" data-i18n="nos.value4.title">Asociación a largo plazo</h3>
+            <p class="value__desc" data-i18n="nos.value4.desc">No buscamos clientes, buscamos socios. La relación es la base del compounding.</p>
           </div>
 
         </div>
@@ -247,14 +257,14 @@
     <!-- CTA banner -->
     <section class="cta-banner">
       <div class="container">
-        <h2 class="cta-banner__title" data-reveal>
+        <h2 class="cta-banner__title" data-reveal data-i18n="nos.cta.title">
           Hablemos de tu <em>proyecto</em>.
         </h2>
-        <p class="cta-banner__subtitle" data-reveal data-reveal-delay="0.1">
+        <p class="cta-banner__subtitle" data-reveal data-reveal-delay="0.1" data-i18n="nos.cta.subtitle">
           Si conectas con cómo trabajamos, agenda una sesión sin compromiso.
         </p>
         <a href="https://calendly.com/admin-vantia/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic data-reveal data-reveal-delay="0.2">
-          <span class="btn__label">Reservar sesión gratis</span>
+          <span class="btn__label" data-i18n="nos.cta.btn">Reservar sesión gratis</span>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
       </div>
@@ -297,10 +307,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
 </body>
 </html>

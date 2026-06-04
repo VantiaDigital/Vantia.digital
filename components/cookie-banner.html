@@ -210,18 +210,18 @@
 </style>
 
 <!-- Banner -->
-<div class="vc-banner" id="vc-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+<div class="vc-banner" id="vc-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" data-i18n-aria-label="cc.banner_aria" hidden>
   <div class="vc-banner__body">
     <div class="vc-banner__content">
-      <h2 class="vc-banner__title">Usamos cookies</h2>
-      <p class="vc-banner__text">
+      <h2 class="vc-banner__title" data-i18n="cc.title">Usamos cookies</h2>
+      <p class="vc-banner__text" data-i18n="cc.text">
         Utilizamos cookies necesarias para el funcionamiento del sitio y, con su consentimiento, cookies analíticas para medir el tráfico. Consulte nuestra <a href="/pages/cookies.html">Política de cookies</a>.
       </p>
     </div>
     <div class="vc-banner__actions">
-      <button type="button" class="vc-btn vc-btn--link" data-vc-action="open-prefs">Configurar</button>
-      <button type="button" class="vc-btn vc-btn--ghost" data-vc-action="reject">Rechazar</button>
-      <button type="button" class="vc-btn vc-btn--primary" data-vc-action="accept">Aceptar todo</button>
+      <button type="button" class="vc-btn vc-btn--link" data-vc-action="open-prefs" data-i18n="cc.configure">Configurar</button>
+      <button type="button" class="vc-btn vc-btn--ghost" data-vc-action="reject" data-i18n="cc.reject">Rechazar</button>
+      <button type="button" class="vc-btn vc-btn--primary" data-vc-action="accept" data-i18n="cc.accept">Aceptar todo</button>
     </div>
   </div>
 </div>
@@ -230,36 +230,36 @@
 <div class="vc-modal" id="vc-modal" role="dialog" aria-modal="true" aria-labelledby="vc-modal-title">
   <div class="vc-modal__overlay" data-vc-action="close-prefs"></div>
   <div class="vc-modal__dialog">
-    <h2 class="vc-modal__title" id="vc-modal-title">Preferencias de cookies</h2>
-    <p class="vc-modal__intro">
+    <h2 class="vc-modal__title" id="vc-modal-title" data-i18n="cc.modal_title">Preferencias de cookies</h2>
+    <p class="vc-modal__intro" data-i18n="cc.modal_intro">
       Gestione su consentimiento por categoría. Puede cambiar estas preferencias en cualquier momento desde el pie de página.
     </p>
 
     <div class="vc-cat">
       <div class="vc-cat__head">
-        <h3 class="vc-cat__name">Necesarias</h3>
+        <h3 class="vc-cat__name" data-i18n="cc.cat_necessary">Necesarias</h3>
         <label class="vc-switch">
-          <input type="checkbox" checked disabled aria-label="Cookies necesarias (siempre activas)">
+          <input type="checkbox" checked disabled aria-label="Cookies necesarias (siempre activas)" data-i18n-aria-label="cc.necessary_aria">
           <span class="vc-switch__slider"></span>
         </label>
       </div>
-      <p class="vc-cat__desc">Imprescindibles para el funcionamiento del sitio (navegación, seguridad). <span class="vc-cat__locked">Siempre activas.</span></p>
+      <p class="vc-cat__desc" data-i18n="cc.necessary_desc">Imprescindibles para el funcionamiento del sitio (navegación, seguridad). <span class="vc-cat__locked">Siempre activas.</span></p>
     </div>
 
     <div class="vc-cat">
       <div class="vc-cat__head">
-        <h3 class="vc-cat__name">Analíticas</h3>
+        <h3 class="vc-cat__name" data-i18n="cc.cat_analytics">Analíticas</h3>
         <label class="vc-switch">
-          <input type="checkbox" id="vc-toggle-analytics" aria-label="Cookies analíticas">
+          <input type="checkbox" id="vc-toggle-analytics" aria-label="Cookies analíticas" data-i18n-aria-label="cc.analytics_aria">
           <span class="vc-switch__slider"></span>
         </label>
       </div>
-      <p class="vc-cat__desc">Google Analytics 4 con IP anonimizada. Nos ayudan a entender qué contenidos resultan más útiles. Sin remarketing ni perfiles publicitarios.</p>
+      <p class="vc-cat__desc" data-i18n="cc.analytics_desc">Google Analytics 4 con IP anonimizada. Nos ayudan a entender qué contenidos resultan más útiles. Sin remarketing ni perfiles publicitarios.</p>
     </div>
 
     <div class="vc-modal__actions">
-      <button type="button" class="vc-btn vc-btn--ghost" data-vc-action="reject">Rechazar todo</button>
-      <button type="button" class="vc-btn vc-btn--primary" data-vc-action="save-prefs">Guardar preferencias</button>
+      <button type="button" class="vc-btn vc-btn--ghost" data-vc-action="reject" data-i18n="cc.reject_all">Rechazar todo</button>
+      <button type="button" class="vc-btn vc-btn--primary" data-vc-action="save-prefs" data-i18n="cc.save">Guardar preferencias</button>
     </div>
   </div>
 </div>

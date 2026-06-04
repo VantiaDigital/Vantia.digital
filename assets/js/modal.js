@@ -12,6 +12,21 @@
   let activeBudget = null;       // budget modal activo
   let lastFocused = null;
 
+  // Idioma activo (lo gestiona i18n.js). Fallback a 'es'.
+  function lang() {
+    return (window.VantiaI18n && window.VantiaI18n.get()) ||
+           document.documentElement.getAttribute('lang') || 'es';
+  }
+  // Nombre del servicio en EN (los data-budget vienen en español, canónico)
+  const SERVICE_EN = {
+    'Optimización Web': 'Web Optimisation',
+    'SEO Técnico / GEO': 'Technical SEO / GEO',
+    'Campañas de anuncios': 'Ad Campaigns',
+  };
+  function serviceLabel(name) {
+    return (lang() === 'en' && SERVICE_EN[name]) ? SERVICE_EN[name] : name;
+  }
+
   function lockBody() {
     if (!document.body.classList.contains('modal-open')) {
       document.body.classList.add('modal-open');
@@ -87,11 +102,11 @@
     const modal = overlay.querySelector('.budget-modal');
     if (!modal) return;
 
-    // Setear nombre del servicio
+    // Setear nombre del servicio (traducido para mostrar)
     modal.querySelectorAll('[data-budget-service-target]').forEach((el) => {
-      el.textContent = serviceName;
+      el.textContent = serviceLabel(serviceName);
     });
-    // Guardarlo en el form para el submit
+    // Guardar el nombre canónico (español) en el form para el submit
     const form = modal.querySelector('form');
     if (form) form.dataset.service = serviceName;
 
@@ -203,14 +218,24 @@
     const email = (emailInput?.value || '').trim();
     const message = (messageInput?.value || '').trim();
 
-    const subject = `Solicitud de presupuesto · ${service}`;
-    const body =
-      `Servicio solicitado: ${service}\n` +
-      `\n` +
-      `Nombre: ${name}\n` +
-      `Email: ${email}\n` +
-      `\n` +
-      `Mensaje:\n${message || '(sin mensaje adicional)'}`;
+    const svc = serviceLabel(service);
+    const en = lang() === 'en';
+    const subject = en
+      ? `Quote request · ${svc}`
+      : `Solicitud de presupuesto · ${svc}`;
+    const body = en
+      ? `Requested service: ${svc}\n` +
+        `\n` +
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `\n` +
+        `Message:\n${message || '(no additional message)'}`
+      : `Servicio solicitado: ${svc}\n` +
+        `\n` +
+        `Nombre: ${name}\n` +
+        `Email: ${email}\n` +
+        `\n` +
+        `Mensaje:\n${message || '(sin mensaje adicional)'}`;
 
     const mailto =
       `mailto:admin@vantia.digital` +

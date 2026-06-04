@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ECE8D8" />
-  <meta name="description" content="Contacto con Vantia · Marketing Digital — Formulario, WhatsApp, email, Calendly y redes sociales." />
+  <meta name="description" content="Contacto con Vantia · Marketing Digital — Formulario, WhatsApp, email, Calendly y redes sociales." data-i18n-content="cont.meta.desc" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vantia · Marketing Digital" />
@@ -14,10 +16,10 @@
   <meta property="og:url" content="https://vantia.digital/pages/contacto.html" />
   <link rel="canonical" href="https://vantia.digital/pages/contacto.html" />
 
-  <title>Contacto · Vantia · Marketing Digital</title>
+  <title data-i18n="cont.title">Contacto · Vantia · Marketing Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
@@ -25,8 +27,8 @@
 
 <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
@@ -34,13 +36,13 @@
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
   <!-- End Google Tag Manager -->
 </head>
 <body class="theme-light" id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -51,10 +53,10 @@
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -62,16 +64,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -80,11 +90,11 @@
 
     <section class="page-hero">
       <div class="container">
-        <span class="page-hero__eyebrow" data-reveal>Contacto</span>
-        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1">
+        <span class="page-hero__eyebrow" data-reveal data-i18n="cont.hero.eyebrow">Contacto</span>
+        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1" data-i18n="cont.hero.title">
           Quiero hacer <em>crecer</em> mi negocio.
         </h1>
-        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2">
+        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2" data-i18n="cont.hero.subtitle">
           Elige el canal que prefieras. Respondemos en menos de 24 horas hábiles.
         </p>
       </div>
@@ -104,44 +114,44 @@
             <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
             <div class="field">
-              <label for="cf-name" class="field__label">Nombre completo <span class="req">*</span></label>
+              <label for="cf-name" class="field__label" data-i18n="cont.form.name">Nombre completo <span class="req">*</span></label>
               <input id="cf-name" type="text" name="name" class="field__input" required autocomplete="name" />
             </div>
 
             <div class="field">
-              <label for="cf-company" class="field__label">Empresa</label>
+              <label for="cf-company" class="field__label" data-i18n="cont.form.company">Empresa</label>
               <input id="cf-company" type="text" name="company" class="field__input" autocomplete="organization" />
             </div>
 
             <div class="field-row">
               <div class="field">
-                <label for="cf-email" class="field__label">Email <span class="req">*</span></label>
+                <label for="cf-email" class="field__label" data-i18n="cont.form.email">Email <span class="req">*</span></label>
                 <input id="cf-email" type="email" name="email" class="field__input" required autocomplete="email" />
               </div>
               <div class="field">
-                <label for="cf-phone" class="field__label">Teléfono</label>
+                <label for="cf-phone" class="field__label" data-i18n="cont.form.phone">Teléfono</label>
                 <input id="cf-phone" type="tel" name="phone" class="field__input" autocomplete="tel" />
               </div>
             </div>
 
             <div class="field">
-              <label for="cf-inquiry" class="field__label">Asunto</label>
+              <label for="cf-inquiry" class="field__label" data-i18n="cont.form.inquiry">Asunto</label>
               <select id="cf-inquiry" name="inquiry_type" class="field__select">
-                <option value="Quiero una auditoría">Quiero una auditoría</option>
-                <option value="Necesito una web">Necesito una web</option>
-                <option value="Estrategia SEO / GEO">Estrategia SEO / GEO</option>
-                <option value="Campañas pagadas">Campañas pagadas</option>
-                <option value="Otro">Otro</option>
+                <option value="Quiero una auditoría" data-i18n="cont.form.opt1">Quiero una auditoría</option>
+                <option value="Necesito una web" data-i18n="cont.form.opt2">Necesito una web</option>
+                <option value="Estrategia SEO / GEO" data-i18n="cont.form.opt3">Estrategia SEO / GEO</option>
+                <option value="Campañas pagadas" data-i18n="cont.form.opt4">Campañas pagadas</option>
+                <option value="Otro" data-i18n="cont.form.opt5">Otro</option>
               </select>
             </div>
 
             <div class="field">
-              <label for="cf-message" class="field__label">Mensaje <span class="req">*</span></label>
+              <label for="cf-message" class="field__label" data-i18n="cont.form.message">Mensaje <span class="req">*</span></label>
               <textarea id="cf-message" name="message" class="field__textarea" required rows="5"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" data-magnetic style="align-self: flex-start; margin-top: 0.5rem;">
-              <span class="btn__label">Enviar mensaje</span>
+              <span class="btn__label" data-i18n="cont.form.submit">Enviar mensaje</span>
               <span class="arrow" aria-hidden="true">→</span>
             </button>
 
@@ -149,16 +159,16 @@
           </form>
 
           <aside class="contact-info" data-reveal data-reveal-delay="0.1">
-            <h3>Tiempo de respuesta</h3>
-            <p>Respondemos a todos los mensajes en menos de 24 horas hábiles. Si tu caso es urgente, usá WhatsApp.</p>
+            <h3 data-i18n="cont.aside.h1">Tiempo de respuesta</h3>
+            <p data-i18n="cont.aside.p1">Respondemos a todos los mensajes en menos de 24 horas hábiles. Si tu caso es urgente, usá WhatsApp.</p>
 
-            <h3 style="margin-top: var(--space-lg);">Antes de escribir</h3>
-            <p>Cuanto más contexto nos des sobre tu proyecto, mejor será nuestra primera respuesta. Si tienes métricas actuales, enlaces o documentación, súmalos al mensaje.</p>
+            <h3 style="margin-top: var(--space-lg);" data-i18n="cont.aside.h2">Antes de escribir</h3>
+            <p data-i18n="cont.aside.p2">Cuanto más contexto nos des sobre tu proyecto, mejor será nuestra primera respuesta. Si tienes métricas actuales, enlaces o documentación, súmalos al mensaje.</p>
 
             <ul class="contact-info__list" style="margin-top: var(--space-md);">
-              <li>Barcelona, España</li>
-              <li>Lun a Viernes · 09:00–18:00 CET</li>
-              <li>Trabajamos remoto con clientes globales</li>
+              <li data-i18n="cont.aside.li1">Barcelona, España</li>
+              <li data-i18n="cont.aside.li2">Lun a Viernes · 09:00–18:00 CET</li>
+              <li data-i18n="cont.aside.li3">Trabajamos remoto con clientes globales</li>
             </ul>
           </aside>
 
@@ -170,8 +180,8 @@
     <section class="section section--white">
       <div class="container">
         <div class="section__head" data-reveal>
-          <span class="section__eyebrow">— O</span>
-          <h2 class="section__title">Contáctanos <em>directamente</em></h2>
+          <span class="section__eyebrow" data-i18n="cont.ch.eyebrow">— O</span>
+          <h2 class="section__title" data-i18n="cont.ch.title">Contáctanos <em>directamente</em></h2>
         </div>
 
         <div class="contact-channels" data-reveal-children>
@@ -185,9 +195,9 @@
                 <line x1="16" y1="3" x2="16" y2="7"/>
               </svg>
             </div>
-            <span class="channel__label">Calendly · destacado</span>
-            <div class="channel__title">Reserva una sesión gratuita de 30 min</div>
-            <p class="channel__desc">La forma más rápida de evaluar si encajamos. Sin compromiso, sin filtro comercial.</p>
+            <span class="channel__label" data-i18n="cont.ch.calendly.label">Calendly · destacado</span>
+            <div class="channel__title" data-i18n="cont.ch.calendly.title">Reserva una sesión gratuita de 30 min</div>
+            <p class="channel__desc" data-i18n="cont.ch.calendly.desc">La forma más rápida de evaluar si encajamos. Sin compromiso, sin filtro comercial.</p>
           </a>
 
           <a href="https://wa.me/34645720420" target="_blank" rel="noopener noreferrer" class="channel channel--whatsapp">
@@ -198,7 +208,7 @@
             </div>
             <span class="channel__label">WhatsApp</span>
             <div class="channel__title">+34 645 720 420</div>
-            <p class="channel__desc">Respuesta directa en pocas horas.</p>
+            <p class="channel__desc" data-i18n="cont.ch.wa.desc">Respuesta directa en pocas horas.</p>
           </a>
 
           <a href="mailto:admin@vantia.digital" class="channel">
@@ -210,7 +220,18 @@
             </div>
             <span class="channel__label">Email</span>
             <div class="channel__title">admin@vantia.digital</div>
-            <p class="channel__desc">Ideal para mensajes con documentación adjunta.</p>
+            <p class="channel__desc" data-i18n="cont.ch.email.desc">Ideal para mensajes con documentación adjunta.</p>
+          </a>
+
+          <a href="https://x.com/vantiadigital" target="_blank" rel="noopener noreferrer" class="channel">
+            <div class="channel__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </div>
+            <span class="channel__label">X</span>
+            <div class="channel__title">@vantiadigital</div>
+            <p class="channel__desc" data-i18n="cont.ch.x.desc">Actualidad, ideas y debate sobre marketing técnico.</p>
           </a>
 
           <a href="https://www.tiktok.com/@vantiadigital" target="_blank" rel="noopener noreferrer" class="channel">
@@ -221,7 +242,7 @@
             </div>
             <span class="channel__label">TikTok</span>
             <div class="channel__title">@vantiadigital</div>
-            <p class="channel__desc">Contenido sobre escalado y arquitectura digital.</p>
+            <p class="channel__desc" data-i18n="cont.ch.tiktok.desc">Contenido sobre escalado y arquitectura digital.</p>
           </a>
 
           <a href="https://www.instagram.com/vantiadigital/" target="_blank" rel="noopener noreferrer" class="channel">
@@ -234,7 +255,7 @@
             </div>
             <span class="channel__label">Instagram</span>
             <div class="channel__title">@vantiadigital</div>
-            <p class="channel__desc">Detrás de escena del estudio.</p>
+            <p class="channel__desc" data-i18n="cont.ch.ig.desc">Detrás de escena del estudio.</p>
           </a>
 
           <a href="https://www.youtube.com/@Vantia.Digital" target="_blank" rel="noopener noreferrer" class="channel">
@@ -245,7 +266,7 @@
             </div>
             <span class="channel__label">YouTube</span>
             <div class="channel__title">@Vantia.Digital</div>
-            <p class="channel__desc">Análisis técnicos y casos en formato vídeo.</p>
+            <p class="channel__desc" data-i18n="cont.ch.yt.desc">Análisis técnicos y casos en formato vídeo.</p>
           </a>
 
           <a href="https://www.linkedin.com/company/vantia-digital/" target="_blank" rel="noopener noreferrer" class="channel">
@@ -256,7 +277,7 @@
             </div>
             <span class="channel__label">LinkedIn</span>
             <div class="channel__title">Vantia Digital</div>
-            <p class="channel__desc">Contenido profesional y networking B2B.</p>
+            <p class="channel__desc" data-i18n="cont.ch.li.desc">Contenido profesional y networking B2B.</p>
           </a>
 
         </div>
@@ -300,10 +321,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
   <!-- Manejo del form — envío real vía Web3Forms -->
   <script>
@@ -312,19 +334,23 @@
       const status = document.getElementById('cf-status');
       if (!form || !status) return;
 
+      // Idioma activo (i18n.js). Mensajes del form bilingües.
+      const isEN = () => (window.VantiaI18n ? window.VantiaI18n.get() : document.documentElement.lang) === 'en';
+      const T = (es, en) => (isEN() ? en : es);
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Validación HTML5
         if (!form.checkValidity()) {
-          status.textContent = 'Por favor, completa los campos obligatorios.';
+          status.textContent = T('Por favor, completa los campos obligatorios.', 'Please fill in the required fields.');
           status.style.color = '#C25450';
           form.reportValidity();
           return;
         }
 
         // Estado de carga
-        status.textContent = 'Enviando…';
+        status.textContent = T('Enviando…', 'Sending…');
         status.style.color = 'rgba(60, 58, 47, 0.55)';
         const btn = form.querySelector('button[type="submit"]');
         if (btn) btn.disabled = true;
@@ -339,16 +365,16 @@
           const data = await res.json();
 
           if (data.success) {
-            status.textContent = 'Mensaje enviado. Te respondemos en menos de 24 horas hábiles.';
+            status.textContent = T('Mensaje enviado. Te respondemos en menos de 24 horas hábiles.', "Message sent. We'll reply within 24 business hours.");
             status.style.color = '#1FAE54';
             form.reset();
           } else {
-            throw new Error(data.message || 'No se pudo enviar el mensaje.');
+            throw new Error(data.message || T('No se pudo enviar el mensaje.', 'The message could not be sent.'));
           }
         } catch (err) {
           status.textContent =
-            'Error al enviar: ' + (err.message || 'desconocido') +
-            '. Intentá por WhatsApp o email directo.';
+            T('Error al enviar: ', 'Send error: ') + (err.message || T('desconocido', 'unknown')) +
+            T('. Intentá por WhatsApp o email directo.', '. Try WhatsApp or direct email.');
           status.style.color = '#C25450';
           // Evento GA4: el envío del formulario falló (lead perdido)
           window.dataLayer = window.dataLayer || [];

@@ -2,9 +2,11 @@
 <html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
+  <!-- i18n:early — fija el idioma guardado antes del primer paint -->
+  <script>try{var l=localStorage.getItem('vantia-lang');if(l==='en')document.documentElement.lang='en';}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ECE8D8" />
-  <meta name="description" content="Política de Cookies de Vantia Digital. Tipos de cookies utilizadas y gestión del consentimiento." />
+  <meta name="description" content="Política de Cookies de Vantia Digital. Tipos de cookies utilizadas y gestión del consentimiento." data-i18n-content="leg_cook.meta_desc" />
   <meta name="robots" content="noindex, follow" />
 
   <meta property="og:type" content="website" />
@@ -14,18 +16,18 @@
   <meta property="og:url" content="https://vantia.digital/pages/cookies.html" />
   <link rel="canonical" href="https://vantia.digital/pages/cookies.html" />
 
-  <title>Política de Cookies · Vantia Digital</title>
+  <title data-i18n="leg_cook.title">Política de Cookies · Vantia Digital</title>
   <!-- Preload de componentes y assets críticos para acelerar primer paint -->
 <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
-  <link rel="preload" href="/assets/css/main.css?v=6" as="style" />
+  <link rel="preload" href="/assets/css/main.css?v=7" as="style" />
   <link rel="preload" href="/assets/fonts/files/fraunces-v0c2Wa0KxC9TeA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/fraunces-9W37ll9_mv0iQg.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/files/inter-MxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
 
 
   <link rel="stylesheet" href="/assets/fonts/fonts.css?v=2" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=6" />
-  <link rel="stylesheet" href="/assets/css/animations.css?v=6" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=7" />
+  <link rel="stylesheet" href="/assets/css/animations.css?v=7" />
 
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
 
@@ -33,7 +35,7 @@
   <!-- Preconnect al third-party de medicion (GTM/GA): adelanta DNS+TCP+TLS, sin cambiar nada visible -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-  <script src="/assets/js/consent.js?v=6"></script>
+  <script src="/assets/js/consent.js?v=7"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5H74KP28');</script>
   <!-- End Google Tag Manager -->
@@ -71,7 +73,7 @@
   </style>
 </head>
 <body class="theme-light" id="top">
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H74KP28"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -80,10 +82,10 @@
   <div class="page-dim" aria-hidden="true"></div>
 
   <div data-component="whatsapp"></div>
-  <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
+    <!-- BUILD:header:start (inlineado por build_inline_header.py — no editar a mano) -->
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-nav-home>
+    <a href="/index.html#top" class="logo" aria-label="Vantia Digital — Inicio" data-i18n-aria-label="nav.logo_aria" data-nav-home>
       <svg class="logo__mark" viewBox="0 0 1269 1012" fill="none" aria-hidden="true">
         <path d="M304.641 155H0L409.001 877H476.172L716 476.054L519.958 599.613L446.816 725.157L183.603 255.236H245.798L446.816 605.568L710.527 155H590.115L444.826 407.08L304.641 155Z" fill="currentColor"/>
         <path d="M796.957 414.027L525 877H651.053L796.957 628.89L932.935 877H1257L832.688 155H765.195L534.429 548.006L719.042 444.296L796.957 313.294L1068.91 780.733H1003.41L796.957 414.027Z" fill="#C1834B"/>
@@ -91,16 +93,24 @@
       <span class="logo__brand">Vantia<span>Digital</span></span>
     </a>
 
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__link" href="/pages/casos.html" data-nav="casos">Casos de éxito</a>
-      <a class="nav__link" href="/pages/servicios.html" data-nav="servicios">Servicios</a>
-      <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros">Nosotros</a>
-      <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto">Contacto</a>
-    </nav>
+    <div class="site-header__right">
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link" href="/pages/casos.html" data-nav="casos" data-i18n="nav.casos">Casos de éxito</a>
+        <a class="nav__link" href="/pages/servicios.html" data-nav="servicios" data-i18n="nav.servicios">Servicios</a>
+        <a class="nav__link" href="/pages/nosotros.html" data-nav="nosotros" data-i18n="nav.nosotros">Nosotros</a>
+        <a class="nav__link nav__contact" href="/pages/contacto.html" data-nav="contacto" data-i18n="nav.contacto">Contacto</a>
+      </nav>
 
-    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+      <div class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang-set="es" aria-pressed="true" lang="es">ES</button>
+        <span class="lang-switch__sep" aria-hidden="true">·</span>
+        <button type="button" class="lang-switch__btn" data-lang-set="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+
+      <button class="nav__toggle" aria-label="Abrir menú" data-i18n-aria-label="nav.toggle" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
   <!-- BUILD:header:end -->
@@ -109,11 +119,11 @@
 
     <section class="page-hero">
       <div class="container">
-        <span class="page-hero__eyebrow" data-reveal>Documento legal</span>
-        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1">
+        <span class="page-hero__eyebrow" data-reveal data-i18n="leg_cook.eyebrow">Documento legal</span>
+        <h1 class="page-hero__title" data-reveal data-reveal-delay="0.1" data-i18n="leg_cook.h1">
           Política de <em>Cookies</em>.
         </h1>
-        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2">
+        <p class="page-hero__subtitle" data-reveal data-reveal-delay="0.2" data-i18n="leg_cook.subtitle">
           Información sobre las cookies que utilizamos y cómo gestionar su consentimiento.
         </p>
       </div>
@@ -122,82 +132,82 @@
     <section class="legal section--light">
       <div class="container">
         <div class="legal__inner">
-          <p class="legal__meta">Última actualización: 20 de mayo de 2026</p>
+          <p class="legal__meta" data-i18n="leg_cook.meta">Última actualización: 20 de mayo de 2026</p>
 
-          <h2>1. ¿Qué son las cookies?</h2>
-          <p>Una cookie es un pequeño archivo de texto que un sitio web almacena en el navegador del usuario al visitarlo. Permite recordar información sobre la visita y mejorar la experiencia. Esta política describe las cookies que utiliza <a href="https://vantia.digital">vantia.digital</a>, conforme al artículo 22.2 de la LSSI-CE y a las directrices de la AEPD.</p>
+          <h2 data-i18n="leg_cook.s1.h2">1. ¿Qué son las cookies?</h2>
+          <p data-i18n="leg_cook.s1.p1">Una cookie es un pequeño archivo de texto que un sitio web almacena en el navegador del usuario al visitarlo. Permite recordar información sobre la visita y mejorar la experiencia. Esta política describe las cookies que utiliza <a href="https://vantia.digital">vantia.digital</a>, conforme al artículo 22.2 de la LSSI-CE y a las directrices de la AEPD.</p>
 
-          <h2>2. Tipos de cookies que utilizamos</h2>
+          <h2 data-i18n="leg_cook.s2.h2">2. Tipos de cookies que utilizamos</h2>
 
-          <h3>Cookies necesarias (siempre activas)</h3>
-          <p>Son imprescindibles para el funcionamiento del sitio. No requieren consentimiento.</p>
+          <h3 data-i18n="leg_cook.s2.h3a">Cookies necesarias (siempre activas)</h3>
+          <p data-i18n="leg_cook.s2.p1">Son imprescindibles para el funcionamiento del sitio. No requieren consentimiento.</p>
           <table class="legal__table">
             <thead>
-              <tr><th>Nombre</th><th>Titular</th><th>Finalidad</th><th>Duración</th></tr>
+              <tr><th data-i18n="leg_cook.th_nombre">Nombre</th><th data-i18n="leg_cook.th_titular">Titular</th><th data-i18n="leg_cook.th_finalidad">Finalidad</th><th data-i18n="leg_cook.th_duracion">Duración</th></tr>
             </thead>
             <tbody>
               <tr>
                 <td>vantia_consent_v1</td>
                 <td>Vantia Digital</td>
-                <td>Guardar las preferencias de consentimiento del usuario.</td>
-                <td>12 meses</td>
+                <td data-i18n="leg_cook.s2.td1c">Guardar las preferencias de consentimiento del usuario.</td>
+                <td data-i18n="leg_cook.s2.td1d">12 meses</td>
               </tr>
               <tr>
                 <td>__cf_bm, __cflb, cf_clearance</td>
                 <td>Cloudflare</td>
-                <td>Seguridad, mitigación de bots y rendimiento del CDN.</td>
-                <td>Sesión / 30 días</td>
+                <td data-i18n="leg_cook.s2.td2c">Seguridad, mitigación de bots y rendimiento del CDN.</td>
+                <td data-i18n="leg_cook.s2.td2d">Sesión / 30 días</td>
               </tr>
             </tbody>
           </table>
 
-          <h3>Cookies analíticas (consentimiento previo)</h3>
-          <p>Nos ayudan a entender cómo los visitantes interactúan con el sitio mediante la recopilación de información de forma agregada y pseudonimizada. <strong>Solo se activan si usted acepta.</strong></p>
+          <h3 data-i18n="leg_cook.s2.h3b">Cookies analíticas (consentimiento previo)</h3>
+          <p data-i18n="leg_cook.s2.p2">Nos ayudan a entender cómo los visitantes interactúan con el sitio mediante la recopilación de información de forma agregada y pseudonimizada. <strong>Solo se activan si usted acepta.</strong></p>
           <table class="legal__table">
             <thead>
-              <tr><th>Nombre</th><th>Titular</th><th>Finalidad</th><th>Duración</th></tr>
+              <tr><th data-i18n="leg_cook.th_nombre">Nombre</th><th data-i18n="leg_cook.th_titular">Titular</th><th data-i18n="leg_cook.th_finalidad">Finalidad</th><th data-i18n="leg_cook.th_duracion">Duración</th></tr>
             </thead>
             <tbody>
               <tr>
                 <td>_ga</td>
                 <td>Google Analytics</td>
-                <td>Distinguir usuarios de forma pseudonimizada.</td>
-                <td>2 años</td>
+                <td data-i18n="leg_cook.s2.td3c">Distinguir usuarios de forma pseudonimizada.</td>
+                <td data-i18n="leg_cook.s2.td3d">2 años</td>
               </tr>
               <tr>
                 <td>_ga_SV13BVRDX9</td>
                 <td>Google Analytics</td>
-                <td>Persistir el estado de sesión para GA4.</td>
-                <td>2 años</td>
+                <td data-i18n="leg_cook.s2.td4c">Persistir el estado de sesión para GA4.</td>
+                <td data-i18n="leg_cook.s2.td4d">2 años</td>
               </tr>
             </tbody>
           </table>
-          <p>Configuramos Google Analytics con <strong>IP anonimizada</strong>, sin Google Signals y sin compartir datos para personalización publicitaria.</p>
+          <p data-i18n="leg_cook.s2.p3">Configuramos Google Analytics con <strong>IP anonimizada</strong>, sin Google Signals y sin compartir datos para personalización publicitaria.</p>
 
-          <h3>Cookies de Cloudflare Web Analytics</h3>
-          <p>Utilizamos también <strong>Cloudflare Web Analytics</strong>, una solución que <strong>no instala cookies en su navegador</strong> y no realiza fingerprinting. Por ello no requiere consentimiento conforme al art. 22.2 LSSI.</p>
+          <h3 data-i18n="leg_cook.s2.h3c">Cookies de Cloudflare Web Analytics</h3>
+          <p data-i18n="leg_cook.s2.p4">Utilizamos también <strong>Cloudflare Web Analytics</strong>, una solución que <strong>no instala cookies en su navegador</strong> y no realiza fingerprinting. Por ello no requiere consentimiento conforme al art. 22.2 LSSI.</p>
 
-          <h2>3. Gestión del consentimiento</h2>
-          <p>Al acceder al sitio por primera vez se muestra un banner que le permite aceptar, rechazar o configurar las cookies por categoría. Puede modificar su decisión en cualquier momento desde el siguiente botón:</p>
-          <button type="button" class="legal__reopen" data-vc-action="reopen">
+          <h2 data-i18n="leg_cook.s3.h2">3. Gestión del consentimiento</h2>
+          <p data-i18n="leg_cook.s3.p1">Al acceder al sitio por primera vez se muestra un banner que le permite aceptar, rechazar o configurar las cookies por categoría. Puede modificar su decisión en cualquier momento desde el siguiente botón:</p>
+          <button type="button" class="legal__reopen" data-vc-action="reopen" data-i18n="leg_cook.s3.btn">
             Cambiar mis preferencias de cookies
           </button>
 
-          <h2>4. Cómo desactivar las cookies desde el navegador</h2>
-          <p>Además del panel de preferencias del sitio, puede bloquear o eliminar cookies desde la configuración de su navegador:</p>
+          <h2 data-i18n="leg_cook.s4.h2">4. Cómo desactivar las cookies desde el navegador</h2>
+          <p data-i18n="leg_cook.s4.p1">Además del panel de preferencias del sitio, puede bloquear o eliminar cookies desde la configuración de su navegador:</p>
           <ul>
             <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
             <li><a href="https://support.mozilla.org/es/kb/proteccion-antirrastreo-mejorada-firefox-escritorio" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
             <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari</a></li>
             <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
           </ul>
-          <p>Tenga en cuenta que la desactivación de algunas cookies puede afectar al funcionamiento del sitio.</p>
+          <p data-i18n="leg_cook.s4.p2">Tenga en cuenta que la desactivación de algunas cookies puede afectar al funcionamiento del sitio.</p>
 
-          <h2>5. Transferencias internacionales</h2>
-          <p>Los proveedores Google y Cloudflare pueden transferir datos a Estados Unidos. Dichas transferencias están amparadas por las Cláusulas Contractuales Tipo (SCC) aprobadas por la Comisión Europea y, en el caso de Google, también por el Marco UE-EE.UU. de Privacidad de Datos.</p>
+          <h2 data-i18n="leg_cook.s5.h2">5. Transferencias internacionales</h2>
+          <p data-i18n="leg_cook.s5.p1">Los proveedores Google y Cloudflare pueden transferir datos a Estados Unidos. Dichas transferencias están amparadas por las Cláusulas Contractuales Tipo (SCC) aprobadas por la Comisión Europea y, en el caso de Google, también por el Marco UE-EE.UU. de Privacidad de Datos.</p>
 
-          <h2>6. Más información</h2>
-          <p>Para más información sobre el tratamiento general de sus datos, consulte nuestra <a href="/pages/privacidad.html">Política de Privacidad</a>. Para cualquier consulta, escríbanos a <a href="mailto:admin@vantia.digital">admin@vantia.digital</a>.</p>
+          <h2 data-i18n="leg_cook.s6.h2">6. Más información</h2>
+          <p data-i18n="leg_cook.s6.p1">Para más información sobre el tratamiento general de sus datos, consulte nuestra <a href="/pages/privacidad.html">Política de Privacidad</a>. Para cualquier consulta, escríbanos a <a href="mailto:admin@vantia.digital">admin@vantia.digital</a>.</p>
         </div>
       </div>
     </section>
@@ -239,10 +249,11 @@
       });
     })();
   </script>
-  <script src="/assets/js/components-loader.js?v=6" defer></script>
-  <script src="/assets/js/modal.js?v=6" defer></script>
-  <script src="/assets/js/main.js?v=6" defer></script>
-  <script src="/assets/js/analytics-events.js?v=6" defer></script>
+  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/components-loader.js?v=7" defer></script>
+  <script src="/assets/js/modal.js?v=7" defer></script>
+  <script src="/assets/js/main.js?v=7" defer></script>
+  <script src="/assets/js/analytics-events.js?v=7" defer></script>
 
 </body>
 </html>
