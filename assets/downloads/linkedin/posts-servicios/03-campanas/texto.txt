@@ -1,25 +1,33 @@
-Los anuncios son el atajo más rápido para conseguir clientes. Y el agujero negro más rápido si no mides bien.
+La mayoría de las PYMES no pierde dinero en anuncios por la creatividad. Lo pierde por el tracking.
 
-Una campaña bien hecha es el canal más predecible que existe: pones un euro, sabes cuánto vuelve.
+Una campaña no es "subir un anuncio a Google o Meta". Son cinco capas que tienen que estar coordinadas:
 
-Mal hecha, es dinero que se va sin saber a dónde.
+— Tracking: medir qué pasa.
+— Audiencia: a quién le hablas.
+— Creatividad: qué le muestras.
+— Landing: a dónde lo envías.
+— Optimización: qué haces con los datos que llegan.
 
-¿La diferencia? Casi nunca es la creatividad. Es el tracking.
+El problema casi siempre está en la primera. Si el tracking está mal configurado, los algoritmos de Google y Meta no aprenden qué clics se convierten en clientes. Entonces optimizan hacia clics baratos, no hacia ventas. Dinero gastado en visitas que nunca compran.
 
-Cuando la medición está mal montada, los algoritmos de Google y Meta no aprenden qué clics se convierten en clientes. Entonces optimizan hacia clics baratos, no hacia ventas. Pagas visitas que no compran.
+Por qué importa:
+
+Bien hechas, las campañas son el canal más medible y predecible que existe: sabes cuánto te cuesta un cliente, tu ROAS por canal, qué creatividades funcionan. Mal hechas, son el agujero negro más rápido del marketing.
 
 Por eso nunca empezamos por el anuncio. Empezamos por la medición.
 
 Cómo lo hacemos:
 
-— Primero, tracking limpio: GA4, Google Tag Manager, Conversions API en Meta, Enhanced Conversions en Google. Validamos que cada conversión se mida bien antes de gastar.
-— Estructura por intención: audiencias frías y remarketing no se mezclan. Cada nivel del embudo, su campaña y su KPI.
-— Creatividades testeadas con A/B, no a ojo.
-— Optimización semanal y un informe con números útiles: CPL, CAC, ROAS. No "impresiones".
+— Setup técnico antes que creativo: GA4 con eventos, Conversions API (Meta), Enhanced Conversions (Google). Validamos cada conversión antes de lanzar.
+— Investigación de tu cliente real, no del avatar genérico.
+— Estructura por intención ("ABC"): audiencias frías y remarketing no se mezclan. Cada nivel del embudo, su campaña y su KPI.
+— Creatividades con A/B testing sistemático.
+— Optimización semanal: cada lunes cortamos lo que no funciona y escalamos lo que sí. Nada de "set and forget".
+— Reporte mensual con números útiles: CPL, CAC, ROAS, LTV proyectado. No "impresiones".
 
-Hecho así, dejas de apostar. Sabes cuánto te cuesta un cliente y cuánto te devuelve cada canal.
+Qué te llevas: tracking validado end-to-end (web → GA4 → algoritmo → reporte), campañas en Google Ads (Search, PMax, YouTube) y Meta Ads, un banco de creatividades testeadas y un dashboard con CAC, ROAS y atribución.
 
-Antes de subir el presupuesto, asegúrate de que estás midiendo lo que de verdad importa.
+Hecho así, dejas de apostar.
 
 ¿Sabes cuánto te cuesta conseguir un cliente por anuncios? Si dudas, hablemos.
 

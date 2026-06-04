@@ -142,57 +142,70 @@ POSTS = [
     dict(n=1, slug="optimizacion-web", bg="dark", icon="web",
          eyebrow="SERVICIO 01", name="Optimización Web + CRO", accent="CRO",
          photo="Imagen lista: ícono de marca. Mejor aún (swap): una captura real de PageSpeed Insights en verde.",
-         caption="""Tu web puede cargar en un segundo y, aun así, no venderte nada.
+         caption="""El 70% de las PYMES tiene su web en rojo para Google. Y casi ninguna lo sabe.
 
-La velocidad es la mitad del trabajo. La otra mitad es la conversión.
+La web es la base donde todo lo demás se mide. Si carga lento, si no se ve en el móvil, si Google la marca como insegura, ningún otro esfuerzo de marketing rinde.
 
-Una web rápida que no convierte sigue siendo dinero perdido: pagaste por traer a esa persona y se fue sin hacer nada.
+Optimizar una web es trabajar dos capas a la vez: la técnica y la de conversión.
 
-Por eso, cuando optimizamos una web, trabajamos las dos capas.
+La capa técnica son los Core Web Vitals, las tres métricas con las que Google decide si tu web sirve:
 
-La técnica: que cargue rápido, que se vea bien en el móvil, que Google la entienda. Son los Core Web Vitals, las métricas con las que Google decide si tu web sirve.
+— LCP: cuánto tarda en aparecer el contenido principal.
+— INP: cuán rápido reacciona a un clic.
+— CLS: si los elementos se mueven mientras carga.
 
-Y la de conversión, el CRO: qué pasa una vez que la página carga. Dónde se frena la gente, dónde abandona, qué versión de un titular o un formulario hace que más visitas terminen en clientes.
+La capa de conversión es el CRO: qué pasa una vez que la página carga. Dónde se frena la gente, dónde abandona, qué versión de un titular o un formulario hace que más visitas terminen en clientes.
+
+Por qué importa, con números:
+
+— Cada 100 ms extra de carga, pierdes entre 1% y 2% de conversiones.
+— Una web que tarda 4 segundos pierde la mitad de las visitas antes de mostrar nada.
+— Y como esa visita la pagaste (en anuncios o en SEO), es dinero real desperdiciado.
 
 Cómo lo hacemos:
 
-— Auditoría técnica real (Lighthouse, PageSpeed): el diagnóstico de cómo está hoy.
-— Optimización de velocidad: imágenes, código, carga. Rápida de verdad, no en teoría.
-— CRO: mapas de calor y grabaciones de sesión, y tests A/B sobre lo que importa. No asumimos qué convierte; lo medimos.
+— Auditoría técnica con Lighthouse y PageSpeed: el diagnóstico real de hoy.
+— Performance budget: cuánto puede pesar cada página. Sin esto, las webs se hinchan con cada cambio.
+— Refactor: imágenes (WebP/AVIF), lazy loading, CSS crítico, JavaScript no bloqueante.
+— CRO: mapas de calor y grabaciones de sesión (Microsoft Clarity) + tests A/B. No asumimos qué convierte; lo medimos.
+— Accesibilidad (WCAG 2.2) y SEO técnico de base.
 
-El resultado no es "una web más bonita". Es una web que trabaja: que convierte más de la gente que ya estás trayendo.
+Qué te llevas: PageSpeed 95+, Core Web Vitals en verde (LCP < 2,5s, INP < 200ms, CLS < 0,1), un roadmap de CRO con tests documentados y un dashboard que lees tú mismo.
 
-Antes de gastar otro euro en traer tráfico, pregúntate qué hace tu web con el que ya recibe.
+El resultado no es "una web más bonita". Es una web que convierte más de la gente que ya estás trayendo.
 
-¿Sabes qué porcentaje de tus visitas termina en contacto? Te lo miramos gratis.
+¿Sabes en qué color está tu web para Google? Te lo miramos gratis.
 
 #OptimizacionWeb #CRO #CoreWebVitals #PYMES #MarketingDeResultados"""),
 
     dict(n=2, slug="seo-geo", bg="crema", icon="seo",
          eyebrow="SERVICIO 02", name="SEO Técnico + GEO", accent="GEO",
          photo="Imagen lista: ícono de marca. Mejor aún (swap): captura real de una respuesta de ChatGPT/Perplexity citando a un cliente, o de Search Console.",
-         caption="""Que te encuentren ya no es solo salir en Google. Es salir cuando alguien le pregunta a una IA.
+         caption="""Gartner estima que para 2026 el tráfico orgánico tradicional cae un 25%. ¿Tu SEO está preparado para eso?
 
-Durante años, que te encontraran significaba aparecer en Google.
+El SEO ya no es solo "aparecer primero en Google". Es aparecer también en las respuestas de ChatGPT, Perplexity y Gemini.
 
-Hoy hay un segundo frente: cada vez más gente le pregunta directamente a ChatGPT, Perplexity o Gemini "¿qué [tu sector] me recomiendas?".
+Por eso combinamos dos disciplinas:
 
-Y la IA responde con tres o cuatro nombres. Si no estás, para ese cliente no existes.
+SEO técnico: cómo Google entiende tu web. Estructura, código limpio, schema markup, velocidad, indexación, sitemap. Es la base sobre la que se construye todo el SEO de contenido.
 
-Por eso trabajamos los dos a la vez: SEO técnico y GEO.
+GEO (Generative Engine Optimization): la disciplina nueva, surgida en 2024-2025. Cómo los motores de IA citan e incorporan tu contenido en sus respuestas. Cuando alguien le pregunta a ChatGPT "cuál es la mejor agencia de mi zona", el modelo elige fuentes con señales muy distintas a las de Google.
 
-SEO técnico es cómo Google entiende tu web: estructura, código limpio, schema, velocidad, indexación. La base sobre la que se construye todo lo demás.
+Las dos se solapan en la base técnica, pero divergen en táctica: el SEO clásico mira backlinks y autoridad de dominio; el GEO mira la "citabilidad" del contenido (claridad, datos verificables, autoridad temática).
 
-GEO (Generative Engine Optimization) es la disciplina nueva: cómo las IA citan e incorporan tu contenido en sus respuestas. Las señales son distintas a las de Google, y casi nadie las trabaja todavía.
+Por qué importa ahora:
+
+Si tu estrategia solo apunta a Google, vas a perder relevancia sin darte cuenta. Y GEO está en sus primeros años: quien se posiciona hoy como fuente citable captura una ventaja difícil de revertir.
 
 Cómo lo hacemos:
 
-— Auditoría SEO técnica: indexación, schema, URLs, lo que frena tu posicionamiento.
-— Datos estructurados para que Google y las IA entiendan exactamente qué haces.
-— Contenido pensado para rankear en Google y para ser citable por IA. No son ejercicios separados.
-— Seguimiento mensual, también en ChatGPT y Perplexity, no solo en Google.
+— Auditoría técnica completa (Screaming Frog + Search Console + Ahrefs): indexación, contenido duplicado, schema, URLs canónicas, redirects.
+— Schema markup avanzado (Organization, LocalBusiness, FAQPage, Article…) para que Google y la IA entiendan exactamente qué haces.
+— Estrategia de contenido dual: pensada para rankear en Google y para ser citada por IA. No son ejercicios separados.
+— Citation engineering: perfiles consistentes, menciones en medios, presencia donde los modelos aprenden.
+— Monitorización mensual, también en ChatGPT y Perplexity, no solo en Google.
 
-El comportamiento de búsqueda está cambiando rápido. Quien se posicione ahora, en los dos frentes, captura una ventaja difícil de revertir.
+Qué te llevas: auditoría con issues priorizados (P0-P3), schema implementado, un calendario editorial trimestral y un dashboard mensual de keywords + visibilidad en IA. Recomendaciones accionables, no reportes pasivos.
 
 ¿Apareces cuando le preguntan a una IA por tu sector? Te lo comprobamos gratis.
 
@@ -201,28 +214,36 @@ El comportamiento de búsqueda está cambiando rápido. Quien se posicione ahora
     dict(n=3, slug="campanas", bg="olive", icon="ads",
          eyebrow="SERVICIO 03", name="Campañas de anuncios", accent="anuncios",
          photo="Imagen lista: ícono de marca. Mejor aún (swap): captura real de un panel de campañas (ROAS/CAC) en Looker Studio.",
-         caption="""Los anuncios son el atajo más rápido para conseguir clientes. Y el agujero negro más rápido si no mides bien.
+         caption="""La mayoría de las PYMES no pierde dinero en anuncios por la creatividad. Lo pierde por el tracking.
 
-Una campaña bien hecha es el canal más predecible que existe: pones un euro, sabes cuánto vuelve.
+Una campaña no es "subir un anuncio a Google o Meta". Son cinco capas que tienen que estar coordinadas:
 
-Mal hecha, es dinero que se va sin saber a dónde.
+— Tracking: medir qué pasa.
+— Audiencia: a quién le hablas.
+— Creatividad: qué le muestras.
+— Landing: a dónde lo envías.
+— Optimización: qué haces con los datos que llegan.
 
-¿La diferencia? Casi nunca es la creatividad. Es el tracking.
+El problema casi siempre está en la primera. Si el tracking está mal configurado, los algoritmos de Google y Meta no aprenden qué clics se convierten en clientes. Entonces optimizan hacia clics baratos, no hacia ventas. Dinero gastado en visitas que nunca compran.
 
-Cuando la medición está mal montada, los algoritmos de Google y Meta no aprenden qué clics se convierten en clientes. Entonces optimizan hacia clics baratos, no hacia ventas. Pagas visitas que no compran.
+Por qué importa:
+
+Bien hechas, las campañas son el canal más medible y predecible que existe: sabes cuánto te cuesta un cliente, tu ROAS por canal, qué creatividades funcionan. Mal hechas, son el agujero negro más rápido del marketing.
 
 Por eso nunca empezamos por el anuncio. Empezamos por la medición.
 
 Cómo lo hacemos:
 
-— Primero, tracking limpio: GA4, Google Tag Manager, Conversions API en Meta, Enhanced Conversions en Google. Validamos que cada conversión se mida bien antes de gastar.
-— Estructura por intención: audiencias frías y remarketing no se mezclan. Cada nivel del embudo, su campaña y su KPI.
-— Creatividades testeadas con A/B, no a ojo.
-— Optimización semanal y un informe con números útiles: CPL, CAC, ROAS. No "impresiones".
+— Setup técnico antes que creativo: GA4 con eventos, Conversions API (Meta), Enhanced Conversions (Google). Validamos cada conversión antes de lanzar.
+— Investigación de tu cliente real, no del avatar genérico.
+— Estructura por intención ("ABC"): audiencias frías y remarketing no se mezclan. Cada nivel del embudo, su campaña y su KPI.
+— Creatividades con A/B testing sistemático.
+— Optimización semanal: cada lunes cortamos lo que no funciona y escalamos lo que sí. Nada de "set and forget".
+— Reporte mensual con números útiles: CPL, CAC, ROAS, LTV proyectado. No "impresiones".
 
-Hecho así, dejas de apostar. Sabes cuánto te cuesta un cliente y cuánto te devuelve cada canal.
+Qué te llevas: tracking validado end-to-end (web → GA4 → algoritmo → reporte), campañas en Google Ads (Search, PMax, YouTube) y Meta Ads, un banco de creatividades testeadas y un dashboard con CAC, ROAS y atribución.
 
-Antes de subir el presupuesto, asegúrate de que estás midiendo lo que de verdad importa.
+Hecho así, dejas de apostar.
 
 ¿Sabes cuánto te cuesta conseguir un cliente por anuncios? Si dudas, hablemos.
 

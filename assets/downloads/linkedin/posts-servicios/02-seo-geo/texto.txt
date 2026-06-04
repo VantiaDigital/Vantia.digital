@@ -1,25 +1,28 @@
-Que te encuentren ya no es solo salir en Google. Es salir cuando alguien le pregunta a una IA.
+Gartner estima que para 2026 el tráfico orgánico tradicional cae un 25%. ¿Tu SEO está preparado para eso?
 
-Durante años, que te encontraran significaba aparecer en Google.
+El SEO ya no es solo "aparecer primero en Google". Es aparecer también en las respuestas de ChatGPT, Perplexity y Gemini.
 
-Hoy hay un segundo frente: cada vez más gente le pregunta directamente a ChatGPT, Perplexity o Gemini "¿qué [tu sector] me recomiendas?".
+Por eso combinamos dos disciplinas:
 
-Y la IA responde con tres o cuatro nombres. Si no estás, para ese cliente no existes.
+SEO técnico: cómo Google entiende tu web. Estructura, código limpio, schema markup, velocidad, indexación, sitemap. Es la base sobre la que se construye todo el SEO de contenido.
 
-Por eso trabajamos los dos a la vez: SEO técnico y GEO.
+GEO (Generative Engine Optimization): la disciplina nueva, surgida en 2024-2025. Cómo los motores de IA citan e incorporan tu contenido en sus respuestas. Cuando alguien le pregunta a ChatGPT "cuál es la mejor agencia de mi zona", el modelo elige fuentes con señales muy distintas a las de Google.
 
-SEO técnico es cómo Google entiende tu web: estructura, código limpio, schema, velocidad, indexación. La base sobre la que se construye todo lo demás.
+Las dos se solapan en la base técnica, pero divergen en táctica: el SEO clásico mira backlinks y autoridad de dominio; el GEO mira la "citabilidad" del contenido (claridad, datos verificables, autoridad temática).
 
-GEO (Generative Engine Optimization) es la disciplina nueva: cómo las IA citan e incorporan tu contenido en sus respuestas. Las señales son distintas a las de Google, y casi nadie las trabaja todavía.
+Por qué importa ahora:
+
+Si tu estrategia solo apunta a Google, vas a perder relevancia sin darte cuenta. Y GEO está en sus primeros años: quien se posiciona hoy como fuente citable captura una ventaja difícil de revertir.
 
 Cómo lo hacemos:
 
-— Auditoría SEO técnica: indexación, schema, URLs, lo que frena tu posicionamiento.
-— Datos estructurados para que Google y las IA entiendan exactamente qué haces.
-— Contenido pensado para rankear en Google y para ser citable por IA. No son ejercicios separados.
-— Seguimiento mensual, también en ChatGPT y Perplexity, no solo en Google.
+— Auditoría técnica completa (Screaming Frog + Search Console + Ahrefs): indexación, contenido duplicado, schema, URLs canónicas, redirects.
+— Schema markup avanzado (Organization, LocalBusiness, FAQPage, Article…) para que Google y la IA entiendan exactamente qué haces.
+— Estrategia de contenido dual: pensada para rankear en Google y para ser citada por IA. No son ejercicios separados.
+— Citation engineering: perfiles consistentes, menciones en medios, presencia donde los modelos aprenden.
+— Monitorización mensual, también en ChatGPT y Perplexity, no solo en Google.
 
-El comportamiento de búsqueda está cambiando rápido. Quien se posicione ahora, en los dos frentes, captura una ventaja difícil de revertir.
+Qué te llevas: auditoría con issues priorizados (P0-P3), schema implementado, un calendario editorial trimestral y un dashboard mensual de keywords + visibilidad en IA. Recomendaciones accionables, no reportes pasivos.
 
 ¿Apareces cuando le preguntan a una IA por tu sector? Te lo comprobamos gratis.
 
