@@ -76,7 +76,7 @@
     'cc.text': 'We use necessary cookies for the site to work and, with your consent, analytics cookies to measure traffic. See our <a href="/pages/cookies.html">Cookie Policy</a>.',
     'cc.configure': 'Configure',
     'cc.reject': 'Reject',
-    'cc.accept': 'Accept all',
+    'cc.accept': 'Accept',
     'cc.modal_title': 'Cookie preferences',
     'cc.modal_intro': 'Manage your consent by category. You can change these preferences at any time from the footer.',
     'cc.cat_necessary': 'Necessary',

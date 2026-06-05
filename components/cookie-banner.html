@@ -68,18 +68,18 @@
     transition: background-color .2s, border-color .2s, color .2s;
     letter-spacing: 0.01em;
   }
-  .vc-btn--primary {
-    background: var(--color-terracotta);
-    color: var(--color-deep);
-    border-color: var(--color-terracotta);
-  }
-  .vc-btn--primary:hover { background: var(--color-brown); border-color: var(--color-brown); color: var(--color-cream); }
+  /* Aceptar y Rechazar: mismo tamaño y misma prominencia en reposo.
+     RGPD/AEPD: rechazar debe ser tan visible y fácil como aceptar. */
+  .vc-btn--primary,
   .vc-btn--ghost {
+    min-width: 7.5rem;
+    text-align: center;
     background: transparent;
     color: var(--color-cream);
-    border-color: rgba(236, 232, 216, 0.25);
+    border-color: var(--color-cream);
   }
-  .vc-btn--ghost:hover { border-color: var(--color-cream); }
+  .vc-btn--ghost:hover { background: rgba(236, 232, 216, 0.12); border-color: var(--color-cream); }
+  .vc-btn--primary:hover { background: var(--color-terracotta); border-color: var(--color-terracotta); color: var(--color-deep); }
   .vc-btn--link {
     background: transparent;
     color: rgba(236, 232, 216, 0.7);
@@ -93,6 +93,15 @@
   @media (min-width: 640px) {
     .vc-banner__body { flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; }
     .vc-banner__content { flex: 1; }
+  }
+
+  /* Móvil: Rechazar y Aceptar a partes iguales (mismo tamaño); Configurar arriba */
+  @media (max-width: 560px) {
+    .vc-banner__actions .vc-btn--primary,
+    .vc-banner__actions .vc-btn--ghost { flex: 1 1 0; min-width: 0; }
+    .vc-banner__actions .vc-btn--link { flex: 1 0 100%; order: -1; text-align: center; }
+    .vc-modal__actions .vc-btn--primary,
+    .vc-modal__actions .vc-btn--ghost { flex: 1 1 0; min-width: 0; }
   }
 
   /* Modal de preferencias */
@@ -221,7 +230,7 @@
     <div class="vc-banner__actions">
       <button type="button" class="vc-btn vc-btn--link" data-vc-action="open-prefs" data-i18n="cc.configure">Configurar</button>
       <button type="button" class="vc-btn vc-btn--ghost" data-vc-action="reject" data-i18n="cc.reject">Rechazar</button>
-      <button type="button" class="vc-btn vc-btn--primary" data-vc-action="accept" data-i18n="cc.accept">Aceptar todo</button>
+      <button type="button" class="vc-btn vc-btn--primary" data-vc-action="accept" data-i18n="cc.accept">Aceptar</button>
     </div>
   </div>
 </div>
