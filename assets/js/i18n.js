@@ -774,7 +774,7 @@
     "leg_aviso.s1.li2": "<strong>Tax ID (NIF):</strong> [TO BE COMPLETED]",
     "leg_aviso.s1.li3": "<strong>Address:</strong> [TO BE COMPLETED — Full registered address], Barcelona, Spain",
     "leg_aviso.s1.li4": "<strong>Email:</strong> <a href=\"mailto:admin@vantia.digital\">admin@vantia.digital</a>",
-    "leg_aviso.s1.li5": "<strong>Phone:</strong> +34 645 720 420",
+    "leg_aviso.s1.li5": "<strong>Phone:</strong> +34 644 923 374",
     "leg_aviso.s1.li6": "<strong>Website:</strong> <a href=\"https://vantia.digital\">https://vantia.digital</a>",
     "leg_aviso.s2.h2": "2. Purpose",
     "leg_aviso.s2.p1": "This legal notice governs the use of the website <a href=\"https://vantia.digital\">vantia.digital</a> (hereinafter, \"the Site\"), owned by Vantia Digital. Browsing the Site constitutes the status of user and implies full acceptance of the terms set out herein.",

@@ -145,7 +145,7 @@ Luego: plan de contenido a la par de **lead gen** (después de la fase 1).
 | Canva carpeta Social | FAHKwqry2DE |
 | Notion Brand Assets | 311f806f-0267-80e8-a3c5-d81451b828f4 |
 | Email | admin@vantia.digital |
-| WhatsApp | +34 645 720 420 |
+| WhatsApp | +34 644 923 374 |
 | Calendly | calendly.com/admin-vantia/30min |
 
 ### Paleta (sin cambios)

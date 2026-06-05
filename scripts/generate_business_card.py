@@ -180,7 +180,7 @@ def render_back(filepath):
     c.setFont('Inter', 8.5)
     y = label_y - 7*mm
     line_h = 4.5*mm
-    for line in ["admin@vantia.digital", "+34 645 720 420", "@vantiadigital"]:
+    for line in ["admin@vantia.digital", "+34 644 923 374", "@vantiadigital"]:
         c.drawString(MARGIN, y, line)
         y -= line_h
 

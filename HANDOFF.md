@@ -180,7 +180,7 @@ Sitio estático para **Vantia · Marketing Digital** (agencia de marketing digit
 | | |
 |---|---|
 | Email | admin@vantia.digital |
-| WhatsApp | +34 645 720 420 |
+| WhatsApp | +34 644 923 374 |
 | Calendly | https://calendly.com/admin-vantia/30min |
 | TikTok | https://www.tiktok.com/@vantiadigital |
 | Instagram | https://www.instagram.com/vantiadigital/ |
