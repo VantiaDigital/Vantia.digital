@@ -2626,6 +2626,7 @@ body.theme-light .lang-switch__btn.is-active {
 
 .footer__social {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: var(--space-md);
 }
@@ -2666,7 +2667,15 @@ body.theme-light .lang-switch__btn.is-active {
   .footer__grid {
     grid-template-columns: 1fr 1fr;
   }
+  .footer__grid > * { min-width: 0; }
   .footer__brand { grid-column: 1 / -1; }
+  .footer__contact-link { overflow-wrap: anywhere; }
+}
+
+@media (max-width: 560px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================
