@@ -421,7 +421,7 @@
     "e404.hero.title": "This page does not <em>exist</em>.",
     "e404.hero.subtitle": "The link may be broken or the page has moved. Return to the home page or keep exploring the site.",
     "e404.btn.home": "Back to home",
-    "e404.nav.links": "Or go straight to <a href=\"/servicios\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Services</a>, <a href=\"/casos\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Success stories</a> or <a href=\"/contacto\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Contact</a>."
+    "e404.nav.links": "Or go straight to <a href=\"/servicios\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Services</a>, <a href=\"/casos/\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Success stories</a> or <a href=\"/contacto\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Contact</a>."
   });
 
   // ---- CONTACTO ----

@@ -1,9 +1,8 @@
 # Cloudflare Pages redirects
 # Docs: https://developers.cloudflare.com/pages/configuration/redirects/
 
-# El listado de casos vive en casos/index.html. Lo servimos en /casos SIN barra
-# final (rewrite 200) para que coincida con la canonica y evitar el 308 a /casos/.
-/casos /casos/index.html 200
+# El listado de casos vive en casos/index.html y se sirve en /casos/ (con barra,
+# como indice de seccion). Cloudflare redirige /casos -> /casos/ automaticamente.
 
 # Migración a URLs limpias sin /pages/ (junio 2026).
 # 301 permanente para conservar el SEO de las URLs ya descubiertas por Google.
