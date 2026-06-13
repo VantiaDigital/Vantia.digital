@@ -27,17 +27,17 @@
   function pageName() {
     const p = window.location.pathname;
     if (p === '/' || p.endsWith('/index.html')) return 'home';
-    // Páginas de detalle de caso: /pages/casos/<slug>.html → "caso_<slug>"
-    const casoMatch = p.match(/\/pages\/casos\/([^\/]+)\.html$/);
+    // Páginas de detalle de caso: /casos/<slug> → "caso_<slug>"
+    const casoMatch = p.match(/\/casos\/([^\/]+)$/);
     if (casoMatch) return 'caso_' + casoMatch[1];
-    const m = p.match(/\/([^\/]+)\.html$/);
+    const m = p.match(/\/([^\/]+)\/?$/);
     return m ? m[1] : 'otra';
   }
 
   // Si estamos en una página de detalle de caso, disparar ver_caso_detalle
   // una vez al cargar (complementa el page_view automático de GA4).
   (function fireCaseDetailView() {
-    const m = window.location.pathname.match(/\/pages\/casos\/([^\/]+)\.html$/);
+    const m = window.location.pathname.match(/\/casos\/([^\/]+)$/);
     if (m && m[1]) {
       track('ver_caso_detalle', { caso: m[1] });
     }
@@ -97,13 +97,13 @@
     // Caso de éxito (3 acciones distintas dentro de la card):
     //   - cover-link → abre página de detalle del caso
     //   - case__action a *.vantia.digital → ver sitio en vivo del cliente
-    //   - case__action a /pages/contacto.html → pedir presupuesto similar
+    //   - case__action a /contacto → pedir presupuesto similar
     const caso = t.closest('article.case');
     if (caso) {
       let accion = 'ver_detalle';
       const action = t.closest('.case__action');
       if (action) {
-        if (action.href && action.href.indexOf('/pages/contacto.html') > -1) {
+        if (action.href && action.href.indexOf('/contacto') > -1) {
           accion = 'pedir_presupuesto';
         } else {
           accion = 'ver_sitio_vivo';

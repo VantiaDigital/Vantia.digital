@@ -73,7 +73,7 @@
     // ---- Cookie banner ----
     'cc.banner_aria': 'Cookie notice',
     'cc.title': 'We use cookies',
-    'cc.text': 'We use necessary cookies for the site to work and, with your consent, analytics cookies to measure traffic. See our <a href="/pages/cookies.html">Cookie Policy</a>.',
+    'cc.text': 'We use necessary cookies for the site to work and, with your consent, analytics cookies to measure traffic. See our <a href="/cookies">Cookie Policy</a>.',
     'cc.configure': 'Configure',
     'cc.reject': 'Reject',
     'cc.accept': 'Accept',
@@ -421,7 +421,7 @@
     "e404.hero.title": "This page does not <em>exist</em>.",
     "e404.hero.subtitle": "The link may be broken or the page has moved. Return to the home page or keep exploring the site.",
     "e404.btn.home": "Back to home",
-    "e404.nav.links": "Or go straight to <a href=\"/pages/servicios.html\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Services</a>, <a href=\"/pages/casos.html\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Success stories</a> or <a href=\"/pages/contacto.html\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Contact</a>."
+    "e404.nav.links": "Or go straight to <a href=\"/servicios\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Services</a>, <a href=\"/casos\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Success stories</a> or <a href=\"/contacto\" style=\"text-decoration: underline; text-underline-offset: 3px;\">Contact</a>."
   });
 
   // ---- CONTACTO ----
@@ -721,7 +721,7 @@
     "leg_priv.s7.h2": "7. Security measures",
     "leg_priv.s7.p1": "We apply appropriate technical and organisational measures to ensure a level of security appropriate to the risk of the processing, including encryption in transit (HTTPS/TLS), access controls and activity logging.",
     "leg_priv.s8.h2": "8. Cookies",
-    "leg_priv.s8.p1": "For detailed information about the cookies we use, please consult our <a href=\"/pages/cookies.html\">Cookie Policy</a>.",
+    "leg_priv.s8.p1": "For detailed information about the cookies we use, please consult our <a href=\"/cookies\">Cookie Policy</a>.",
     "leg_priv.s9.h2": "9. Amendments",
     "leg_priv.s9.p1": "We reserve the right to amend this policy in order to adapt it to legislative or case-law developments. In such cases, the changes will be published on this page with an updated date.",
     "leg_cook.meta_desc": "Cookie Policy of Vantia Digital. Types of cookies used and consent management.",
@@ -761,7 +761,7 @@
     "leg_cook.s5.h2": "5. International transfers",
     "leg_cook.s5.p1": "The providers Google and Cloudflare may transfer data to the United States. Such transfers are covered by the Standard Contractual Clauses (SCCs) approved by the European Commission and, in the case of Google, also by the EU-U.S. Data Privacy Framework.",
     "leg_cook.s6.h2": "6. Further information",
-    "leg_cook.s6.p1": "For further information on the general processing of your data, please consult our <a href=\"/pages/privacidad.html\">Privacy Policy</a>. For any queries, write to us at <a href=\"mailto:admin@vantia.digital\">admin@vantia.digital</a>.",
+    "leg_cook.s6.p1": "For further information on the general processing of your data, please consult our <a href=\"/privacidad\">Privacy Policy</a>. For any queries, write to us at <a href=\"mailto:admin@vantia.digital\">admin@vantia.digital</a>.",
     "leg_aviso.meta_desc": "Legal Notice of Vantia Digital. Mandatory information pursuant to the LSSI-CE.",
     "leg_aviso.title": "Legal Notice · Vantia Digital",
     "leg_aviso.eyebrow": "Legal document",
@@ -797,7 +797,7 @@
     "leg_aviso.s9.h2": "9. Applicable law and jurisdiction",
     "leg_aviso.s9.p1": "The relationship between the owner and the user shall be governed by current Spanish law. For the resolution of any dispute, the parties submit to the Courts and Tribunals of the owner's domicile, expressly waiving any other jurisdiction that may apply to them.",
     "leg_aviso.s10.h2": "10. Data protection",
-    "leg_aviso.s10.p1": "The processing of personal data is governed by our <a href=\"/pages/privacidad.html\">Privacy Policy</a> and our <a href=\"/pages/cookies.html\">Cookie Policy</a>."
+    "leg_aviso.s10.p1": "The processing of personal data is governed by our <a href=\"/privacidad\">Privacy Policy</a> and our <a href=\"/cookies\">Cookie Policy</a>."
   });
 
   // ==== I18N:PAGE-CHUNKS:END ====

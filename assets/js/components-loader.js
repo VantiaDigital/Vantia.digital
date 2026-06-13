@@ -9,10 +9,10 @@
 
   // Detecta el path base contando cuántos niveles de profundidad estamos
   // desde la raíz del sitio. Soporta:
-  //   /index.html              → '.'    (raíz)
-  //   /pages/casos.html        → '..'   (1 nivel)
-  //   /pages/casos/gett.html   → '../..' (2 niveles)
-  //   etc.
+  //   /                        → '.'    (raíz)
+  //   /casos                   → '..'   (1 nivel)
+  //   /casos/gett              → '../..' (2 niveles)
+  //   etc. (los '..' de más se recortan en la raíz, así que es robusto)
   function getBase() {
     const path = window.location.pathname.replace(/\\/g, '/');
     // Quitar query string si lo hubiera (no aplica a pathname, pero por seguridad)
@@ -34,9 +34,8 @@
 
       // Reescribe paths relativos a la página actual
       const base = getBase();
-      // href="/..." y src="/..." ya son absolutos, ok
-      // href="index.html" o "pages/x.html" → re-prefijar con base si estamos en /pages/
-      // Más simple: usar siempre paths absolutos en los componentes (con "/")
+      // Los componentes usan siempre paths absolutos (con "/"), así que no hay
+      // que reescribir nada: funcionan igual desde cualquier profundidad.
 
       placeholder.innerHTML = html;
       // Mueve los hijos al nivel del placeholder (para no romper estilos)
