@@ -73,7 +73,7 @@
     document.querySelectorAll('[data-component]').forEach((placeholder) => {
       const name = placeholder.dataset.component;
       foundNames.add(name);
-      const url = `${base}/components/${name}.html`;
+      const url = `${base}/components/${name}.html?v=2`;
       tasks.push(loadInto(placeholder, url));
     });
 
