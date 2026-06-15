@@ -15,7 +15,7 @@ Sitio estático para **Vantia Digital** (agencia técnica de marketing digital p
 
 Partes de este handoff son de mayo y quedaron viejas. Lo vigente hoy:
 
-- **Tono: tuteo de España** (tú/quieres/dime/coste/dinero), NUNCA voseo argentino. Sin emojis pictográficos. No inventar datos. Nunca menospreciar al cliente. Ver `memory/tone_spain_tuteo.md` y `memory/no_emoji_icons.md`. (La charla interna con Facu sí es en voseo; él es argentino.)
+- **Tono: tuteo de España** (tú/quieres/dime/coste/dinero), NUNCA voseo argentino. Sin emojis pictográficos. No inventar datos. Nunca menospreciar al cliente. Ver `memory/tone_spain_tuteo.md` y `memory/no_emoji_icons.md`. (Incluye el chat con Facu: también en tuteo España, NO voseo — corregido 2026-06-04.)
 - **Naming: "Vantia Digital"** (sin punto medio en el wordmark). El "·" cobre es solo firma/acento externo. (La tarjeta de visita impresa legacy aún dice "Vantia · Marketing Digital" — no se toca.)
 - **Servicios (nombres visibles):** Optimización Web + CRO · SEO Técnico + GEO · Campañas de anuncios. IDs internos sin cambiar (`ingenieria-web`, `seo-tecnico`, `paid-media`).
 - **URLs limpias sin `/pages/`** (jun 2026): los archivos viven en la raíz (`servicios.html`, `nosotros.html`, `contacto.html`, `casos/index.html` → `/casos/`, `casos/<slug>.html`). `_redirects` hace `/pages/* -> /:splat 301`. Canónicas, og:url y sitemap usan las URLs limpias.
@@ -279,7 +279,7 @@ SECCIÓN ELIMINADA — el usuario decidió quitarla. Si la querés agregar de vu
 
 ## Tono / voz
 
-- **Tuteo de España** (tú/quieres/dime/coste/dinero) en TODO output visible de Vantia. NUNCA voseo argentino. Ver `memory/tone_spain_tuteo.md`. (La charla interna con Facu sí es en voseo.)
+- **Tuteo de España** (tú/quieres/dime/coste/dinero) en TODO output visible de Vantia. NUNCA voseo argentino. Ver `memory/tone_spain_tuteo.md`. (Incluye el chat con Facu: también tuteo España.)
 - **Sin emojis pictográficos**; usar · — → y jerarquía tipográfica. Ver `memory/no_emoji_icons.md`.
 - **No inventar datos** (ni métricas ni stats dudosas). La transparencia es el moat.
 - **Nunca menospreciar al cliente**: si pierde dinero es por falta de información, no por "tonto".
