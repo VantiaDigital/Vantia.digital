@@ -31,6 +31,30 @@
 /
   Cache-Control: public, no-cache
 
+# URLs limpias sin .html (servicios, nosotros, contacto, casos, legales):
+# revalidar siempre igual que las .html. Cierra el hueco donde Cloudflare
+# las cacheaba por su cuenta y podía verse "viejo" tras un cambio.
+/servicios
+  Cache-Control: public, no-cache
+
+/nosotros
+  Cache-Control: public, no-cache
+
+/contacto
+  Cache-Control: public, no-cache
+
+/aviso-legal
+  Cache-Control: public, no-cache
+
+/cookies
+  Cache-Control: public, no-cache
+
+/privacidad
+  Cache-Control: public, no-cache
+
+/casos/*
+  Cache-Control: public, no-cache
+
 # Headers de seguridad básicos
 /*
   X-Content-Type-Options: nosniff
