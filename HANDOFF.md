@@ -7,7 +7,26 @@
 
 ## TL;DR
 
-Sitio estático para **Vantia · Marketing Digital** (agencia de marketing digital para PYMES y empresas medianas, basada en Barcelona, fundador Facundo Goette). Stack: HTML/CSS/JS vanilla + GSAP + Lenis. Deploy en Cloudflare Pages, custom domain `vantia.digital`. Repo: `github.com/VantiaDigital/Vantia.digital`. Está LIVE y funcionando.
+Sitio estático para **Vantia Digital** (agencia técnica de marketing digital para PYMES y empresas medianas, Barcelona, fundador Facundo Goette). Web **bilingüe ES/EN**. Stack: HTML/CSS/JS vanilla + GSAP + Lenis. Deploy en Cloudflare Pages, dominio `vantia.digital`. Repo: `github.com/VantiaDigital/Vantia.digital`. Está LIVE y funcionando.
+
+---
+
+## ESTADO ACTUAL — 15 jun 2026 (este bloque MANDA sobre el resto del doc)
+
+Partes de este handoff son de mayo y quedaron viejas. Lo vigente hoy:
+
+- **Tono: tuteo de España** (tú/quieres/dime/coste/dinero), NUNCA voseo argentino. Sin emojis pictográficos. No inventar datos. Nunca menospreciar al cliente. Ver `memory/tone_spain_tuteo.md` y `memory/no_emoji_icons.md`. (La charla interna con Facu sí es en voseo; él es argentino.)
+- **Naming: "Vantia Digital"** (sin punto medio en el wordmark). El "·" cobre es solo firma/acento externo. (La tarjeta de visita impresa legacy aún dice "Vantia · Marketing Digital" — no se toca.)
+- **Servicios (nombres visibles):** Optimización Web + CRO · SEO Técnico + GEO · Campañas de anuncios. IDs internos sin cambiar (`ingenieria-web`, `seo-tecnico`, `paid-media`).
+- **URLs limpias sin `/pages/`** (jun 2026): los archivos viven en la raíz (`servicios.html`, `nosotros.html`, `contacto.html`, `casos/index.html` → `/casos/`, `casos/<slug>.html`). `_redirects` hace `/pages/* -> /:splat 301`. Canónicas, og:url y sitemap usan las URLs limpias.
+- **Header inlineado** en cada HTML (ya NO se fetchea). Fuente única `components/header.html`; tras editarlo, correr `python scripts/build_inline_header.py`. Footer/whatsapp/cookie-banner sí se cargan por fetch.
+- **Web bilingüe ES/EN** con toggle sutil en cliente. ES = HTML base; EN en `assets/js/i18n.js` vía `data-i18n`. Ver `memory/i18n_system_vantia.md`.
+- **WhatsApp:** +34 644 923 374, con saludo prerelleno en el wa.me. Se añadió **X** (x.com/vantiadigital) a contacto/footer.
+- **SEO/indexación:** desajuste canónica/sitemap arreglado; sitemap limpio (11 URLs, sin legales noindex); 11 URLs con indexación solicitada. El aviso "Página con redirección" sobre variantes de la home (www/http/index.html) es ruido normal.
+- **Cookies:** banner GDPR con botones de prominencia equitativa (aceptar = rechazar).
+- **Stats hero:** ROAS **450%** (no 250%).
+
+Donde el texto de abajo contradiga este bloque, **gana este bloque**. Los `HANDOFF-MAY-26.md` y `HANDOFF-MAY-29.md` son logs históricos por fecha — no los toques.
 
 ---
 
@@ -31,14 +50,16 @@ Sitio estático para **Vantia · Marketing Digital** (agencia de marketing digit
 "Precisión matemática aplicada al marketing"
 
 ### Naming
-- Nombre completo: **"Vantia · Marketing Digital"** (con **punto medio** `·`, NO punto bajo `.`)
+- Nombre: **"Vantia Digital"** (SIN punto medio en el wordmark). El `·` cobre es solo firma/acento externo, no va dentro del nombre. (La tarjeta de visita impresa legacy aún dice "Vantia · Marketing Digital" — no se toca.)
 - Target: **PYMES y empresas medianas**
 - Posicionamiento: agencia técnica, no creativa. *"La mayoría de agencias venden diseño. Nosotros construimos sistemas para ROI."*
 
-### Tres pilares / servicios
-1. **Ingeniería Web** — plataformas alta velocidad, PageSpeed 95+
+### Tres pilares / servicios (nombres visibles)
+1. **Optimización Web + CRO** — plataformas alta velocidad, PageSpeed 95+, conversión
 2. **SEO Técnico + GEO** (Generative Engine Optimization, para búsqueda con IA)
-3. **Paid Media** — Google Ads y Meta Ads
+3. **Campañas de anuncios** — Google Ads y Meta Ads
+
+> IDs internos SIN cambiar (`ingenieria-web`, `seo-tecnico`, `paid-media`) para no romper tracking ni hashes.
 
 ### Paleta oficial
 ```
@@ -191,7 +212,7 @@ Sitio estático para **Vantia · Marketing Digital** (agencia de marketing digit
 
 ---
 
-## Casos de éxito (`/pages/casos.html`)
+## Casos de éxito (`casos/index.html` → `/casos/`)
 
 Filtro **single-dimension por Industria** (chips). 6 cases reales actualmente:
 
@@ -241,7 +262,7 @@ El link real está en su posición, su `::after` cubre toda la tarjeta capturand
 - Hero: cristal SVG con mouse parallax (GSAP) + autorrotación
 - Marquee inferior con 5 citas (Proverbio chino, George Box, Aristóteles, Saint-Exupéry, Da Vinci)
 - 3 pilares clickables → abren modales de servicio
-- Stats con counters (99 PageSpeed, 250% ROAS, 100% código a medida)
+- Stats con counters (99 PageSpeed, 450% ROAS, 100% código a medida)
 - CTA "Sesión gratis" → Calendly
 
 ### Filosofía de la marca (`/pages/nosotros.html`)
@@ -258,11 +279,12 @@ SECCIÓN ELIMINADA — el usuario decidió quitarla. Si la querés agregar de vu
 
 ## Tono / voz
 
-- **Español rioplatense / castellano latino** (voseo: "decime", "reservá", "querés")
-- Mezcla técnico-sobrio + accesible
-- Posición de marca: agencia **técnica**, NO creativa
-- Diferencia: **honestidad, datos, métricas verificables**
-- Frase clave: "Resultados reales comprobados" / "Precisión matemática"
+- **Tuteo de España** (tú/quieres/dime/coste/dinero) en TODO output visible de Vantia. NUNCA voseo argentino. Ver `memory/tone_spain_tuteo.md`. (La charla interna con Facu sí es en voseo.)
+- **Sin emojis pictográficos**; usar · — → y jerarquía tipográfica. Ver `memory/no_emoji_icons.md`.
+- **No inventar datos** (ni métricas ni stats dudosas). La transparencia es el moat.
+- **Nunca menospreciar al cliente**: si pierde dinero es por falta de información, no por "tonto".
+- Mezcla técnico-sobrio + accesible. Posición de marca: agencia **técnica**, NO creativa.
+- Diferencia: **honestidad, datos, métricas verificables**. Frase clave: "Precisión matemática".
 
 ---
 
@@ -349,7 +371,7 @@ Deploy: auto on git push to main
 Domain: vantia.digital (live)
 User: VantiaDigital, fundador Facundo Goette
 Email: admin@vantia.digital
-Tone: técnico-sobrio, voseo argentino, no creativo loco
+Tone: técnico-sobrio, TUTEO DE ESPAÑA (no voseo), sin emojis, no inventar datos
 Regla principal: preguntar antes de cualquier cambio visual o de comportamiento
 ```
 
