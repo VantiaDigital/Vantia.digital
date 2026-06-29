@@ -135,14 +135,37 @@
             </div>
 
             <div class="field">
-              <label for="cf-inquiry" class="field__label" data-i18n="cont.form.inquiry">Asunto</label>
+              <label for="cf-inquiry" class="field__label" data-i18n="cont.form.inquiry">¿Cómo podemos ayudarte?</label>
               <select id="cf-inquiry" name="inquiry_type" class="field__select">
-                <option value="Quiero una auditoría" data-i18n="cont.form.opt1">Quiero una auditoría</option>
-                <option value="Necesito una web" data-i18n="cont.form.opt2">Necesito una web</option>
-                <option value="Estrategia SEO / GEO" data-i18n="cont.form.opt3">Estrategia SEO / GEO</option>
-                <option value="Campañas pagadas" data-i18n="cont.form.opt4">Campañas pagadas</option>
-                <option value="Otro" data-i18n="cont.form.opt5">Otro</option>
+                <option value="Diagnóstico gratuito" data-i18n="cont.form.opt1">Quiero un diagnóstico gratuito</option>
+                <option value="Tengo un proyecto en mente" data-i18n="cont.form.opt2">Tengo un proyecto en mente</option>
+                <option value="Busco asesoramiento" data-i18n="cont.form.opt3">Busco asesoramiento, aún no sé qué necesito</option>
+                <option value="Otro" data-i18n="cont.form.opt4">Otro</option>
               </select>
+            </div>
+
+            <div class="field">
+              <span class="field__label" data-i18n="cont.form.services">¿En qué servicios estás interesado?</span>
+              <div class="field__checks" style="display:flex;flex-direction:column;gap:0.55rem;margin-top:0.4rem;">
+                <label style="display:flex;align-items:center;gap:0.6rem;font-weight:400;cursor:pointer;">
+                  <input type="checkbox" name="servicios[]" value="Optimización Web" />
+                  <span data-i18n="cont.form.svc_web">Optimización Web</span>
+                </label>
+                <label style="display:flex;align-items:center;gap:0.6rem;font-weight:400;cursor:pointer;">
+                  <input type="checkbox" name="servicios[]" value="SEO Técnico + GEO" />
+                  <span data-i18n="cont.form.svc_seo">SEO Técnico + GEO</span>
+                </label>
+                <label style="display:flex;align-items:center;gap:0.6rem;font-weight:400;cursor:pointer;">
+                  <input type="checkbox" name="servicios[]" value="Campañas de anuncios" />
+                  <span data-i18n="cont.form.svc_ads">Campañas de anuncios</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="cf-budget" class="field__label" data-i18n="cont.form.budget">Presupuesto a invertir en publicidad <span class="req">*</span></label>
+              <input id="cf-budget" type="number" name="presupuesto_publicidad" class="field__input" required min="0" step="50" inputmode="numeric" data-i18n-placeholder="cont.form.budget_ph" placeholder="Ej. 500" />
+              <span class="field__hint" data-i18n="cont.form.budget_hint" style="display:block;font-size:0.8rem;color:var(--muted);margin-top:0.3rem;">Aproximado en € al mes. Pon 0 si todavía no inviertes.</span>
             </div>
 
             <div class="field">
@@ -321,7 +344,7 @@
       });
     })();
   </script>
-  <script src="/assets/js/i18n.js?v=7" defer></script>
+  <script src="/assets/js/i18n.js?v=8" defer></script>
   <script src="/assets/js/components-loader.js?v=7" defer></script>
   <script src="/assets/js/modal.js?v=7" defer></script>
   <script src="/assets/js/main.js?v=7" defer></script>
