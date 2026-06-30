@@ -3392,6 +3392,7 @@ select:focus-visible,
               background var(--dur-fast) var(--ease-out),
               transform var(--dur-fast) var(--ease-out);
 }
+.service-case-link + .service-case-link { margin-top: var(--space-md); }
 .service-case-link:hover {
   border-color: var(--accent);
   background: rgba(193, 131, 75, 0.08);

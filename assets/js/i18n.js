@@ -337,6 +337,8 @@
     "serv.s4.cta": "Request a quote · Social Media",
     "serv.s4.case.eyebrow": "Real case · Social Media",
     "serv.s4.case.title": "Mendieta — Instagram management",
+    "serv.s4.case2.eyebrow": "Real case · Social Media",
+    "serv.s4.case2.title": "Los Hermanos Parrilleros — Instagram management",
 
     "serv.s5.num": "05 — Service",
     "serv.s5.title": "Email Marketing",
