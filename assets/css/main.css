@@ -2845,6 +2845,70 @@ body.theme-light .lang-switch__btn.is-active {
 }
 
 /* ============================================
+   SEPARADOR DE GRUPO DE SERVICIOS
+   (intro que abre un nuevo bloque de servicios
+   dentro de la página /servicios)
+   ============================================ */
+.service-group-intro {
+  position: relative;
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(193, 131, 75, 0.07), transparent 70%),
+    var(--color-deep);
+  color: var(--color-cream);
+  text-align: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(60, 58, 47, 0.18);
+}
+
+.service-group-intro__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.service-group-intro__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-md);
+}
+
+.service-group-intro__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 var(--space-lg);
+  color: var(--color-cream);
+}
+
+.service-group-intro__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.service-group-intro__text {
+  font-family: var(--font-body);
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  line-height: 1.7;
+  color: rgba(236, 232, 216, 0.82);
+  max-width: 62ch;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .service-group-intro {
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
+}
+
+/* ============================================
    CASE STUDY — páginas individuales /pages/casos/<slug>.html
    ============================================ */
 .case-study {

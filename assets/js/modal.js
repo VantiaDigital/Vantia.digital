@@ -22,6 +22,8 @@
     'Optimización Web': 'Web Optimisation',
     'SEO Técnico / GEO': 'Technical SEO / GEO',
     'Campañas de anuncios': 'Ad Campaigns',
+    'Gestión de Redes Sociales': 'Social Media Management',
+    'Email Marketing': 'Email Marketing',
   };
   function serviceLabel(name) {
     return (lang() === 'en' && SERVICE_EN[name]) ? SERVICE_EN[name] : name;
