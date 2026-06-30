@@ -335,6 +335,8 @@
     "serv.s4.del5": "Management of comments and messages within the first few hours, on business days.",
     "serv.s4.del6": "Monthly report that ties social media to business: from reach to the traffic that converts.",
     "serv.s4.cta": "Request a quote · Social Media",
+    "serv.s4.case.eyebrow": "Real case · Social Media",
+    "serv.s4.case.title": "Mendieta — we run their Instagram",
 
     "serv.s5.num": "05 — Service",
     "serv.s5.title": "Email Marketing",
