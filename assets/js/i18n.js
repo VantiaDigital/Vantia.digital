@@ -337,8 +337,6 @@
     "serv.s4.cta": "Request a quote · Social Media",
     "serv.s4.case.eyebrow": "Real case · Social Media",
     "serv.s4.case.title": "Mendieta — Instagram management",
-    "serv.s4.case2.eyebrow": "Real case · Social Media",
-    "serv.s4.case2.title": "Los Hermanos Parrilleros — Instagram management",
 
     "serv.s5.num": "05 — Service",
     "serv.s5.title": "Email Marketing",
@@ -664,8 +662,9 @@
     "cs_men.s4.p1": "What was once a black box is now a measurable funnel. The business owner can answer with data questions that previously relied on intuition: which catalogue product generates the most enquiries, which acquisition channel converts best, which days of the week see the highest demand. That information drives real decisions: where to invest in advertising, which product to feature on the homepage, which opening hours are critical.",
     "cs_men.s4.p2": "The dashboard has been live since the very first order received. Every WhatsApp click is recorded and attributed by channel and time of day. The operator can read the weekly reports and make commercial decisions with data that previously did not exist.",
     "cs_men.sR.h2": "And the social media that brings that traffic",
-    "cs_men.sR.p1": "Measurement is worthless if no one comes in. That’s why we also run Mendieta’s social media: we plan the content and produce the Instagram pieces and reels that keep the brand present and bring people closer to the catalogue. It’s not posting for the sake of it — every piece has a purpose.",
-    "cs_men.sR.p2": "And this is where the two halves meet. Because every link going out from social carries its UTM, we know which post brought visits and which ones ended in a WhatsApp order. Social media and measurement aren’t two separate services: they’re the same machine — content that attracts, and measurement that proves what works.",
+    "cs_men.sR.p1": "Measurement is worthless if no one comes in. That’s why we also run Mendieta’s social media end to end: we lock in a monthly calendar and produce the pieces — Instagram reels, carousels and stories — made for an Argentine bakery in Barcelona. Every post comes from a real moment its people connect with: the cocas for Sant Joan, the Argentina match, a carousel explaining how to order and the delivery cost by postcode.",
+    "cs_men.sR.p2": "It’s not posting for the sake of it: every piece has a purpose and ends by inviting the same move, ordering on WhatsApp. The content keeps the brand present between one order and the next and brings people closer to the catalogue, with the warm, nostalgic tone the bakery already shares with its customers.",
+    "cs_men.sR.p3": "And this is where the two halves meet. Because every link going out from social carries its UTM, we know which post brought visits and which ones ended in a WhatsApp order. Social media and measurement aren’t two separate services: they’re the same machine — content that attracts, and measurement that proves what works.",
     "cs_men.cta.live": "View live site",
     "cs_men.cta.contact": "I want something like this",
     "cs_men.nav_back": "Back to all case studies"
