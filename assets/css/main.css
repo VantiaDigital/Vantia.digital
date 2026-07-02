@@ -3065,6 +3065,28 @@ body.theme-light .lang-switch__btn.is-active {
   margin-bottom: var(--space-2xl);
 }
 
+/* Título de grupo: separador fuerte entre bloques de la ficha (Web y medición / Instagram) */
+.case-study__group {
+  margin: 0 0 var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 2px solid rgba(193, 131, 75, 0.25);
+}
+
+.case-study__group .case-study__eyebrow {
+  margin-bottom: var(--space-sm);
+}
+
+.case-study__group-sub {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-dark);
+  margin: 0;
+  max-width: 48ch;
+}
+
 .case-study__h2 {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.4vw, 2rem);
@@ -3075,6 +3097,12 @@ body.theme-light .lang-switch__btn.is-active {
   margin: 0 0 var(--space-md);
   padding-top: var(--space-md);
   border-top: 1px solid rgba(60, 58, 47, 0.08);
+}
+
+/* Tras un título de grupo, el primer h2 no repite su propio separador */
+.case-study__group + .case-study__section .case-study__h2 {
+  padding-top: 0;
+  border-top: none;
 }
 
 .case-study__section p {
