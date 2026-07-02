@@ -163,7 +163,7 @@
   // ---- HOME (index.html) ----
   Object.assign(DICT.en, {
     'home.meta.title': 'Vantia · Digital Marketing',
-    'home.meta.desc': 'Technical digital marketing agency for SMEs and mid-sized companies. Web Optimisation, Technical SEO + GEO and Ad Campaigns with measurable ROI.',
+    'home.meta.desc': 'Technical digital marketing agency for SMEs. Web Optimisation, Technical SEO + GEO and Ad Campaigns with measurable ROI.',
 
     'home.hero.l1': 'Web ecosystems',
     'home.hero.l2': 'and Digital Marketing',
@@ -367,16 +367,16 @@
   // ---- NOSOTROS ----
   Object.assign(DICT.en, {
     "nos.meta.title": "About Us · Vantia · Digital Marketing",
-    "nos.meta.desc": "About Vantia · Digital Marketing — Technical agency for SMEs and mid-sized companies. Systems that generate ROI, not design.",
+    "nos.meta.desc": "About Vantia · Digital Marketing — Technical agency for SMEs. Systems that generate ROI, not design.",
     "nos.hero.eyebrow": "About Vantia Digital",
     "nos.hero.title": "We build <em>systems</em> that generate ROI. Not pretty design.",
-    "nos.hero.subtitle": "Digital marketing agency specialising in <strong>SMEs and mid-sized companies</strong>. We combine technical architecture, AI and GEO so your business grows in a measurable and sustainable way.",
+    "nos.hero.subtitle": "Digital marketing agency specialising in <strong>SMEs</strong>. We combine technical architecture, AI and GEO so your business grows in a measurable and sustainable way.",
     "nos.s1.title": "Origins",
     "nos.s1.p1": "Vantia Digital was born from something obvious that the market prefers to ignore: <strong>most agencies sell design</strong>. Beautiful websites that do not convert. Creative campaigns without tracking. Viral strategies with no measurable return. Results impossible to audit.",
     "nos.s1.p2": "Founded in Barcelona, Vantia was built as the antithesis: <strong>we build digital systems that work for ROI</strong>. Where every decision is justified with data and every action has a metric alongside it.",
     "nos.s2.title": "Philosophy",
     "nos.s2.p1": "Digital marketing has changed. Search is no longer just Google: it is <strong>ChatGPT, Perplexity, Gemini</strong>. Purchase decisions are no longer linear: they are fragmented, multi-channel, AI-assisted. And most agencies are still selling what worked five years ago.",
-    "nos.s2.p2": "Our philosophy is to build for this new reality. We work with <strong>SMEs and mid-sized companies</strong> that understand sustainable growth is built with <strong>technical architecture + AI + data</strong>. Not with creativity without measurement. Not with shortcuts.",
+    "nos.s2.p2": "Our philosophy is to build for this new reality. We work with <strong>SMEs</strong> that understand sustainable growth is built with <strong>technical architecture + AI + data</strong>. Not with creativity without measurement. Not with shortcuts.",
     "nos.s3.title": "Does this sound <em>familiar</em>?",
     "nos.s3.subtitle": "If any of these statements describes your situation, you are in the right place.",
     "nos.pain1": "\"I have a beautiful website but it does not convert.\"",
