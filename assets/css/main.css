@@ -1043,6 +1043,7 @@ p {
   max-width: 32ch;
 }
 
+.footer__col h3,
 .footer__col h4 {
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);
