@@ -336,6 +336,7 @@ p {
   font-weight: 500;
   color: var(--text-on-dark);
   opacity: 0.78;
+  white-space: nowrap;
   transition: opacity var(--dur-fast) var(--ease-out);
 }
 
@@ -461,6 +462,14 @@ p {
 .lang-switch__sep {
   color: var(--text-on-dark);
   opacity: 0.28;
+}
+
+/* Con 5 enlaces el nav necesita ~995px; por debajo el gap grande lo desborda
+   antes de que entre el menu movil (860px). Se comprime en esa franja. */
+@media (min-width: 861px) and (max-width: 1010px) {
+  .nav { gap: 1.05rem; }
+  .site-header__right { gap: 1.05rem; }
+  .nav__link { font-size: 0.85rem; }
 }
 
 @media (max-width: 860px) {
