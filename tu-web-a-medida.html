@@ -58,6 +58,22 @@
       object-fit: cover;
       display: block;
     }
+
+    /* La portada es un enlace a la web del modelo: se recorta al contenedor
+       y hace un zoom leve al pasar por encima, como en las tarjetas de casos. */
+    .model__preview { overflow: hidden; }
+
+    .case--live:hover .model__preview-img,
+    .case--live:focus-within .model__preview-img {
+      transform: scale(1.04);
+    }
+    .model__preview-img { transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .model__preview-img { transition: none; }
+      .case--live:hover .model__preview-img,
+      .case--live:focus-within .model__preview-img { transform: none; }
+    }
     .model__glyph {
       font-family: var(--font-display, 'Fraunces', serif);
       font-size: clamp(3rem, 8vw, 5rem);
@@ -221,10 +237,14 @@
         <div class="case-grid" data-reveal-children>
 
           <!-- Clínica dental -->
-          <article class="case model model--dental" data-sector="salud">
+          <article class="case model model--dental case--live" data-sector="salud">
+            <a class="case__cover-link" href="https://clinica-dental.vantia.digital" target="_blank" rel="noopener"
+               aria-label="Ver el modelo de web para clínica dental (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
               <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
-              <span class="model__glyph" aria-hidden="true">01</span>
+              <img class="model__preview-img" src="/assets/images/modelos/clinica-dental.webp"
+                   alt="Portada del modelo de web para clínica dental"
+                   width="1200" height="800" decoding="async" />
             </div>
             <div class="case__body">
               <h3 class="case__name" data-i18n="modelos.dental.name">Clínica dental</h3>
@@ -247,10 +267,14 @@
           </article>
 
           <!-- Fisioterapia -->
-          <article class="case model model--fisio" data-sector="salud">
+          <article class="case model model--fisio case--live" data-sector="salud">
+            <a class="case__cover-link" href="https://fisioterapia.vantia.digital" target="_blank" rel="noopener"
+               aria-label="Ver el modelo de web para centro de fisioterapia (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
               <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
-              <span class="model__glyph" aria-hidden="true">02</span>
+              <img class="model__preview-img" src="/assets/images/modelos/fisioterapia.webp"
+                   alt="Portada del modelo de web para centro de fisioterapia"
+                   width="1200" height="800" loading="lazy" decoding="async" />
             </div>
             <div class="case__body">
               <h3 class="case__name" data-i18n="modelos.fisio.name">Fisioterapia</h3>
@@ -273,10 +297,14 @@
           </article>
 
           <!-- Yoga -->
-          <article class="case model model--yoga" data-sector="bienestar">
+          <article class="case model model--yoga case--live" data-sector="bienestar">
+            <a class="case__cover-link" href="https://yoga.vantia.digital" target="_blank" rel="noopener"
+               aria-label="Ver el modelo de web para estudio de yoga (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
               <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
-              <span class="model__glyph" aria-hidden="true">03</span>
+              <img class="model__preview-img" src="/assets/images/modelos/yoga.webp"
+                   alt="Portada del modelo de web para estudio de yoga"
+                   width="1200" height="800" loading="lazy" decoding="async" />
             </div>
             <div class="case__body">
               <h3 class="case__name" data-i18n="modelos.yoga.name">Estudio de yoga</h3>
@@ -299,10 +327,14 @@
           </article>
 
           <!-- Construcción -->
-          <article class="case model model--obra" data-sector="obra">
+          <article class="case model model--obra case--live" data-sector="obra">
+            <a class="case__cover-link" href="https://construccion.vantia.digital" target="_blank" rel="noopener"
+               aria-label="Ver el modelo de web para constructora (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
               <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
-              <span class="model__glyph" aria-hidden="true">04</span>
+              <img class="model__preview-img" src="/assets/images/modelos/construccion.webp"
+                   alt="Portada del modelo de web para constructora"
+                   width="1200" height="800" loading="lazy" decoding="async" />
             </div>
             <div class="case__body">
               <h3 class="case__name" data-i18n="modelos.obra.name">Construcción</h3>
@@ -325,10 +357,14 @@
           </article>
 
           <!-- Reforma de pisos -->
-          <article class="case model model--reforma" data-sector="obra">
+          <article class="case model model--reforma case--live" data-sector="obra">
+            <a class="case__cover-link" href="https://reformas.vantia.digital" target="_blank" rel="noopener"
+               aria-label="Ver el modelo de web para empresa de reformas (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
               <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
-              <span class="model__glyph" aria-hidden="true">05</span>
+              <img class="model__preview-img" src="/assets/images/modelos/reformas.webp"
+                   alt="Portada del modelo de web para empresa de reformas"
+                   width="1200" height="800" loading="lazy" decoding="async" />
             </div>
             <div class="case__body">
               <h3 class="case__name" data-i18n="modelos.reforma.name">Reforma de pisos</h3>
