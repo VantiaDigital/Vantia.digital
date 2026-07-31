@@ -109,9 +109,17 @@
           accion = 'ver_sitio_vivo';
         }
       }
+      // El nombre visible se traduce (las tarjetas de /tu-web-a-medida llevan
+      // data-i18n), así que en GA4 el mismo elemento aparecería con un valor
+      // distinto por idioma. Cuando la tarjeta declara un id propio se usa ese,
+      // que es estable; si no, se recurre al texto como hasta ahora.
       const name = caso.querySelector('.case__name');
+      const id = caso.dataset.casoId;
       track('click_caso', {
-        caso: clean(name && name.textContent) || 'desconocido',
+        caso: id || clean(name && name.textContent) || 'desconocido',
+        // 'modelo' = web de referencia por sector; 'caso' = cliente real.
+        // Sin esto ambos se mezclan en el mismo evento y no se pueden separar.
+        tipo: caso.dataset.casoTipo || 'caso',
         accion: accion
       });
       return;
