@@ -87,33 +87,6 @@
     .model--obra .model__preview     { background: linear-gradient(140deg, #77431C 0%, #3C3A2F 60%, #A99B80 150%); }
     .model--reforma .model__preview  { background: linear-gradient(140deg, #1A1813 0%, #77431C 60%, #C1834B 130%); }
 
-    /* Badge de estado sobre el preview */
-    .model__status {
-      position: absolute;
-      top: 0.85rem;
-      left: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      background: rgba(26, 24, 19, 0.78);
-      color: #ECE8D8;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-    .model__status::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #C1834B;
-    }
-    .model__status--live::before { background: #8FBF7F; }
 
     /* Lista de lo que incluye el modelo */
     .model__includes {
@@ -241,7 +214,6 @@
             <a class="case__cover-link" href="https://clinica-dental.vantia.digital" target="_blank" rel="noopener"
                aria-label="Ver el modelo de web para clínica dental (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
-              <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
               <img class="model__preview-img" src="/assets/images/modelos/clinica-dental.webp"
                    alt="Portada del modelo de web para clínica dental"
                    width="1200" height="800" decoding="async" />
@@ -271,7 +243,6 @@
             <a class="case__cover-link" href="https://fisioterapia.vantia.digital" target="_blank" rel="noopener"
                aria-label="Ver el modelo de web para centro de fisioterapia (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
-              <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
               <img class="model__preview-img" src="/assets/images/modelos/fisioterapia.webp"
                    alt="Portada del modelo de web para centro de fisioterapia"
                    width="1200" height="800" loading="lazy" decoding="async" />
@@ -301,7 +272,6 @@
             <a class="case__cover-link" href="https://yoga.vantia.digital" target="_blank" rel="noopener"
                aria-label="Ver el modelo de web para estudio de yoga (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
-              <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
               <img class="model__preview-img" src="/assets/images/modelos/yoga.webp"
                    alt="Portada del modelo de web para estudio de yoga"
                    width="1200" height="800" loading="lazy" decoding="async" />
@@ -331,7 +301,6 @@
             <a class="case__cover-link" href="https://construccion.vantia.digital" target="_blank" rel="noopener"
                aria-label="Ver el modelo de web para constructora (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
-              <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
               <img class="model__preview-img" src="/assets/images/modelos/construccion.webp"
                    alt="Portada del modelo de web para constructora"
                    width="1200" height="800" loading="lazy" decoding="async" />
@@ -361,7 +330,6 @@
             <a class="case__cover-link" href="https://reformas.vantia.digital" target="_blank" rel="noopener"
                aria-label="Ver el modelo de web para empresa de reformas (se abre en una pestaña nueva)"></a>
             <div class="model__preview">
-              <span class="model__status model__status--live" data-i18n="modelos.status.live">Disponible</span>
               <img class="model__preview-img" src="/assets/images/modelos/reformas.webp"
                    alt="Portada del modelo de web para empresa de reformas"
                    width="1200" height="800" loading="lazy" decoding="async" />
