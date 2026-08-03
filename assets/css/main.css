@@ -316,7 +316,10 @@ p {
 }
 
 .logo__brand {
-  display: inline-flex;
+  /* inline-block y no inline-flex: en flex, el espacio entre "Vantia" y
+     "Digital" se colapsa y el nombre accesible vuelve a salir pegado, porque
+     se calcula sobre el texto renderizado (WCAG 2.5.3). */
+  display: inline-block;
   font-size: 1.15rem;
   line-height: 1;
 }
@@ -2472,7 +2475,7 @@ body.theme-light .lang-switch__btn.is-active {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted-text);
   margin-bottom: var(--space-md);
 }
 
