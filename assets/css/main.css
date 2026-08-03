@@ -72,6 +72,11 @@ ol {
   --text-on-light: var(--color-dark);
   --accent: var(--color-terracotta);
   --accent-hover: var(--color-brown);
+  /* El cobre de marca da 2,58:1 sobre los fondos claros: vale como relleno,
+     borde o pieza decorativa, pero no como texto pequeño. Esta variante
+     conserva el tono y llega a 4,93:1, de modo que la identidad no cambia
+     donde el cobre manda y el texto se lee donde antes no. */
+  --accent-text: #8A5726;
   --muted: var(--color-olive);
 
   /* Tipografía */
@@ -2728,7 +2733,7 @@ body.theme-light .lang-switch__btn.is-active {
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: var(--space-md);
 }
 
@@ -3303,7 +3308,7 @@ body.theme-light .lang-switch__btn.is-active {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-decoration: none;
-  color: var(--accent);
+  color: var(--accent-text);
   background: transparent;
   border: 0;
   border-right: 1px solid rgba(60, 58, 47, 0.08);
