@@ -78,6 +78,10 @@ ol {
      donde el cobre manda y el texto se lee donde antes no. */
   --accent-text: #8A5726;
   --muted: var(--color-olive);
+  /* Igual que el cobre: el gris de marca (#A99B80) se queda en 2,22:1 sobre
+     los fondos claros. Esta variante llega a 4,80:1 para el texto que hoy
+     resulta ilegible (etiquetas de formulario, eyebrows de seccion). */
+  --muted-text: #6E6350;
 
   /* Tipografía */
   --font-display: 'Fraunces', 'Playfair Display', Georgia, serif;
@@ -321,9 +325,11 @@ p {
   color: var(--accent);
   font-style: italic;
   font-weight: 400;
-  /* La separacion la da ahora un espacio real en el marcado, no este margen:
-     sin el, el nombre accesible del enlace salia "VantiaDigital" y no
-     coincidia con su aria-label (WCAG 2.5.3, Label in Name). */
+  /* El marcado lleva un espacio real entre "Vantia" y "Digital" para que el
+     nombre accesible sea "Vantia Digital" y coincida con el aria-label
+     (WCAG 2.5.3, Label in Name). Ese espacio lo colapsa el contexto flex y no
+     se ve, asi que la separacion visual la sigue dando este margen. */
+  margin-left: 0.12em;
 }
 
 @media (max-width: 480px) {
@@ -374,7 +380,9 @@ p {
 
 .nav__link.nav__contact.is-active {
   background: var(--accent);
-  color: var(--color-cream);
+  /* Sobre el cobre, el crema se queda en 2,58:1. El oscuro de marca llega a
+     5,59:1 y permite conservar el cobre lleno, que es lo que da el acento. */
+  color: var(--color-deep);
   border-color: var(--accent);
 }
 
@@ -1727,7 +1735,7 @@ body.theme-light .lang-switch__btn.is-active {
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted-text);
   margin-bottom: var(--space-md);
 }
 
@@ -2420,7 +2428,7 @@ body.theme-light .lang-switch__btn.is-active {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--muted-text);
 }
 
 .field__label .req { color: var(--accent); }
