@@ -316,7 +316,9 @@ p {
   color: var(--accent);
   font-style: italic;
   font-weight: 400;
-  margin-left: 0.12em;
+  /* La separacion la da ahora un espacio real en el marcado, no este margen:
+     sin el, el nombre accesible del enlace salia "VantiaDigital" y no
+     coincidia con su aria-label (WCAG 2.5.3, Label in Name). */
 }
 
 @media (max-width: 480px) {
