@@ -2081,7 +2081,10 @@ body.theme-light .lang-switch__btn.is-active {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  /* El gris de marca se queda en 2,22:1 sobre el fondo de pagina, muy por
+     debajo de AA. Este tono llega a 4,80:1 y mantiene el registro apagado.
+     Aplica igual en /casos/ y en /tu-web-a-medida. */
+  color: #6E6350;
   margin-right: 0.25rem;
 }
 

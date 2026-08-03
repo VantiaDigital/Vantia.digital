@@ -758,6 +758,7 @@
     "modelos.hero.subtitle": "Website models designed sector by sector. Come in, browse and decide before commissioning anything.",
     "modelos.note": "<strong>What this is and what it is not.</strong> These are not clients, they are reference models: the design, structure and speed are real; the texts, names and contact details are placeholders so you can see where yours would go. Projects with real clients are in <a href=\"/casos/\">Case studies</a>.",
     "modelos.filter.label": "Sector",
+    "modelos.grid.title": "Models available by sector",
     "modelos.filter.all": "All",
     "modelos.filter.salud": "Health",
     "modelos.filter.bienestar": "Wellness",
