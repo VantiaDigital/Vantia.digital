@@ -870,6 +870,10 @@
     "modelos.caso_salamat.text": "Restaurant with menu, table booking and takeaway ordering.",
     "modelos.caso_estanteria.sector": "publishing and digital writing · author project",
     "modelos.caso_estanteria.text": "A library of short stories, read on the site itself.",
+        "modelos.filter.creativo": "Design &amp; making",
+        "modelos.clientes.eyebrow": "Delivered work",
+    "modelos.clientes.title": "Client websites",
+    "modelos.clientes.sub": "These ones are live, with a real business behind them. Go and see them, or read what was decided in each.",
     "modelos.cta.btn": "Book a free session"
   });
 

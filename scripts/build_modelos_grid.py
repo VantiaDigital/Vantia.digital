@@ -32,12 +32,14 @@ URLS = {
     "yoga":           "https://yoga.vantia.digital",
     "construccion":   "https://construccion.vantia.digital",
     "reformas":       "https://reformas.vantia.digital",
-    "despacho":       "https://despacho-26b.pages.dev",
-    "logistica":      "https://logistica-32u.pages.dev",
-    "distribucion":   "https://distribucion.pages.dev",
-    "formacion":      "https://formacion-6rn.pages.dev",
-    "inmobiliaria":   "https://inmobiliaria-bsd.pages.dev",
-    "automocion":     "https://automocion-clr.pages.dev",
+    "despacho":       "https://despacho.vantia.digital",
+    "logistica":      "https://logistica.vantia.digital",
+    "distribucion":   "https://distribucion.vantia.digital",
+    "formacion":      "https://formacion.vantia.digital",
+    "inmobiliaria":   "https://inmobiliaria.vantia.digital",
+    "automocion":     "https://automocion.vantia.digital",
+    # Recien desplegado; pasa a turismo.vantia.digital cuando tenga dominio.
+    "turismo":        "https://turismo-ekc.pages.dev",
 }
 
 # --- Filtros -----------------------------------------------------------
@@ -51,6 +53,7 @@ CHIPS = [
     ("transporte", "Logística y transporte",   "Logistics &amp; transport"),
     ("turismo",    "Turismo y hostelería",     "Tourism &amp; hospitality"),
     ("automocion", "Automoción",               "Automotive"),
+    ("creativo",   "Diseño y fabricación",     "Design &amp; making"),
 ]
 
 # --- Modelos -----------------------------------------------------------
@@ -146,35 +149,60 @@ MODELOS = [
       "Ficha con variantes de talla, color y formato",
       "Carrito y proceso de compra completo",
       "Envíos, devoluciones y seguimiento del pedido"]),
+
+    ("impresion3d", "creativo", "impresion3d", "Diseño e impresión 3D",
+     "modelos descargables · servicio de impresión · encargos a medida",
+     ["El mismo diseño, como archivo o como pieza impresa",
+      "Visor 3D que gira de verdad, sin librerías",
+      "Presupuesto de impresión por material y acabado",
+      "Licencia de uso personal y comercial, a la vista"]),
 ]
 
-# --- Casos reales ------------------------------------------------------
-# clave, sector-filtro, ruta, nombre, sectores que cubre, dos frases
-CASOS = [
-    ("mendieta", "comercio", "/casos/mendieta.html", "Mendieta",
+# --- Webs de clientes --------------------------------------------------
+# Trabajo entregado. La tarjeta lleva a la web en vivo; debajo, el enlace al
+# caso de exito. Van en su propia seccion al final, no mezcladas con los
+# modelos: una cosa es lo que sabemos hacer y otra lo que ya hicimos.
+# clave, web en vivo, ficha del caso, portada, nombre, sectores, resumen
+CLIENTES = [
+    ("mendieta", "https://mendieta.vantia.digital", "/casos/mendieta.html",
+     "/assets/images/mendieta.jpg", "Mendieta",
      "alimentación con pedido y seguimiento · producto de importación",
      "Tienda de producto argentino en España. Catálogo, pedido y seguimiento."),
-    ("parrilleros", "turismo", "/casos/parrilleros.html", "Los Hermanos Parrilleros",
+
+    ("parrilleros", "https://vantiadigital.github.io/Parrilla/", "/casos/parrilleros.html",
+     "/assets/images/parrilla.jpg?v=2", "Los Hermanos Parrilleros",
      "eventos y catering · servicio a domicilio",
      "Asados a domicilio y para eventos, con reserva y presupuesto."),
-    ("gett", "obra", "/casos/gett.html", "GeTT",
+
+    ("gett", "https://gett.vantia.digital", "/casos/gett.html",
+     "/assets/images/gett-studio.jpg?v=2", "GeTT",
      "muebles y carpintería a medida · interiorismo",
      "Carpintería a medida, con el proyecto contado pieza a pieza."),
-    ("lulitas", "comercio", "/casos/lulitas.html", "Lulitas",
+
+    ("lulitas", "https://lulitas.vantia.digital", "/casos/lulitas.html",
+     "/assets/images/lulitas.jpg", "Lulitas",
      "catálogo sin tienda · venta por encargo",
      "Catálogo que enseña el producto y cierra la venta por mensaje."),
-    ("salamat", "turismo", "/casos/salamat.html", "Salamat",
+
+    ("salamat", "https://salamat.vantia.digital", "/casos/salamat.html",
+     "/assets/images/salamat.jpg", "Salamat",
      "restaurante · carta y reserva",
      "Restaurante con carta, reserva de mesa y pedido para llevar."),
-    ("estanteria", "profesional", "/casos/estanteria.html", "La Estantería",
+
+    ("estanteria", "https://vantiadigital.github.io/La-Estanter-a/", "/casos/estanteria.html",
+     "/assets/images/estanteria.jpg?v=2", "La Estantería",
      "editorial y publicación digital · proyecto de autor",
      "Biblioteca de cuentos breves, con lectura en la propia web."),
 ]
 
 
-def chips_html():
+def chips_html(sectores_vivos):
+    """Un chip cuyo sector no tiene ninguna tarjeta publicada llevaria al
+       estado vacio: mejor no sacarlo hasta que su modelo este en linea."""
     out = []
     for valor, es, _ in CHIPS:
+        if valor != "all" and valor not in sectores_vivos:
+            continue
         activa = ' is-active' if valor == 'all' else ''
         out.append(
             f'            <button class="filter-chip{activa}" type="button" '
@@ -217,20 +245,29 @@ def modelo_html(clave, sector, slug, nombre, cubre, incluye):
 """
 
 
-def caso_html(clave, sector, ruta, nombre, cubre, resumen):
+def cliente_html(clave, web, caso, portada, nombre, cubre, resumen):
+    """Tarjeta de web de cliente: la portada lleva a la web en vivo y debajo
+       va el enlace a su caso de exito."""
     return f"""
-          <!-- Caso real · {nombre} -->
-          <article class="case case--real" data-caso-id="{clave}" data-caso-tipo="caso" data-sector="{sector}">
-            <a class="case__cover-link" href="{ruta}"
-               aria-label="Ver el caso real de {nombre}"></a>
+          <!-- {nombre} -->
+          <article class="case client" data-caso-id="{clave}" data-caso-tipo="caso">
+            <a class="case__cover-link" href="{web}" target="_blank" rel="noopener"
+               aria-label="Ver la web de {nombre} (se abre en una pestaña nueva)"></a>
+            <div class="model__preview">
+              <img class="model__preview-img" src="{portada}"
+                   alt="Portada de la web de {nombre}"
+                   width="1200" height="800" loading="lazy" decoding="async" />
+            </div>
             <div class="case__body">
-              <span class="case__real-tag" data-i18n="modelos.real.tag">Cliente real</span>
               <h3 class="case__name">{nombre}</h3>
-              <span class="case__sector" data-i18n="modelos.caso_{clave}.sector">{cubre}</span>
-              <p class="case__real-text" data-i18n="modelos.caso_{clave}.text">{resumen}</p>
+              <span class="case__sector">{cubre}</span>
+              <p class="case__real-text">{resumen}</p>
             </div>
             <div class="case__actions">
-              <a class="case__action case__action--live" href="{ruta}" data-i18n="modelos.cta.case">
+              <a class="case__action case__action--live" href="{web}" target="_blank" rel="noopener">
+                Ver la web
+              </a>
+              <a class="case__action case__action--secondary" href="{caso}">
                 Ver el caso
               </a>
             </div>
@@ -241,19 +278,20 @@ def caso_html(clave, sector, ruta, nombre, cubre, resumen):
 def main():
     h = io.open(PAGINA, encoding="utf-8").read()
 
+    vivos = [m for m in MODELOS if m[2] in URLS]
+    pendientes = [m[2] for m in MODELOS if m[2] not in URLS]
+    sectores_vivos = {m[1] for m in vivos}
+
     # 1 · chips
     ini = h.index('<button class="filter-chip is-active"')
     fin = h.index("</div>", h.rindex('data-i18n="modelos.filter.', ini))
-    h = h[:ini].rstrip("\n ") + "\n" + chips_html() + "\n          " + h[fin:]
+    h = h[:ini].rstrip("\n ") + "\n" + chips_html(sectores_vivos) + "\n          " + h[fin:]
 
     # 2 · rejilla de modelos, entera
     g0 = h.index('<div class="case-grid"')
     g0 = h.index(">", g0) + 1
     g1 = h.index('<!-- Empty state', g0)
     g1 = h.rindex("</div>", g0, g1)
-
-    vivos = [m for m in MODELOS if m[2] in URLS]
-    pendientes = [m[2] for m in MODELOS if m[2] not in URLS]
 
     portadas = os.path.join(ROOT, "assets", "images", "modelos")
     sin_portada = [m[2] for m in vivos
@@ -262,22 +300,50 @@ def main():
         raise SystemExit("faltan portadas: " + ", ".join(sin_portada))
 
     rejilla = "".join(modelo_html(*m) for m in vivos)
-    rejilla += ("\n          <!-- Casos reales: trabajo entregado, no maquetas. "
-                "Van al final y con tarjeta propia\n               para que no se "
-                "confundan con los modelos. -->\n")
-    rejilla += "".join(caso_html(*c) for c in CASOS)
     h = h[:g0] + "\n" + rejilla + "\n        " + h[g1:]
 
+    # 3 · seccion propia de webs de clientes, al final
+    marca_ini = "<!-- CLIENTES:start -->"
+    marca_fin = "<!-- CLIENTES:end -->"
+    seccion = f"""{marca_ini}
+    <section class="sector section--white" id="clientes">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__eyebrow" data-reveal data-i18n="modelos.clientes.eyebrow">Trabajo entregado</span>
+          <h2 class="section__title" data-reveal data-i18n="modelos.clientes.title">Webs de clientes</h2>
+          <p class="section__subtitle" data-reveal data-i18n="modelos.clientes.sub">
+            Estas sí están en marcha, con su negocio detrás. Entra a verlas o lee
+            qué se decidió en cada una.
+          </p>
+        </div>
+
+        <div class="case-grid" data-reveal-children>
+{"".join(cliente_html(*c) for c in CLIENTES)}        </div>
+      </div>
+    </section>
+    {marca_fin}"""
+
+    if marca_ini in h:
+        h = h[:h.index(marca_ini)] + seccion + h[h.index(marca_fin) + len(marca_fin):]
+    else:
+        ancla = h.index('<section class="cta-banner">')
+        h = h[:ancla] + seccion + "\n\n    " + h[ancla:]
+
     io.open(PAGINA, "w", encoding="utf-8", newline="\n").write(h)
-    print(f"tu-web-a-medida.html: {len(vivos)} modelos publicados, {len(pendientes)} pendientes + {len(CASOS)} casos reales")
+    print(f"tu-web-a-medida.html: {len(vivos)} modelos publicados, "
+          f"{len(pendientes)} pendientes + {len(CLIENTES)} webs de clientes")
 
     # 3 · claves EN
     dic = io.open(I18N, encoding="utf-8").read()
     nuevas = []
     for valor, es, en in CHIPS:
         nuevas.append((f"modelos.filter.{valor}", en))
-    nuevas.append(("modelos.real.tag", "Real client"))
-    nuevas.append(("modelos.cta.case", "See the case"))
+    nuevas += [
+        ("modelos.clientes.eyebrow", "Delivered work"),
+        ("modelos.clientes.title", "Client websites"),
+        ("modelos.clientes.sub", "These ones are live, with a real business behind them. "
+                                 "Go and see them, or read what was decided in each."),
+    ]
     faltan = [k for k, _ in nuevas if f'"{k}"' not in dic]
     print(f"claves EN por anadir: {len(faltan)} -> {', '.join(faltan) if faltan else 'ninguna'}")
     return faltan
