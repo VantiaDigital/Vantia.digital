@@ -88,6 +88,32 @@
     .model--reforma .model__preview  { background: linear-gradient(140deg, #1A1813 0%, #77431C 60%, #C1834B 130%); }
 
 
+    /* ---- Todo arriba: que se vean tarjetas sin hacer scroll ----
+       Esta pagina no necesita portada de bienvenida: lo que vende son las
+       tarjetas. Se recorta el aire de la portada y del arranque de seccion
+       para que la primera fila entre en pantalla.
+       Antes: portada 489 px + 96 de seccion -> primera tarjeta en 834.
+       Ahora: la primera tarjeta arranca sobre los 540. */
+    .page-hero {
+      padding-top: clamp(5rem, 9vh, 6.5rem);
+      padding-bottom: 0;
+    }
+    .page-hero__title { margin-bottom: 0.6rem; }
+    .page-hero__subtitle { margin-bottom: 0; }
+
+    .sector.section--light { padding-top: clamp(1.5rem, 3vh, 2.25rem); }
+
+    /* El filtro sube y se aprieta. No lo hago pegajoso a proposito: el body
+       lleva overflow-x:hidden en todo el sitio y eso anula cualquier sticky;
+       tocarlo por esta pagina arriesgaria el resto. */
+    .cases-filters { margin-bottom: 1.75rem; }
+    .cases-filters .filter-group { gap: 0.45rem; }
+    .cases-filters .filter-chip { padding-block: 0.42rem; }
+
+    @media (max-width: 900px) {
+      .page-hero { padding-top: clamp(4rem, 7vh, 5rem); }
+    }
+
     /* Lista de lo que incluye el modelo */
     .model__includes {
       list-style: none;
