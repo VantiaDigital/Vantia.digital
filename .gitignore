@@ -13,3 +13,4 @@ Thumbs.db
 
 # Generados por scripts/build_assets.py — se versionan porque Cloudflare
 # sirve estatico sin paso de build propio.
+.wrangler/

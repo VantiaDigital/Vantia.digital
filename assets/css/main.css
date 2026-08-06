@@ -1949,9 +1949,44 @@ body.theme-light .lang-switch__btn.is-active {
   letter-spacing: -0.01em;
 }
 
+/* Esta linea nombra los sectores que cubre cada modelo, asi que tiene que
+   leerse: el gris anterior (0.6 de alfa) daba 3,5:1 sobre blanco y no
+   llegaba a AA. --muted-text da 5,9:1. */
 .case__sector {
   font-size: 0.85rem;
-  color: rgba(60, 58, 47, 0.6);
+  color: var(--muted-text);
+}
+
+/* ---------- Tarjeta de caso real ----------
+   Trabajo entregado, no maqueta. Se diferencia del modelo por fondo crema,
+   filete lateral y etiqueta propia: quien mira la rejilla tiene que saber de
+   un vistazo que esto es un cliente y aquello un ejemplo. */
+.case--real {
+  background: var(--color-cream);
+  border-color: rgba(119, 67, 28, 0.18);
+  border-left: 3px solid var(--color-terracotta);
+}
+
+.case__real-tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  margin-bottom: 0.55rem;
+  border: 1px solid rgba(119, 67, 28, 0.35);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
+
+.case__real-text {
+  margin-top: 0.65rem;
+  font-size: 0.92rem;
+  color: var(--color-dark);
 }
 
 .case__tags {
