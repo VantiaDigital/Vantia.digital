@@ -874,6 +874,12 @@
         "modelos.clientes.eyebrow": "Delivered work",
     "modelos.clientes.title": "Client websites",
     "modelos.clientes.sub": "These ones are live, with a real business behind them. Go and see them, or read what was decided in each.",
+        "modelos.impresion3d.name": "3D design &amp; printing",
+    "modelos.impresion3d.sector": "downloadable models · printing service · bespoke commissions",
+    "modelos.impresion3d.inc1": "The same design, as a file or as a printed part",
+    "modelos.impresion3d.inc2": "A 3D viewer that really rotates, with no libraries",
+    "modelos.impresion3d.inc3": "Print quote by material and finish",
+    "modelos.impresion3d.inc4": "Personal and commercial licence, out in the open",
     "modelos.cta.btn": "Book a free session"
   });
 
