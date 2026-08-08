@@ -38,10 +38,9 @@ URLS = {
     "formacion":      "https://formacion.vantia.digital",
     "inmobiliaria":   "https://inmobiliaria.vantia.digital",
     "automocion":     "https://automocion.vantia.digital",
-    # Recien desplegados; pasan a <slug>.vantia.digital cuando tengan dominio.
-    "turismo":        "https://turismo-ekc.pages.dev",
-    "impresion3d":    "https://impresion3d-ewp.pages.dev",
-    "tienda":         "https://tienda-9hc.pages.dev",
+    "turismo":        "https://turismo.vantia.digital",
+    "impresion3d":    "https://impresion3d.vantia.digital",
+    "tienda":         "https://tienda.vantia.digital",
 }
 
 # --- Filtros -----------------------------------------------------------
